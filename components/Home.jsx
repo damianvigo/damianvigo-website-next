@@ -20,14 +20,9 @@ import PerfilDescription from './PerfilDescription';
 
 const Home = ({ theme }) => {
   /*   console.log(theme); */
-  const backgroundImage = 'https://picsum.photos/1920/1080';
 
   return (
     <div className={theme}>
-      <article>
-        <Header theme={theme} styckyHome />
-        <HeroImage backgroundImage={backgroundImage} />
-      </article>
       <SectionPerfil id="perfil" className="full-lg-screen section">
         <ArticlePerfil className="container-900px">
           <PerfilDescription />

@@ -1,16 +1,16 @@
 import React from 'react';
 import Header from '../../components/Header';
 import Layout from '../../components/layouts/Layout';
+import ThemeContext from '../../context/ThemeContext';
+import { useContext } from 'react';
 
-const blog = () => {
+const Blog = () => {
+  const { theme } = useContext(ThemeContext);
   return (
-    <>
-      <Layout>
-        <Header />
-        <section className="full-lg-screen"></section>
-      </Layout>
-    </>
+    <Layout theme={theme}>
+      <section>Blog !!</section>
+    </Layout>
   );
 };
 
-export default blog;
+export default Blog;

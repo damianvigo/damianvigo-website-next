@@ -5,10 +5,9 @@ import ThemeContext from '../../context/ThemeContext';
 
 const Proyectos = () => {
   const { theme } = useContext(ThemeContext);
-  console.log(theme);
+  /* console.log(theme); */
   return (
     <Layout theme={theme}>
-      <Header theme={theme} />
       <section>Proyectos !!</section>
     </Layout>
   );

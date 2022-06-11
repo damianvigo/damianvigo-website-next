@@ -1,7 +1,15 @@
 import styled from 'styled-components';
 import Image from 'next/image';
+import { useRouter } from 'next/router';
 
 const HeroImage = ({ backgroundImage }) => {
+  const router = useRouter();
+  const { pathname } = router;
+
+  if (pathname !== '/') {
+    return;
+  }
+
   return (
     <HeroImageStyled backgroundImage={backgroundImage}>
       <HeroImageOpacity>

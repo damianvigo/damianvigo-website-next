@@ -1,13 +1,14 @@
-import Header from '../../components/Header';
 import Layout from '../../components/layouts/Layout';
+import { useContext } from 'react';
+import ThemeContext from '../../context/ThemeContext';
 
-const contacto = () => {
+const Contacto = () => {
+  const { theme } = useContext(ThemeContext);
   return (
-    <Layout>
-      <Header />
-      <section className="full-lg-screen">Contacto</section>
+    <Layout theme={theme}>
+      <section>Contacto !!</section>
     </Layout>
   );
 };
 
-export default contacto;
+export default Contacto;

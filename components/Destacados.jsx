@@ -135,14 +135,8 @@ const ArticleDestacado = styled.article`
     text-align: center;
   }
 
-  @media screen and (min-width: 800px) {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    flex: 1 1 45%;
+  @media screen and (min-width: 576px) {
     transition: opacity 0.3s ease-in-out;
-
     &:nth-child(2) {
       &:hover {
         opacity: 0.7;
@@ -150,16 +144,23 @@ const ArticleDestacado = styled.article`
       cursor: pointer;
     }
 
-    &:nth-child(3) {
-      order: 1;
-    }
     &:nth-child(4) {
       cursor: pointer;
       &:hover {
         opacity: 0.7;
       }
     }
-    &:hover {
+  }
+
+  @media screen and (min-width: 800px) {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    flex: 1 1 45%;
+
+    &:nth-child(3) {
+      order: 1;
     }
   }
 

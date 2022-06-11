@@ -4,13 +4,13 @@ export default function Document() {
   return (
     <Html>
       <Head>
-        <link
+        {/*         <link
           rel="stylesheet"
           href="https://cdnjs.cloudflare.com/ajax/libs/hamburgers/1.1.3/hamburgers.min.css"
           integrity="sha512-+mlclc5Q/eHs49oIOCxnnENudJWuNqX5AogCiqRBgKnpoplPzETg2fkgBFVC6WYUVxYYljuxPNG8RE7yBy1K+g=="
           crossOrigin="true"
           referrerPolicy="no-referrer"
-        />
+        /> */}
         <link rel="preconnect" href="https://fonts.googleapis.com" />
         <link
           rel="preconnect"
