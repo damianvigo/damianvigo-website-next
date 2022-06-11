@@ -2,7 +2,7 @@ import { useEffect, useState } from 'react';
 import Link from 'next/link';
 import styled from 'styled-components';
 
-const Nav = ({ theme }) => {
+const Nav = ({ theme, isActive }) => {
   const [isHome, setIsHome] = useState('');
 
   useEffect(() => {
@@ -11,7 +11,7 @@ const Nav = ({ theme }) => {
   }, [isHome]);
 
   return isHome === '/' ? (
-    <NavStyled theme={theme}>
+    <NavStyled theme={theme} className={`${isActive && 'is-active'}`}>
       <Link href="/proyectos">Proyectos</Link>
       <Link href="/blog">
         <a>Blog</a>

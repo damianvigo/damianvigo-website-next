@@ -2,8 +2,11 @@ import Nav from './Nav';
 import styled from 'styled-components';
 import Link from 'next/link';
 import HamburgerButton from '../utils/HamburgerButton';
+import { useState } from 'react';
 
 const Header = ({ styckyHome, theme }) => {
+  const [isActive, setIsActive] = useState(false);
+
   return (
     <HeaderStyled theme={theme} styckyHome={styckyHome}>
       <section className="container-flex">
@@ -12,8 +15,8 @@ const Header = ({ styckyHome, theme }) => {
             <a>DVDEV</a>
           </Link>
         </div>
-        <Nav theme={theme} />
-        <HamburgerButton />
+        <Nav theme={theme} isActive={isActive} />
+        <HamburgerButton setIsActive={setIsActive} isActive={isActive} />
         {/*       <div>
           <Link href="/admin">
             <a>admin</a>

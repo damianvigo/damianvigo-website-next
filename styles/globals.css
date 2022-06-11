@@ -33,6 +33,8 @@
 --max-width-1200px: 1200px;
 --max-width-900px: 900px;
 --header-height: 4rem;
+--btn-shadow: -1px 3px 5px 6px #0008;
+--card-shadow: 4px 4px 16px rgba(0, 0, 0, 0.25);
 }
 
 /* Reset */
@@ -157,6 +159,11 @@ h5::selection,
 h6::selection {
   background-color: var(--javascript-color);
   color: var(--text-color);
+}
+
+/* Utilities */
+.none {
+  display: none;
 }
 
 @media screen and (min-width: 1024px) {

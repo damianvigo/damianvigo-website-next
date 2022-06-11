@@ -1,4 +1,4 @@
-import styled from 'styled-components';
+/* import styled from 'styled-components';
 import Link from 'next/link';
 
 const ButtonVerMas = () => {
@@ -11,9 +11,9 @@ const ButtonVerMas = () => {
   );
 };
 
-export default ButtonVerMas;
+export default ButtonVerMas; */
 
-const ButtonVerMasStyled = styled.button`
+/* const ButtonVerMasStyled = styled.button`
   display: block;
   margin: 2rem auto;
   position: relative;
@@ -42,4 +42,4 @@ const ButtonVerMasStyled = styled.button`
       color: var(--first-color);
     }
   }
-`;
+`; */

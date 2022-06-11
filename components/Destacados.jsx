@@ -1,9 +1,9 @@
 import Image from 'next/image';
 import styled from 'styled-components';
 import ThemeContext from '../context/ThemeContext';
-import ButtonVerMas from '../utils/ButtonVerMas';
 import { useContext } from 'react';
 import Link from 'next/link';
+import Button from '../utils/Button';
 
 const Destacados = () => {
   const { theme } = useContext(ThemeContext);
@@ -59,7 +59,7 @@ const Destacados = () => {
           </a>
         </ArticleDestacado>
       </SeccionDestacada>
-      <ButtonVerMas />
+      <Button more moreDescription={'Ver más'} />
     </DestacadosSectionStyled>
   );
 };
@@ -68,6 +68,7 @@ export default Destacados;
 
 const DestacadosSectionStyled = styled.section`
   background-color: var(--third-color);
+  text-align: center;
 `;
 
 const DestacadosStyled = styled.h2`

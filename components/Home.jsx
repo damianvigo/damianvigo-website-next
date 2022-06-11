@@ -11,15 +11,17 @@ import SvgNode from '../assets/icon/elements/SvgNode';
 import SvgReact from '../assets/icon/elements/SvgReact';
 import SvgSass from '../assets/icon/elements/SvgSass';
 import SvgVSC from '../assets/icon/elements/SvgVSC';
-import ButtonWsp from '../utils/ButtonWsp';
+import Button from '../utils/Button';
 import CiteBackground from './CiteBackground';
 import Destacados from './Destacados';
 import Header from './Header';
 import HeroImage from './HeroImage';
+import PerfilDescription from './PerfilDescription';
 
 const Home = ({ theme }) => {
   /*   console.log(theme); */
   const backgroundImage = 'https://picsum.photos/1920/1080';
+
   return (
     <div className={theme}>
       <article>
@@ -28,24 +30,8 @@ const Home = ({ theme }) => {
       </article>
       <SectionPerfil id="perfil" className="full-lg-screen section">
         <ArticlePerfil className="container-900px">
-          <h3>¿Quién Soy?</h3>
-          <p>
-            <strong>
-              ¡Hola! 👋 Me llamo Damián Vigo y soy{' '}
-              <i>Full Stack JavaScript Developer</i> de Buenos Aires Argentina.
-            </strong>
-          </p>
-          <p>
-            <strong>
-              Estoy especializado en Frontend con la biblioteca <i>React</i> de{' '}
-              <i>javascript</i>
-            </strong>
-            . Disfruto llevar a cabo la maquetación e interactividad de
-            interfaces <i>web</i>, así como la optimización, para el buen
-            posicionamiento y el rendimiento de carga de sitios y aplicaciones
-            web.
-          </p>
-          <ButtonWsp />
+          <PerfilDescription />
+          <Button wsp talkToMe="Hablemos" />
           <AsideContainerSvgStyled>
             <SvgJs />
             <SvgReact />
