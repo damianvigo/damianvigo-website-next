@@ -44,7 +44,7 @@ const HamburgerButtonStyled = styled.button`
   .hamburger.is-active .hamburger-inner,
   .hamburger.is-active .hamburger-inner:after,
   .hamburger.is-active .hamburger-inner:before {
-    /*  transition: background-color 0.3s ease-in-out; */
+    transition: all 0.3s ease-in;
     background-color: ${({ theme }) =>
       theme === 'dark'
         ? 'var(--second-color)'

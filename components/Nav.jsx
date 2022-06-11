@@ -21,7 +21,7 @@ const Nav = ({ theme, isActive }) => {
       </Link>
     </NavStyled>
   ) : (
-    <NavStyled theme={theme}>
+    <NavStyled theme={theme} className={`${isActive && 'is-active'}`}>
       <Link href="/">
         <a>Bienvenido</a>
       </Link>

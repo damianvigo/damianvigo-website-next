@@ -52,11 +52,6 @@ html {
   box-sizing: inherit;
 }
 
-/* p::selection {
-  color: #e0aaff;
-  background-color: var(--link-color);
-} */
-
 .dark {
   background-color: var(--dark-color);
   color: var(--light-color);
