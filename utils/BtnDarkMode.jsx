@@ -4,7 +4,7 @@ import SvgMoon from '../assets/icon/elements/SvgMoon';
 import SvgSun from '../assets/icon/elements/SvgSun';
 import ThemeContext from '../context/ThemeContext';
 
-const Btn = styled.button`
+const Btn = styled.div`
   position: fixed;
   cursor: pointer;
   background-color: var(--high-black-alpha-color);

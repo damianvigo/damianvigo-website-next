@@ -34,7 +34,8 @@
 --max-width-900px: 900px;
 --header-height: 4rem;
 --btn-shadow: -1px 3px 5px 6px #0008;
---card-shadow: 4px 4px 16px rgba(0, 0, 0, 0.25);
+--card-shadow: 3px 8px 10px rgba(0, 0, 0, 0.70);
+--card-shadow-light: 3px 8px 10px rgba(255, 255, 255, 0.20);
 }
 
 /* Reset */
@@ -71,6 +72,7 @@ body {
 a {
   transition: all 0.5s ease-in-out;
   text-decoration: none;
+  color: var(--text-color);
 }
 
 h1 {
@@ -159,6 +161,18 @@ h6::selection {
 /* Utilities */
 .none {
   display: none;
+}
+
+.text-center {
+  text-align: center;
+}
+
+.text-left {
+  text-align: left;
+}
+
+.text-right {
+  text-align: right;
 }
 
 @media screen and (min-width: 1024px) {

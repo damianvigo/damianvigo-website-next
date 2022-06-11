@@ -73,7 +73,7 @@ const ButtonWspStyled = styled.button`
       background-color: #25d366;
       border-radius: 50%;
     }
-    a {
+    span {
       color: var(--first-color);
     }
   }

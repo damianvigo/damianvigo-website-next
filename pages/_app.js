@@ -1,3 +1,4 @@
+import 'hamburgers/dist/hamburgers.min.css';
 import { ThemeProvider } from '../context/ThemeContext';
 import '../styles/globals.css';
 
