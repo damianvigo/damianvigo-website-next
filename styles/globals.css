@@ -152,8 +152,8 @@ h3::selection,
 h4::selection,
 h5::selection,
 h6::selection {
-  background-color: var(--javascript-color);
-  color: var(--text-color);
+  background-color: var(--first-color);
+  color: var(--light-color);
 }
 
 /* Utilities */

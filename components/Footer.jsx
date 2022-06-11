@@ -12,22 +12,22 @@ const Footer = () => {
     <FooterStyled theme={theme}>
       <SectionFooterStyled theme={theme}>
         <div>
-          <Link href="">
-            <a>
+          <Link href="https://platzi.com/p/Damian">
+            <a target="_blank" rel="noreferrer">
               <SvgOnlineEducation />
             </a>
           </Link>
         </div>
         <div>
-          <Link href="">
-            <a>
+          <Link href="https://github.com/damianvigo">
+            <a target="_blank" rel="noreferrer">
               <SvgGitHub />
             </a>
           </Link>
         </div>
         <div>
-          <Link href="">
-            <a>
+          <Link href="https://www.facebook.com/ddamianvigo">
+            <a target="_blank" rel="noreferrer">
               <SvgFacebook />
             </a>
           </Link>
@@ -82,6 +82,9 @@ const SectionFooterStyled = styled.aside`
 
   div {
     margin-right: 1rem;
+    a {
+      display: inline-block;
+    }
     &:hover {
       animation: icon 1s ease-out infinite both;
     }

@@ -12,7 +12,7 @@ import SvgReact from '../assets/icon/elements/SvgReact';
 import SvgSass from '../assets/icon/elements/SvgSass';
 import SvgVSC from '../assets/icon/elements/SvgVSC';
 import Button from '../utils/Button';
-import CiteBackground from './CiteBackground';
+import BackgroundImage from './BackgroundImage';
 import Destacados from './Destacados';
 import Header from './Header';
 import HeroImage from './HeroImage';
@@ -43,7 +43,10 @@ const Home = ({ theme }) => {
           </AsideContainerSvgStyled>
         </ArticlePerfil>
       </SectionPerfil>
-      <CiteBackground />
+      <BackgroundImage
+        title="« La simplicidad es la máxima sofisticación »"
+        author="Leonardo Da Vinci"
+      />
       <Destacados />
     </div>
   );
@@ -89,24 +92,20 @@ const AsideContainerSvgStyled = styled.aside`
     margin: 1rem;
   }
 
-  @media screen and (min-width: 1024px) {
+  @media screen and (min-width: 768px) {
     @keyframes zoomIn {
       0% {
         transform: scale(1);
       }
 
-      50% {
-        transform: scale(1.4);
-      }
-
       100% {
-        transform: scale(1);
+        transform: scale(1.8);
       }
     }
 
     svg {
       &:hover {
-        animation: zoomIn 1s ease-in both;
+        animation: zoomIn 0.5s ease-in both;
         cursor: pointer;
       }
     }

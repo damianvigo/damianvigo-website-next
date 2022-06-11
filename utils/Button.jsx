@@ -18,7 +18,7 @@ const Button = ({ wsp, more, submit, moreDescription, talkToMe }) => {
             rel="noreferrer"
           >
             <div>
-              <a>{talkToMe}</a>
+              <span>{talkToMe}</span>
               <svg
                 fill="#fff"
                 width="25px"
@@ -62,7 +62,7 @@ const ButtonWspStyled = styled.button`
     width: 100%;
     color: var(--second-color);
     padding: 1rem;
-    a {
+    span {
       vertical-align: top;
       margin-right: 0.5rem;
     }
