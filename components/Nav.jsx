@@ -1,6 +1,6 @@
-import { useEffect, useState } from 'react';
-import Link from 'next/link';
 import styled from 'styled-components';
+import Link from 'next/link';
+import { useEffect, useState } from 'react';
 
 const Nav = ({ theme, isActive }) => {
   const [isHome, setIsHome] = useState('');

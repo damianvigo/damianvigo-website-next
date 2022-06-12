@@ -1,8 +1,9 @@
-import Image from 'next/image';
 import styled from 'styled-components';
-import ThemeContext from '../context/ThemeContext';
 import { useContext } from 'react';
-import Link from 'next/link';
+import ThemeContext from '../context/ThemeContext';
+
+// Components
+import Image from 'next/image';
 import Button from '../utils/Button';
 
 const Destacados = () => {
@@ -38,8 +39,7 @@ const Destacados = () => {
         <ArticleDestacado theme={theme}>
           <h3>Portafolio Desarrollador</h3>
           <p>
-            Maquetación <i>responsive</i> solo <i>HTML CSS</i> y
-            <i>Vanilla Javascript</i>.
+            Maquetación <i>responsive</i> sin <i>frameworks</i>.
           </p>
           <small>2022</small>
         </ArticleDestacado>

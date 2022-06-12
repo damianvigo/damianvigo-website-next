@@ -1,5 +1,5 @@
-import Link from 'next/link';
 import styled from 'styled-components';
+import Link from 'next/link';
 import { useState, useEffect } from 'react';
 
 const Button = ({ wsp, more, submit, moreDescription, talkToMe }) => {
@@ -65,6 +65,14 @@ const ButtonWspStyled = styled.button`
     span {
       vertical-align: top;
       margin-right: 0.5rem;
+    }
+    &:hover {
+      a {
+        color: ${'Ver más' && 'var(--text-color)'};
+      }
+    }
+    a {
+      color: ${'Ver más' && 'var(--light-color)'};
     }
   }
   &:hover {

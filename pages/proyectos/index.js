@@ -1,9 +1,11 @@
 import styled from 'styled-components';
 import Link from 'next/link';
 import Image from 'next/image';
-import Layout from '../../components/layouts/Layout';
 import { useContext } from 'react';
 import ThemeContext from '../../context/ThemeContext';
+
+// Components
+import Layout from '../../components/layouts/Layout';
 import BackgroundImage from '../../components/BackgroundImage';
 
 const Proyectos = () => {
@@ -19,103 +21,21 @@ const Proyectos = () => {
         <TitleProyects className="text-center">Proyectos</TitleProyects>
         <GridFluid>
           <ArticleProyectStyled theme={theme}>
-            <Link href="/">
-              <Image
-                className="proyectImage"
-                src="https://picsum.photos/300"
-                width={500}
-                height={500}
-              />
+            <Link href="/" forwardRef>
+              <figure>
+                <Image
+                  className="proyectImage"
+                  src="https://picsum.photos/300"
+                  width={500}
+                  height={500}
+                  alt={'test'}
+                />
+              </figure>
             </Link>
             <ArticleDescriptionStyled>
               <h5>React</h5>
               <p>Webapp de registro de gastos.</p>
-              <Link href="/">
-                <a>Código del proyecto</a>
-              </Link>
-            </ArticleDescriptionStyled>
-          </ArticleProyectStyled>
-          <ArticleProyectStyled theme={theme}>
-            <Link href="/">
-              <Image
-                className="proyectImage"
-                src="https://picsum.photos/300"
-                width={500}
-                height={500}
-              />
-            </Link>
-            <ArticleDescriptionStyled>
-              <h5>React</h5>
-              <p>Webapp de registro de gastos.</p>
-              <Link href="/">
-                <a>Código del proyecto</a>
-              </Link>
-            </ArticleDescriptionStyled>
-          </ArticleProyectStyled>
-          <ArticleProyectStyled theme={theme}>
-            <Link href="/">
-              <Image
-                className="proyectImage"
-                src="https://picsum.photos/300"
-                width={500}
-                height={500}
-              />
-            </Link>
-            <ArticleDescriptionStyled>
-              <h5>React</h5>
-              <p>Webapp de registro de gastos.</p>
-              <Link href="/">
-                <a>Código del proyecto</a>
-              </Link>
-            </ArticleDescriptionStyled>
-          </ArticleProyectStyled>
-          <ArticleProyectStyled theme={theme}>
-            <Link href="/">
-              <Image
-                className="proyectImage"
-                src="https://picsum.photos/300"
-                width={500}
-                height={500}
-              />
-            </Link>
-            <ArticleDescriptionStyled>
-              <h5>React</h5>
-              <p>Webapp de registro de gastos.</p>
-              <Link href="/">
-                <a>Código del proyecto</a>
-              </Link>
-            </ArticleDescriptionStyled>
-          </ArticleProyectStyled>
-          <ArticleProyectStyled theme={theme}>
-            <Link href="/">
-              <Image
-                className="proyectImage"
-                src="https://picsum.photos/300"
-                width={500}
-                height={500}
-              />
-            </Link>
-            <ArticleDescriptionStyled>
-              <h5>React</h5>
-              <p>Webapp de registro de gastos.</p>
-              <Link href="/">
-                <a>Código del proyecto</a>
-              </Link>
-            </ArticleDescriptionStyled>
-          </ArticleProyectStyled>
-          <ArticleProyectStyled theme={theme}>
-            <Link href="/">
-              <Image
-                className="proyectImage"
-                src="https://picsum.photos/300"
-                width={500}
-                height={500}
-              />
-            </Link>
-            <ArticleDescriptionStyled>
-              <h5>React</h5>
-              <p>Webapp de registro de gastos.</p>
-              <Link href="/">
+              <Link href="/" forwardRef>
                 <a>Código del proyecto</a>
               </Link>
             </ArticleDescriptionStyled>

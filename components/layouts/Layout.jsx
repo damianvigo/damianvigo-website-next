@@ -1,11 +1,14 @@
-import Footer from '../Footer';
+import styled from 'styled-components';
+import { useContext } from 'react';
+import ThemeContext from '../../context/ThemeContext';
+// Utils
 import BtnScrollTop from '../../utils/BtnScrollTop';
 import useScrollTop from '../../hooks/useScrollTop';
 import BtnDarkMode from '../../utils/BtnDarkMode';
-import { useContext } from 'react';
-import ThemeContext from '../../context/ThemeContext';
+// Components
 import Header from '../Header';
 import HeroImage from '../HeroImage';
+import Footer from '../Footer';
 
 const Layout = ({ children }) => {
   const backgroundImage = 'https://picsum.photos/1920/1080';
@@ -14,10 +17,10 @@ const Layout = ({ children }) => {
   const { toTop, scrollTop, setScrollTop } = useScrollTop();
   return (
     <>
-      <section>
+      <SectionContainerStyled theme={theme}>
         <Header theme={theme} styckyHome />
         <HeroImage backgroundImage={backgroundImage} />
-      </section>
+      </SectionContainerStyled>
       <main className={theme}>{children}</main>
       <BtnScrollTop
         toTop={toTop}
@@ -31,3 +34,9 @@ const Layout = ({ children }) => {
 };
 
 export default Layout;
+
+const SectionContainerStyled = styled.section`
+  border-bottom: thin solid
+    ${({ theme }) =>
+      theme === 'dark' ? 'var(--second-color)' : 'var(--black-alpha-color)'};
+`;

@@ -1,10 +1,12 @@
-import Link from 'next/link';
-import SvgFacebook from '../assets/icon/elements/SvgFacebook';
-import SvgGitHub from '../assets/icon/elements/SvgGitHub';
-import SvgOnlineEducation from '../assets/icon/elements/SvgOnlineEducation';
 import styled from 'styled-components';
 import { useContext } from 'react';
 import ThemeContext from '../context/ThemeContext';
+import Link from 'next/link';
+
+// Icons
+import SvgFacebook from '../assets/icon/elements/SvgFacebook';
+import SvgGitHub from '../assets/icon/elements/SvgGitHub';
+import SvgOnlineEducation from '../assets/icon/elements/SvgOnlineEducation';
 
 const Footer = () => {
   const { theme } = useContext(ThemeContext);
@@ -47,6 +49,9 @@ const FooterStyled = styled.footer`
   background-color: ${({ theme }) =>
     theme === 'dark' ? 'var(--dark-color)' : 'var(--second-color)'};
   /* background-color: var(--third-alpha-color); */
+  border-top: thin solid
+    ${({ theme }) =>
+      theme === 'dark' ? 'var(--second-color)' : 'var(--black-alpha-color)'};
   height: 30vh;
   div {
     p {

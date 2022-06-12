@@ -1,4 +1,6 @@
 import styled from 'styled-components';
+
+// Icons
 import SvgBootstrap from '../assets/icon/elements/SvgBootstrap';
 import SvgCss from '../assets/icon/elements/SvgCss';
 import SvgGit from '../assets/icon/elements/SvgGit';
@@ -11,16 +13,16 @@ import SvgNode from '../assets/icon/elements/SvgNode';
 import SvgReact from '../assets/icon/elements/SvgReact';
 import SvgSass from '../assets/icon/elements/SvgSass';
 import SvgVSC from '../assets/icon/elements/SvgVSC';
+
+// Utils
 import Button from '../utils/Button';
+
+// Components
 import BackgroundImage from './BackgroundImage';
 import Destacados from './Destacados';
-import Header from './Header';
-import HeroImage from './HeroImage';
 import PerfilDescription from './PerfilDescription';
 
 const Home = ({ theme }) => {
-  /*   console.log(theme); */
-
   return (
     <div className={theme}>
       <SectionPerfil id="perfil" className="full-lg-screen section">

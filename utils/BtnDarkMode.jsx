@@ -1,8 +1,10 @@
-import { useContext } from 'react';
 import styled from 'styled-components';
+import { useContext } from 'react';
+import ThemeContext from '../context/ThemeContext';
+
+// Icons
 import SvgMoon from '../assets/icon/elements/SvgMoon';
 import SvgSun from '../assets/icon/elements/SvgSun';
-import ThemeContext from '../context/ThemeContext';
 
 const Btn = styled.div`
   position: fixed;

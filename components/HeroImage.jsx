@@ -37,7 +37,6 @@ const HeroImageStyled = styled.article`
   background-size: cover;
   background-position: 50% 60%;
   background-attachment: fixed;
-  border-bottom: thin solid var(--first-color);
 `;
 
 const HeroImageOpacity = styled.aside`

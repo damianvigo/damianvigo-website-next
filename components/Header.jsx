@@ -1,14 +1,28 @@
-import Nav from './Nav';
 import styled from 'styled-components';
 import Link from 'next/link';
-import HamburgerButton from '../utils/HamburgerButton';
 import { useState } from 'react';
+import { useRouter } from 'next/router';
 
-const Header = ({ styckyHome, theme }) => {
+// Utils
+import HamburgerButton from '../utils/HamburgerButton';
+
+// Components
+import Nav from './Nav';
+
+const Header = ({ theme }) => {
   const [isActive, setIsActive] = useState(false);
 
+  const router = useRouter();
+  /*  console.log(router); */
+  const { pathname } = router;
+
+  /*   console.log(pathname); */
+
   return (
-    <HeaderStyled theme={theme} styckyHome={styckyHome}>
+    <HeaderStyled
+      theme={theme}
+      position={`${pathname !== '/' ? 'fixed' : 'sticky'}`}
+    >
       <section className="container-flex">
         <div>
           <Link href="/">
@@ -61,7 +75,7 @@ const HeaderStyled = styled.header`
 
   @media screen and (min-width: 1024px) {
     transition: background-color 0.3s ease-in;
-    position: ${({ styckyHome }) => (styckyHome ? 'sticky' : 'fixed')};
+    position: ${({ position }) => position};
     top: -0.5rem;
     padding-top: 1.5rem;
     padding-bottom: 3rem;

@@ -1,7 +1,9 @@
-import Layout from './layouts/Layout';
-import Home from './Home';
 import { useContext } from 'react';
 import ThemeContext from '../context/ThemeContext';
+
+// Components
+import Layout from './layouts/Layout';
+import Home from './Home';
 
 const App = () => {
   const { theme } = useContext(ThemeContext);
