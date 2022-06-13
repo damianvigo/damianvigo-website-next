@@ -1,14 +1,12 @@
 import styled from 'styled-components';
-import Image from 'next/image';
 import { useRouter } from 'next/router';
+// Components
+import Image from 'next/image';
+import Form from './Form';
 
-const HeroImage = ({ backgroundImage, home, contactTitle }) => {
+const HeroImage = ({ backgroundImage, contactTitle }) => {
   const router = useRouter();
   const { pathname } = router;
-
-  /*   if (pathname !== '/') {
-    return;
-  } */
 
   return (
     <>
@@ -16,7 +14,9 @@ const HeroImage = ({ backgroundImage, home, contactTitle }) => {
         <HeroImageStyled backgroundImage={backgroundImage}>
           <HeroImageOpacity>
             <HeroImageBox>
-              <HeroImageTitle>Hola, soy Damián Vigo</HeroImageTitle>
+              <HeroImageTitle contact="home">
+                Hola, soy Damián Vigo
+              </HeroImageTitle>
               <HeroImageSubtitle>Desarrollador Web</HeroImageSubtitle>
               <Image
                 width={'200'}
@@ -32,46 +32,9 @@ const HeroImage = ({ backgroundImage, home, contactTitle }) => {
       {pathname === '/contacto' && (
         <HeroImageStyled backgroundImage={backgroundImage}>
           <HeroImageOpacity>
-            <HeroImageBox>
-              <HeroImageTitle>{contactTitle}</HeroImageTitle>
-              <form>
-                <input
-                  type="text"
-                  name="name"
-                  title="El nombre sólo acepta letras y espacios en blanco"
-                  placeholder="Tu nombre"
-                  autoFocus
-                  required
-                  pattern="^[A-Za-zÑñÁáÉéÍíÓóÚúÜü\s]+$"
-                />
-                <input
-                  type="email"
-                  name="email"
-                  title="Email incorrecto"
-                  required
-                  placeholder="Tu email"
-                  pattern="^[a-z0-9]+(\.[_a-z0-9]+)*@[a-z0-9-]+(\.[a-z0-9-]+)*(\.[a-z]{2,15})$"
-                />
-                <input
-                  type="text"
-                  name="subject"
-                  required
-                  title="El Asunto es requerido"
-                  placeholder="Asunto"
-                />
-                <textarea
-                  name="comments"
-                  cols="50"
-                  rows="10"
-                  placeholder="Tu comentario"
-                  title="Tu comentario no debe exceder los 255 caracteres"
-                  data-pattern="^.{1,255}$"
-                  required
-                ></textarea>
-                <input type="submit" value="Envíar" />
-                <div>{/* Loader */}</div>
-                <div>{/* Response */}</div>
-              </form>
+            <HeroImageBox form>
+              <HeroImageTitle contact="contact">{contactTitle}</HeroImageTitle>
+              <Form />
             </HeroImageBox>
           </HeroImageOpacity>
         </HeroImageStyled>
@@ -100,9 +63,15 @@ const HeroImageOpacity = styled.aside`
   padding-bottom: ${(props) => props.contactPaddingBottom};
   text-align: center;
   background-color: var(--black-alpha-color);
+
+  /*   @media screen and (min-width: 768px) {
+    align-items: center;
+  } */
 `;
 
 const HeroImageBox = styled.div`
+  width: 100%;
+  max-width: ${({ form }) => form && '34rem'};
   padding: 0 1rem 0;
   > * {
     margin-bottom: 1rem;
@@ -118,7 +87,8 @@ const HeroImageBox = styled.div`
 
 const HeroImageTitle = styled.h1`
   font-family: var(--fontSans);
-  color: var(--white-color);
+  color: ${({ contact }) =>
+    contact !== 'contact' ? ' var(--white-color)' : 'var(--light-color)'};
   font-weight: var(--fontWeightSans-900);
 `;
 

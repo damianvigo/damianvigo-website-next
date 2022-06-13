@@ -1,0 +1,126 @@
+/* ? Loader http://samherbert.net/svg-loaders/ */
+/* ? https://jonsuh.com/hamburgers/ */
+.contactForm {
+/*   margin-left: 0;
+  margin-right: 0;
+  width: 100%; */
+}
+
+.contactForm > * {
+  padding: 0.5rem;
+  margin: 1rem auto;
+  display: block;
+  width: 100%;
+}
+
+.contactForm textarea {
+  resize: none;
+}
+
+.contactForm svg {
+  width: clamp(3rem, 30vw, 5rem);
+  height: clamp(3rem, 30vw, 5rem);
+  margin: 3rem auto;
+  animation: show-message 1s 1 normal 0s ease-out both;
+}
+
+.contactForm input,
+.contactForm textarea {
+  background-color: var(--second-color);
+  font-family: var(--fontSans);
+  outline: none;
+  transition: background-color 0.3s ease-in-out, color 0.3s ease-in-out;
+}
+
+.contactForm input[type='submit'] {
+  width: 35%;
+  cursor: pointer;
+  font-weight: var(--fontWeightSans-900);
+  padding: 1rem;
+  border: thin solid var(--second-color);
+  background-color: var(--second-color);
+  color: var(--first-color);
+  border-radius: .5rem;
+  margin-top: 2rem;
+  transition: all 0.3s ease-in-out;
+}
+
+.contactForm input[type='submit']:hover {
+  background-color: var(--first-color);
+  color: var(--second-color);
+}
+
+.contactForm *::placeholder {
+  color: var(--first-color);
+}
+
+.contactForm input[type="text"]:focus {
+  background-color: var(--first-color);
+  color: var(--white-color);
+}
+
+.contactForm input[type="text"]:focus::placeholder {
+  color: var(--white-color);
+}
+
+
+.contactForm input[type="email"]:focus {
+  background-color: var(--first-color);
+  color: var(--white-color);
+}
+
+.contactForm input[type="email"]:focus::placeholder {
+  color: var(--white-color);
+}
+
+.contactForm textarea:focus {
+  background-color: var(--first-color);
+  color: var(--white-color);
+}
+
+.contactForm textarea:focus::placeholder {
+  color: var(--white-color);
+}
+
+.contactForm [required]:valid {
+  border: .1rem solid var(--ok-color);
+  color: var(--second-color);
+  background-color: var(--first-color);
+}
+
+.contactForm [required]:invalid {
+  border: .1rem solid var(--error-color);
+}
+
+.contactFormError {
+  /* opacity: 0; */
+  animation: show-message 1s 1 normal 0s ease-out both;
+  padding: 2rem;
+  color: white;
+  margin-top: 2rem;
+  background-color: var(--first-color);
+  transition: all 0.5s ease-in-out;
+  border: thin solid var(--second-color);
+}
+
+.contactFormError p {
+  font-size: var(--step--1);
+}
+
+@keyframes show-message {
+  0% {
+    visibility: hidden;
+    opacity: 0;
+  }
+
+  100% {
+    visibility: visible;
+    opacity: 1;
+  }
+}
+
+.contactFormError.isActive {
+  display: block;
+  
+}
+
