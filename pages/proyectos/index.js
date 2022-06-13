@@ -49,7 +49,9 @@ const Proyectos = () => {
 export default Proyectos;
 
 const TitleProyects = styled.h1`
-  padding: 4rem;
+  @media screen and (min-width: 576px) {
+    padding: 4rem;
+  }
 `;
 
 const ArticleProyectStyled = styled.article`

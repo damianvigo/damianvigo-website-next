@@ -1,6 +1,7 @@
 import styled from 'styled-components';
 import Link from 'next/link';
 import { useEffect, useState } from 'react';
+import { NavLink } from '../utils/NavLink';
 
 const Nav = ({ theme, isActive }) => {
   const [isHome, setIsHome] = useState('');
@@ -25,13 +26,16 @@ const Nav = ({ theme, isActive }) => {
       <Link href="/">
         <a>Bienvenido</a>
       </Link>
-      <Link href="/proyectos">Proyectos</Link>
-      <Link href="/blog">
+      <NavLink href="/proyectos">Proyectos</NavLink>
+      {/* <Link href="/proyectos">Proyectos</Link> */}
+      <NavLink href="/blog">Blog</NavLink>
+      {/*     <Link href="/blog">
         <a>Blog</a>
-      </Link>
-      <Link href="/contacto">
+      </Link> */}
+      <NavLink href="/contacto">Contacto</NavLink>
+      {/*   <Link href="/contacto">
         <a>Contacto</a>
-      </Link>
+      </Link> */}
     </NavStyled>
   );
 };
@@ -91,8 +95,7 @@ const NavStyled = styled.nav`
         background-color: transparent;
       }
       &.active {
-        color: var(--white-color);
-        font-weight: var(--fontWeight-400);
+        font-weight: var(--fontWeightSans-900);
       }
       &:last-child {
         padding-right: 0;

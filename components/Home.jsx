@@ -95,19 +95,10 @@ const AsideContainerSvgStyled = styled.aside`
   }
 
   @media screen and (min-width: 768px) {
-    @keyframes zoomIn {
-      0% {
-        transform: scale(1);
-      }
-
-      100% {
-        transform: scale(1.8);
-      }
-    }
-
     svg {
+      transition: transform 0.3s ease-in-out;
       &:hover {
-        animation: zoomIn 0.5s ease-in both;
+        transform: scale(1.6);
         cursor: pointer;
       }
     }

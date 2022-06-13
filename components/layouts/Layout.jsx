@@ -19,7 +19,7 @@ const Layout = ({ children }) => {
     <>
       <SectionContainerStyled theme={theme}>
         <Header theme={theme} styckyHome />
-        <HeroImage backgroundImage={backgroundImage} />
+        <HeroImage backgroundImage={backgroundImage} contactTitle="Contacto" />
       </SectionContainerStyled>
       <main className={theme}>{children}</main>
       <BtnScrollTop

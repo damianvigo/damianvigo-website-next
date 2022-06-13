@@ -108,11 +108,12 @@ const ArticleDestacado = styled.article`
   margin: 2rem 0;
   padding: 1rem;
   transition: background-color 0.3s ease-in-out;
-  /*  background-color: var(--second-color); */
   background-color: ${({ theme }) =>
     theme === 'dark' ? 'var(--first-color)' : 'var(--second-color)'};
   box-shadow: 0 2px 4px rgb(0 0 0 / 75%);
-  border: thin solid #000;
+  border: thin solid
+    ${({ theme }) =>
+      theme === 'dark' ? 'var(--second-color)' : 'var(--black-color)'};
   text-align: center;
   max-width: 600px;
 

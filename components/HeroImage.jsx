@@ -2,30 +2,81 @@ import styled from 'styled-components';
 import Image from 'next/image';
 import { useRouter } from 'next/router';
 
-const HeroImage = ({ backgroundImage }) => {
+const HeroImage = ({ backgroundImage, home, contactTitle }) => {
   const router = useRouter();
   const { pathname } = router;
 
-  if (pathname !== '/') {
+  /*   if (pathname !== '/') {
     return;
-  }
+  } */
 
   return (
-    <HeroImageStyled backgroundImage={backgroundImage}>
-      <HeroImageOpacity>
-        <HeroImageBox>
-          <HeroImageTitle>Hola, soy Damián Vigo</HeroImageTitle>
-          <HeroImageSubtitle>Desarrollador Web</HeroImageSubtitle>
-          <Image
-            width={'200'}
-            height={'200'}
-            src="https://i.imgur.com/o3jywgM.jpg"
-            title="Selfie Damián Vigo"
-            alt="Imagen retrato de Damián Vigo"
-          />
-        </HeroImageBox>
-      </HeroImageOpacity>
-    </HeroImageStyled>
+    <>
+      {pathname === '/' && (
+        <HeroImageStyled backgroundImage={backgroundImage}>
+          <HeroImageOpacity>
+            <HeroImageBox>
+              <HeroImageTitle>Hola, soy Damián Vigo</HeroImageTitle>
+              <HeroImageSubtitle>Desarrollador Web</HeroImageSubtitle>
+              <Image
+                width={'200'}
+                height={'200'}
+                src="https://i.imgur.com/o3jywgM.jpg"
+                title="Selfie Damián Vigo"
+                alt="Imagen retrato de Damián Vigo"
+              />
+            </HeroImageBox>
+          </HeroImageOpacity>
+        </HeroImageStyled>
+      )}
+      {pathname === '/contacto' && (
+        <HeroImageStyled backgroundImage={backgroundImage}>
+          <HeroImageOpacity>
+            <HeroImageBox>
+              <HeroImageTitle>{contactTitle}</HeroImageTitle>
+              <form>
+                <input
+                  type="text"
+                  name="name"
+                  title="El nombre sólo acepta letras y espacios en blanco"
+                  placeholder="Tu nombre"
+                  autoFocus
+                  required
+                  pattern="^[A-Za-zÑñÁáÉéÍíÓóÚúÜü\s]+$"
+                />
+                <input
+                  type="email"
+                  name="email"
+                  title="Email incorrecto"
+                  required
+                  placeholder="Tu email"
+                  pattern="^[a-z0-9]+(\.[_a-z0-9]+)*@[a-z0-9-]+(\.[a-z0-9-]+)*(\.[a-z]{2,15})$"
+                />
+                <input
+                  type="text"
+                  name="subject"
+                  required
+                  title="El Asunto es requerido"
+                  placeholder="Asunto"
+                />
+                <textarea
+                  name="comments"
+                  cols="50"
+                  rows="10"
+                  placeholder="Tu comentario"
+                  title="Tu comentario no debe exceder los 255 caracteres"
+                  data-pattern="^.{1,255}$"
+                  required
+                ></textarea>
+                <input type="submit" value="Envíar" />
+                <div>{/* Loader */}</div>
+                <div>{/* Response */}</div>
+              </form>
+            </HeroImageBox>
+          </HeroImageOpacity>
+        </HeroImageStyled>
+      )}
+    </>
   );
 };
 
