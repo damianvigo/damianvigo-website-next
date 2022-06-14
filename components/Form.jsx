@@ -1,7 +1,4 @@
-import { useEffect, useState } from 'react';
-import { useRef } from 'react';
 import { useForm } from '../hooks/useForm';
-import { useRouter } from 'next/router';
 
 // Styles
 import formStyledModule from '../styles/Form.module.css';
@@ -15,20 +12,6 @@ import { validationsForm } from '../helpers/validationsForm';
 import MessageErrorForm from './MessageErrorForm';
 
 const Form = () => {
-  const btnForm = useRef();
-  const router = useRouter();
-
-  const [isFocus, setIsFocus] = useState(true);
-
-  /*   useEffect(() => {
-    const { pathname } = router;
-    console.log(pathname);
-
-    if (pathname === '/contacto') {
-      setIsFocus(true);
-    }
-  }, [isFocus, router]); */
-
   const {
     form,
     errors,
@@ -41,13 +24,8 @@ const Form = () => {
 
   return (
     <>
-      <form
-        onSubmit={handleSubmit}
-        ref={btnForm}
-        className={formStyledModule.contactForm}
-      >
+      <form onSubmit={handleSubmit} className={formStyledModule.contactForm}>
         <input
-          autoFocus={isFocus}
           type="text"
           name="name"
           title="El nombre sólo acepta letras y espacios en blanco"

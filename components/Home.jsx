@@ -94,7 +94,7 @@ const AsideContainerSvgStyled = styled.aside`
     margin: 1rem;
   }
 
-  @media screen and (min-width: 768px) {
+  @media screen and (min-width: 48em) {
     svg {
       transition: transform 0.3s ease-in-out;
       &:hover {

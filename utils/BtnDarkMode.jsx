@@ -20,9 +20,7 @@ const Btn = styled.div`
     :hover {
       opacity: 0.8;
     }
-    @media screen and (min-width: 1024px) {
-      /*     width: 4rem;
-      height: 4rem; */
+    @media screen and (min-width: 64em) {
       bottom: 2vh;
       left: 2vw;
     }

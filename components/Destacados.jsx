@@ -41,7 +41,7 @@ const Destacados = () => {
           <p>
             Maquetación <i>responsive</i> sin <i>frameworks</i>.
           </p>
-          <small>2022</small>
+          <small>2021</small>
         </ArticleDestacado>
         <ArticleDestacado theme={theme}>
           <a
@@ -87,7 +87,7 @@ const SeccionDestacada = styled.section`
 
   /*  margin: 0 1rem */
 
-  @media screen and (min-width: 800px) {
+  @media screen and (min-width: 50em) {
     flex-direction: row;
     max-width: 1200px;
     margin-left: auto;
@@ -97,7 +97,7 @@ const SeccionDestacada = styled.section`
     padding: 2rem;
   }
 
-  @media screen and (min-width: 1200px) {
+  @media screen and (min-width: 75em) {
     display: flex;
     align-items: stretch;
     justify-content: space-evenly;
@@ -136,7 +136,7 @@ const ArticleDestacado = styled.article`
     text-align: center;
   }
 
-  @media screen and (min-width: 576px) {
+  @media screen and (min-width: 36em) {
     transition: opacity 0.3s ease-in-out;
     &:nth-child(2) {
       &:hover {
@@ -153,7 +153,7 @@ const ArticleDestacado = styled.article`
     }
   }
 
-  @media screen and (min-width: 800px) {
+  @media screen and (min-width: 50em) {
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -165,7 +165,7 @@ const ArticleDestacado = styled.article`
     }
   }
 
-  @media screen and (min-width: 1200px) {
+  @media screen and (min-width: 75em) {
     flex: 0 1 35%;
   }
 `;

@@ -50,12 +50,12 @@ const BtnScrollTopStyled = styled.button`
     height: var(--step--0);
     fill: var(--second-color);
   }
-
-  @media screen and (max-width: 768px) {
+  /* 
+  @media screen and (max-width: 48em) {
     display: none;
-  }
+  } */
 
-  @media screen and (max-width: 1024px) {
+  @media screen and (max-width: 64em) {
     bottom: 9vh;
   }
 `;

@@ -6,6 +6,7 @@ import BtnScrollTop from '../../utils/BtnScrollTop';
 import useScrollTop from '../../hooks/useScrollTop';
 import BtnDarkMode from '../../utils/BtnDarkMode';
 // Components
+import Head from 'next/head';
 import Header from '../Header';
 import HeroImage from '../HeroImage';
 import Footer from '../Footer';
@@ -17,6 +18,7 @@ const Layout = ({ children }) => {
   const { toTop, scrollTop, setScrollTop } = useScrollTop();
   return (
     <>
+      <Head></Head>
       <SectionContainerStyled theme={theme}>
         <Header theme={theme} styckyHome />
         <HeroImage backgroundImage={backgroundImage} contactTitle="Contacto" />

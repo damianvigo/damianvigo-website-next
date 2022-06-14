@@ -3,8 +3,14 @@ import Link from 'next/link';
 import { useEffect, useState } from 'react';
 import { NavLink } from '../utils/NavLink';
 
-const Nav = ({ theme, isActive }) => {
+const Nav = ({ theme, isActive, setIsActive }) => {
   const [isHome, setIsHome] = useState('');
+
+  // console.log(isActive);
+
+  const closeMenu = (e) => {
+    setIsActive(!isActive);
+  };
 
   useEffect(() => {
     const home = window.location.pathname;
@@ -22,7 +28,11 @@ const Nav = ({ theme, isActive }) => {
       </Link>
     </NavStyled>
   ) : (
-    <NavStyled theme={theme} className={`${isActive && 'is-active'}`}>
+    <NavStyled
+      onClick={closeMenu}
+      theme={theme}
+      className={`${isActive && 'is-active'}`}
+    >
       <Link href="/">
         <a>Bienvenido</a>
       </Link>
@@ -77,7 +87,7 @@ const NavStyled = styled.nav`
     pointer-events: auto;
   }
 
-  @media screen and (min-width: 1024px) {
+  @media screen and (min-width: 64em) {
     position: static;
     width: auto;
     flex-direction: row;

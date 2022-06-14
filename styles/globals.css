@@ -111,7 +111,7 @@ h6 {
   font-size: var(--step-0);
 }
 
-img, video {
+img, video, iframe {
   max-width: 100%;
   height: auto;
 }
@@ -127,6 +127,32 @@ p {
 
 button {
   font-size: var(--step-0);
+}
+
+.responsive-media {
+  position: relative;
+  max-width: 100%;
+  height: 0;
+  /* 
+  * Formato widescreen 16:9
+  16 => 100%
+  9 => 56.25%
+  */
+  padding-bottom: 56.25%
+}
+
+.responsive-media > * {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+}
+
+.aspect-ratio-1-1 {
+  aspect-ratio: 1 / 1;
+}
+
+.aspect-ratio-16-9 {
+  aspect-ratio: 16/9;
 }
 
 .section {
@@ -180,15 +206,24 @@ h6::selection {
   text-align: right;
 }
 
-@media screen and (min-width: 1024px) {
+/* 
+  ? 320px / 16px = 20em
+  ? 480px / 16px = 30em
+  ? 600px / 16px = 37.5em
+  ? 768px / 16px = 48em
+  ? 1024px / 16px = 64em
+  ? 1200px / 16px = 75em
+*/
+
+@media screen and (min-width: 64em) {
   .full-lg-screen {
     width: 100%;
     min-height: 100vh;
   }
 }
 
-@media screen and (max-width: 600px) {
- /*    p {
-      text-align: left;
-    } */
+@media screen and (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
 }

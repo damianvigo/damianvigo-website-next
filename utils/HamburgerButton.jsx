@@ -9,7 +9,6 @@ const HamburgerButton = ({ setIsActive, isActive }) => {
   const { theme } = useContext(ThemeContext);
 
   const handleMenuMobile = (e) => {
-    /*    console.log(btnMenu); */
     if (btnMenu.current) {
       setIsActive(!isActive);
     }
@@ -55,7 +54,7 @@ const HamburgerButtonStyled = styled.button`
     height: 6px;
   }
 
-  @media screen and (min-width: 1024px) {
+  @media screen and (min-width: 64em) {
     display: none;
   }
 `;

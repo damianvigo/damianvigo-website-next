@@ -13,10 +13,7 @@ const Header = ({ theme }) => {
   const [isActive, setIsActive] = useState(false);
 
   const router = useRouter();
-  /*  console.log(router); */
   const { pathname } = router;
-
-  /*   console.log(pathname); */
 
   return (
     <HeaderStyled
@@ -29,7 +26,7 @@ const Header = ({ theme }) => {
             <a>DVDEV</a>
           </Link>
         </div>
-        <Nav theme={theme} isActive={isActive} />
+        <Nav theme={theme} isActive={isActive} setIsActive={setIsActive} />
         <HamburgerButton setIsActive={setIsActive} isActive={isActive} />
         {/*       <div>
           <Link href="/admin">
@@ -70,10 +67,10 @@ const HeaderStyled = styled.header`
     }
   }
 
-  @media screen and (min-width: 768px) {
+  @media screen and (min-width: 48em) {
   }
 
-  @media screen and (min-width: 1024px) {
+  @media screen and (min-width: 64em) {
     transition: background-color 0.3s ease-in;
     position: ${({ position }) => position};
     top: -0.5rem;

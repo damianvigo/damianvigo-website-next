@@ -71,7 +71,7 @@ const FooterStyled = styled.footer`
       font-size: var(--step--2);
     }
   }
-  @media screen and (min-width: 1024px) {
+  @media screen and (min-width: 64em) {
     margin-bottom: 0;
   }
 `;

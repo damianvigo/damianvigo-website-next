@@ -1,9 +1,14 @@
 import styled from 'styled-components';
 import Link from 'next/link';
+
 import { useState, useEffect } from 'react';
+import { useContext } from 'react';
+import ThemeContext from '../context/ThemeContext';
 
 const Button = ({ wsp, more, submit, moreDescription, talkToMe }) => {
   const [isSSR, setIsSSR] = useState(true);
+
+  const { theme } = useContext(ThemeContext);
 
   useEffect(() => {
     setIsSSR(false);
@@ -11,7 +16,7 @@ const Button = ({ wsp, more, submit, moreDescription, talkToMe }) => {
   return (
     <>
       {!isSSR && wsp && (
-        <ButtonWspStyled>
+        <ButtonWspStyled theme={theme}>
           <a
             href="https://api.whatsapp.com/send?phone=5491156923013&text=¡Hola!%20¿Podemos%20conversar%20ahora?"
             target="_blank"
@@ -35,7 +40,7 @@ const Button = ({ wsp, more, submit, moreDescription, talkToMe }) => {
         </ButtonWspStyled>
       )}
       {more && (
-        <ButtonWspStyled>
+        <ButtonWspStyled theme={theme}>
           <Link href="/proyectos">
             <div>
               <a>{moreDescription}</a>
@@ -53,7 +58,9 @@ const ButtonWspStyled = styled.button`
   padding: 0 !important;
   margin: 2rem auto;
   background-color: #1f7a8c;
-  border: thin solid var(--first-color);
+  border: thin solid
+    ${({ theme }) =>
+      theme === 'dark' ? 'var(--light-color)' : 'var(--first-color)'};
   box-shadow: var(--btn-shadow);
   cursor: pointer;
   transition: color 0.3s ease-in-out, background-color 0.3s ease-in-out;
@@ -66,13 +73,13 @@ const ButtonWspStyled = styled.button`
       vertical-align: top;
       margin-right: 0.5rem;
     }
+    a {
+      color: var(--light-color);
+    }
     &:hover {
       a {
         color: ${'Ver más' && 'var(--text-color)'};
       }
-    }
-    a {
-      color: ${'Ver más' && 'var(--light-color)'};
     }
   }
   &:hover {
