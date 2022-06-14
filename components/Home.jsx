@@ -21,6 +21,7 @@ import Button from '../utils/Button';
 import BackgroundImage from './BackgroundImage';
 import Destacados from './Destacados';
 import PerfilDescription from './PerfilDescription';
+import Video from './Video';
 
 const Home = ({ theme }) => {
   return (
@@ -48,8 +49,10 @@ const Home = ({ theme }) => {
       <BackgroundImage
         title="« La simplicidad es la máxima sofisticación »"
         author="Leonardo Da Vinci"
+        image="https://i.imgur.com/OOBLd2e.jpg"
       />
       <Destacados />
+      <Video theme={theme} publicOrigin="/video/typing.mp4" />
     </div>
   );
 };

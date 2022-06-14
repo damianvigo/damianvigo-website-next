@@ -13,10 +13,7 @@ const Proyectos = () => {
   /* console.log(theme); */
   return (
     <Layout theme={theme}>
-      <BackgroundImage
-        title="La concentración es la base de la excelencia"
-        author="Damián Vigo"
-      />
+      <BackgroundImage image="https://i.imgur.com/fT6QwPm.jpg" />
       <section className="section full-lg-screen container-1200px ">
         <TitleProyects className="text-center">Proyectos</TitleProyects>
         <GridFluid>

@@ -1,4 +1,5 @@
 import styled from 'styled-components';
+import Link from 'next/link';
 import { useContext } from 'react';
 import ThemeContext from '../context/ThemeContext';
 
@@ -19,7 +20,16 @@ const Destacados = () => {
             <i>React JS</i>.
           </p>
           <br />
-          <small>2022</small>
+          <div>
+            <a
+              href="https://github.com/damianvigo/arte-webapp"
+              target="_blank"
+              rel="noreferrer"
+            >
+              Código del proyecto
+            </a>
+            <small>2022</small>
+          </div>
         </ArticleDestacado>
         <ArticleDestacado theme={theme}>
           <a
@@ -41,7 +51,16 @@ const Destacados = () => {
           <p>
             Maquetación <i>responsive</i> sin <i>frameworks</i>.
           </p>
-          <small>2021</small>
+          <div>
+            <a
+              href="https://github.com/damianvigo/portfolio-cv"
+              target="_blank"
+              rel="noreferrer"
+            >
+              Código del proyecto
+            </a>
+            <small>2021</small>
+          </div>
         </ArticleDestacado>
         <ArticleDestacado theme={theme}>
           <a
@@ -117,6 +136,21 @@ const ArticleDestacado = styled.article`
   text-align: center;
   max-width: 600px;
 
+  a {
+    font-size: var(--step--2);
+    text-decoration: underline;
+    transition: transform 0.3s ease;
+    cursor: pointer;
+    color: ${({ theme }) =>
+      theme === 'dark' ? 'var(--second-color)' : 'var(--text-color)'};
+  }
+
+  &:nth-child(1) {
+    p {
+      margin-bottom: 0;
+    }
+  }
+
   h3 {
     /*   color: var(--title-color); */
     font-size: var(--step-1);
@@ -125,19 +159,28 @@ const ArticleDestacado = styled.article`
   }
 
   p {
-    /*     color: var(--text-color); */
     color: ${({ theme }) =>
       theme === 'dark' ? 'var(--second-color)' : 'var(--text-color)'};
   }
   text-align: center;
-  small {
+  div {
     width: 100%;
-    display: inline-block;
-    text-align: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    align-items: center;
+    height: 5vh;
   }
 
   @media screen and (min-width: 36em) {
     transition: opacity 0.3s ease-in-out;
+
+    a {
+      &:hover {
+        transform: scale(1.05);
+      }
+    }
+
     &:nth-child(2) {
       &:hover {
         opacity: 0.7;

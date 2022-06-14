@@ -56,7 +56,7 @@ export default Footer;
 const FooterStyled = styled.footer`
   transition: background-color 0.3s ease-in;
   background-color: ${({ theme }) =>
-    theme === 'dark' ? 'var(--dark-color)' : 'var(--second-color)'};
+    theme === 'dark' ? 'var(--dark-color)' : 'var(--third-color)'};
   /* background-color: var(--third-alpha-color); */
   border-top: thin solid
     ${({ theme }) =>

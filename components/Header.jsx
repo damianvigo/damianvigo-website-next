@@ -51,7 +51,7 @@ const HeaderStyled = styled.header`
   /*  background-color: var(--second-color); */
   transition: background-color 0.3s ease-in;
   background-color: ${({ theme }) =>
-    theme === 'dark' ? 'var(--dark-color)' : 'var(--second-color)'};
+    theme === 'dark' ? 'var(--first-color)' : 'var(--second-color)'};
 
   .container-flex {
     display: flex;

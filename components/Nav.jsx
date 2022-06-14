@@ -61,7 +61,7 @@ const NavStyled = styled.nav`
   flex-direction: column;
   /*   background-color: var(--second-color); */
   background-color: ${({ theme }) =>
-    theme === 'dark' ? 'var(--dark-color)' : 'var(--second-color)'};
+    theme === 'dark' ? 'var(--first-color)' : 'var(--second-color)'};
   opacity: 0;
   pointer-events: none;
   transition: opacity 0.5s ease;
@@ -77,8 +77,10 @@ const NavStyled = styled.nav`
       theme === 'dark' ? 'var(--second-color)' : 'var(--first-color)'};
     cursor: pointer;
     &:hover {
-      color: var(--second-color);
-      background-color: var(--first-color);
+      color: ${({ theme }) =>
+        theme === 'dark' ? 'var(--first-color)' : 'var(--second-color)'};
+      background-color: ${({ theme }) =>
+        theme === 'dark' ? 'var(--second-color)' : 'var(--first-color)'};
     }
   }
 

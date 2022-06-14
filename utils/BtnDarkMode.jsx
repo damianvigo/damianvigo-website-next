@@ -6,7 +6,7 @@ import ThemeContext from '../context/ThemeContext';
 import SvgMoon from '../assets/icon/elements/SvgMoon';
 import SvgSun from '../assets/icon/elements/SvgSun';
 
-const Btn = styled.div`
+const Btn = styled.button`
   position: fixed;
   cursor: pointer;
   background-color: var(--high-black-alpha-color);
@@ -29,11 +29,12 @@ const Btn = styled.div`
 
 const BtnDarkMode = () => {
   const { handleTheme, btnSvg } = useContext(ThemeContext);
+  // console.log(btnSvg);
   return (
     <>
       {btnSvg ? (
         <Btn>
-          <SvgSun onClick={handleTheme} />
+          <SvgSun handleTheme={handleTheme} />
         </Btn>
       ) : (
         <Btn>
