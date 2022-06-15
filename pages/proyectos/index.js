@@ -13,26 +13,61 @@ const Proyectos = () => {
   /* console.log(theme); */
   return (
     <Layout theme={theme}>
-      <BackgroundImage image="https://i.imgur.com/fT6QwPm.jpg" />
+      <BackgroundImage
+        backgroundProyect
+        image="https://i.imgur.com/fT6QwPm.jpg"
+      />
       <section className="section full-lg-screen container-1200px ">
         <TitleProyects className="text-center">Proyectos</TitleProyects>
         <GridFluid>
           <ArticleProyectStyled theme={theme}>
-            <Link href="/" forwardRef>
+            <Link href="/">
               <figure>
                 <Image
                   className="proyectImage"
-                  src="https://picsum.photos/300"
+                  src="https://picsum.photos/400/500"
                   width={500}
                   height={500}
-                  alt={'test'}
+                  alt="test"
                 />
               </figure>
             </Link>
             <ArticleDescriptionStyled>
               <h5>React</h5>
               <p>Webapp de registro de gastos.</p>
-              <Link href="/" forwardRef>
+              <ul>
+                <li>Nodejs</li>
+                <li>Express</li>
+                <li>Firebase</li>
+                <li>Firebase</li>
+                <li>Firebase</li>
+              </ul>
+              <Link href="/">
+                <a>Código del proyecto</a>
+              </Link>
+            </ArticleDescriptionStyled>
+          </ArticleProyectStyled>
+          <ArticleProyectStyled theme={theme}>
+            <Link href="/">
+              <figure>
+                <Image
+                  className="proyectImage"
+                  src="https://picsum.photos/400/500"
+                  width={500}
+                  height={500}
+                  alt="test"
+                />
+              </figure>
+            </Link>
+            <ArticleDescriptionStyled>
+              <h5>React</h5>
+              <p>Webapp de registro de gastos.</p>
+              <ul>
+                <li>Nodejs</li>
+                <li>Express</li>
+                <li>Firebase</li>
+              </ul>
+              <Link href="/">
                 <a>Código del proyecto</a>
               </Link>
             </ArticleDescriptionStyled>
@@ -52,14 +87,13 @@ const TitleProyects = styled.h1`
 `;
 
 const ArticleProyectStyled = styled.article`
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
   width: 100%;
-  max-width: 300px;
+  max-width: 320px;
   min-width: 200px;
   margin: 2rem auto;
-  border: 3px solid var(--first-color);
+  border: 5px solid
+    ${(props) =>
+      props.theme === 'dark' ? 'var(--white-color)' : 'var(--first-color)'};
   border-radius: 5px;
   text-align: left;
   background-color: var(--background-color);
@@ -79,7 +113,7 @@ const ArticleProyectStyled = styled.article`
 
   img {
     width: 100%;
-    height: 300px !important;
+    /*   height: 300px !important; */
     object-fit: cover;
     cursor: pointer;
   }
@@ -104,6 +138,19 @@ const ArticleDescriptionStyled = styled.div`
     width: 100%;
     text-align: right;
     text-decoration: underline;
+  }
+  ul {
+    margin: 0 auto;
+
+    li {
+      list-style-type: circle;
+      border-radius: 0.5rem;
+      background-color: var(--first-color);
+      color: var(--second-color);
+      list-style-position: inside;
+      padding: 0.4rem;
+      margin-bottom: 0.3rem;
+    }
   }
 `;
 

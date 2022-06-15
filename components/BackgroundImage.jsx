@@ -2,22 +2,58 @@ import styled from 'styled-components';
 import { useContext } from 'react';
 import ThemeContext from '../context/ThemeContext';
 
-const BackgroundImage = ({ title, author, image }) => {
+const BackgroundImage = ({
+  title,
+  author,
+  image,
+  backgroundProyect,
+  backgroundImageHome,
+  backgroundImageBlog,
+  blog,
+}) => {
   const { theme } = useContext(ThemeContext);
 
   return (
-    <CiteContainerStyled>
-      <CiteBackgroundImageStyled
-        backgroundPosition
-        theme={theme}
-        backgroundImage={image}
-      >
-        <BackgroundOpacityStyled>
-          {title && <p>{title}</p>}
-          {author && <cite>{author}</cite>}
-        </BackgroundOpacityStyled>
-      </CiteBackgroundImageStyled>
-    </CiteContainerStyled>
+    <>
+      {backgroundImageHome && (
+        <CiteContainerStyled>
+          <CiteBackgroundImageStyled
+            backgroundPosition
+            theme={theme}
+            backgroundImage={image}
+          >
+            <BackgroundOpacityStyled>
+              {title && <p>{title}</p>}
+              {author && <cite>{author}</cite>}
+            </BackgroundOpacityStyled>
+          </CiteBackgroundImageStyled>
+        </CiteContainerStyled>
+      )}
+      {backgroundProyect && (
+        <CiteContainerStyled>
+          <CiteBackgroundImageStyled
+            theme={theme}
+            backgroundImage={image}
+            backgroundProyect
+          >
+            <BackgroundOpacityStyled></BackgroundOpacityStyled>
+          </CiteBackgroundImageStyled>
+        </CiteContainerStyled>
+      )}
+      {backgroundImageBlog && (
+        <CiteContainerStyled>
+          <CiteBackgroundImageStyled
+            theme={theme}
+            backgroundImage={image}
+            backgroundProyect
+          >
+            <BackgroundOpacityStyled>
+              <h1>{blog}</h1>
+            </BackgroundOpacityStyled>
+          </CiteBackgroundImageStyled>
+        </CiteContainerStyled>
+      )}
+    </>
   );
 };
 
@@ -30,8 +66,8 @@ const CiteContainerStyled = styled.div`
 const CiteBackgroundImageStyled = styled.article`
   background-image: url(${(props) => props.backgroundImage});
   background-repeat: no-repeat;
-  background-position: ${({ backgroundPosition }) =>
-    backgroundPosition && '50% 20%'};
+  background-position: ${({ backgroundProyect }) =>
+    backgroundProyect ? '50% 20%' : '50% 90%'};
   background-size: cover;
   background-attachment: scroll;
   height: 50vh;

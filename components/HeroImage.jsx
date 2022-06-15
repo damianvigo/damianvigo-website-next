@@ -30,7 +30,7 @@ const HeroImage = ({ backgroundImage, contactTitle }) => {
         </HeroImageStyled>
       )}
       {pathname === '/contacto' && (
-        <HeroImageStyled backgroundImage={backgroundImage}>
+        <HeroImageStyled backgroundImage="https://i.imgur.com/aXb9Pux.jpg">
           <HeroImageOpacity>
             <HeroImageBox form="true">
               <HeroImageTitle contact="contact">{contactTitle}</HeroImageTitle>

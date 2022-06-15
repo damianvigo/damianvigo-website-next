@@ -3,12 +3,19 @@ import Header from '../../components/Header';
 import Layout from '../../components/layouts/Layout';
 import ThemeContext from '../../context/ThemeContext';
 import { useContext } from 'react';
+import BackgroundImage from '../../components/BackgroundImage';
 
 const Blog = () => {
   const { theme } = useContext(ThemeContext);
   return (
     <Layout theme={theme}>
-      <section>Blog !!</section>
+      <div>
+        <BackgroundImage
+          image="https://i.imgur.com/SpUDEmn.jpg"
+          backgroundImageBlog
+          blog="Blog"
+        />
+      </div>
     </Layout>
   );
 };

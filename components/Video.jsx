@@ -11,7 +11,7 @@ const Video = ({ publicOrigin, theme }) => {
 
   return (
     <VideoContainer theme={theme}>
-      <VideoStyled className="aspect-ratio-16-9" autoPlay loop muted>
+      <VideoStyled autoPlay loop muted>
         <source src={`${origin}${publicOrigin}`} type="video/mp4" />
       </VideoStyled>
     </VideoContainer>

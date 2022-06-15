@@ -10,7 +10,7 @@ import Button from '../utils/Button';
 const Destacados = () => {
   const { theme } = useContext(ThemeContext);
   return (
-    <DestacadosSectionStyled className="section">
+    <DestacadosSectionStyled theme={theme} className="section">
       <DestacadosStyled theme={theme}>Destacados</DestacadosStyled>
       <SeccionDestacada>
         <ArticleDestacado theme={theme}>
@@ -86,7 +86,8 @@ const Destacados = () => {
 export default Destacados;
 
 const DestacadosSectionStyled = styled.section`
-  background-color: var(--third-color);
+  background-color: ${({ theme }) =>
+    theme === 'dark' ? '' : 'var(--third-color)'};
   text-align: center;
 `;
 
@@ -141,8 +142,12 @@ const ArticleDestacado = styled.article`
     text-decoration: underline;
     transition: transform 0.3s ease;
     cursor: pointer;
-    color: ${({ theme }) =>
-      theme === 'dark' ? 'var(--second-color)' : 'var(--text-color)'};
+    color: ${({ theme }) => (theme === 'dark' ? 'var(--second-color)' : '')};
+    &::selection {
+      background-color: ${({ theme }) =>
+        theme === 'dark' && 'var(--second-color)'};
+      color: ${({ theme }) => theme === 'dark' && 'var(--text-color)'};
+    }
   }
 
   &:nth-child(1) {
@@ -156,11 +161,29 @@ const ArticleDestacado = styled.article`
     font-size: var(--step-1);
     color: ${({ theme }) =>
       theme === 'dark' ? 'var(--second-color)' : 'var(--title-color)'};
+    &::selection {
+      background-color: ${({ theme }) =>
+        theme === 'dark' && 'var(--second-color)'};
+      color: ${({ theme }) => theme === 'dark' && 'var(--text-color)'};
+    }
   }
 
   p {
     color: ${({ theme }) =>
       theme === 'dark' ? 'var(--second-color)' : 'var(--text-color)'};
+    &::selection {
+      background-color: ${({ theme }) =>
+        theme === 'dark' && 'var(--second-color)'};
+      color: ${({ theme }) => theme === 'dark' && 'var(--text-color)'};
+    }
+
+    i {
+      &::selection {
+        background-color: ${({ theme }) =>
+          theme === 'dark' && 'var(--second-color)'};
+        color: ${({ theme }) => theme === 'dark' && 'var(--text-color)'};
+      }
+    }
   }
   text-align: center;
   div {
@@ -170,6 +193,13 @@ const ArticleDestacado = styled.article`
     justify-content: space-evenly;
     align-items: center;
     height: 5vh;
+    small {
+      &::selection {
+        background-color: ${({ theme }) =>
+          theme === 'dark' && 'var(--second-color)'};
+        color: ${({ theme }) => theme === 'dark' && 'var(--text-color)'};
+      }
+    }
   }
 
   @media screen and (min-width: 36em) {

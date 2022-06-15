@@ -12,7 +12,6 @@ import HeroImage from '../HeroImage';
 import Footer from '../Footer';
 
 const Layout = ({ children }) => {
-  const backgroundImage = 'https://picsum.photos/1920/1080';
   const { theme } = useContext(ThemeContext);
   /*   console.log(theme); */
   const { toTop, scrollTop, setScrollTop } = useScrollTop();
@@ -21,7 +20,10 @@ const Layout = ({ children }) => {
       <Head></Head>
       <SectionContainerStyled theme={theme}>
         <Header theme={theme} styckyHome />
-        <HeroImage backgroundImage={backgroundImage} contactTitle="Contacto" />
+        <HeroImage
+          backgroundImage="https://i.imgur.com/SpUDEmn.jpg"
+          contactTitle="Contacto"
+        />
       </SectionContainerStyled>
       <main className={theme}>{children}</main>
       <BtnScrollTop

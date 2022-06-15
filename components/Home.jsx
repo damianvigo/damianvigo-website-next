@@ -26,11 +26,15 @@ import Video from './Video';
 const Home = ({ theme }) => {
   return (
     <div className={theme}>
-      <SectionPerfil id="perfil" className="full-lg-screen section">
+      <SectionPerfil
+        theme={theme}
+        id="perfil"
+        className="full-lg-screen section"
+      >
         <ArticlePerfil className="container-900px">
           <PerfilDescription />
           <Button wsp talkToMe="Hablemos" />
-          <AsideContainerSvgStyled>
+          <AsideContainerSvgStyled theme={theme}>
             <SvgJs />
             <SvgReact />
             <SvgNext />
@@ -50,6 +54,7 @@ const Home = ({ theme }) => {
         title="« La simplicidad es la máxima sofisticación »"
         author="Leonardo Da Vinci"
         image="https://i.imgur.com/OOBLd2e.jpg"
+        backgroundImageHome
       />
       <Destacados />
       <Video theme={theme} publicOrigin="/video/typing.mp4" />
@@ -61,7 +66,8 @@ export default Home;
 
 const SectionPerfil = styled.section`
   display: flex;
-  background-color: var(--third-color);
+  background-color: ${({ theme }) =>
+    theme === 'dark' ? '' : 'var(--third-color)'};
 `;
 
 const ArticlePerfil = styled.article`
@@ -95,6 +101,15 @@ const AsideContainerSvgStyled = styled.aside`
     width: clamp(40px, 15vw, 70px);
     height: clamp(40px, 15vw, 70px);
     margin: 1rem;
+    &:nth-child(3) {
+      fill: ${({ theme }) => (theme === 'dark' ? 'var(--white-color)' : '')};
+    }
+    &:nth-child(4) {
+      fill: ${({ theme }) => (theme === 'dark' ? 'var(--white-color)' : '')};
+    }
+    &:nth-child(5) {
+      fill: ${({ theme }) => (theme === 'dark' ? 'var(--white-color)' : '')};
+    }
   }
 
   @media screen and (min-width: 48em) {
