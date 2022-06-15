@@ -118,6 +118,7 @@ img, video, iframe {
 
 figure {
   margin: 0;
+  background-color: var(--card-color);
 }
 
 p {

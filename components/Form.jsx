@@ -78,7 +78,7 @@ const Form = () => {
         ></textarea>
         {errors.name && <MessageErrorForm errorComment={errors.comments} />}
         <input type="submit" value="Envíar" />
-        {loading && <SvgLoader />}
+        {loading && <SvgLoader contact />}
         {response && (
           <div className={formStyledModule.contactFormError}>
             <p>

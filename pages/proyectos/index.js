@@ -1,16 +1,32 @@
 import styled from 'styled-components';
 import Link from 'next/link';
 import Image from 'next/image';
-import { useContext } from 'react';
+import { useContext, useState, useEffect } from 'react';
 import ThemeContext from '../../context/ThemeContext';
+
+import conectarDB from '../../lib/dbConnect';
+import Proyect from '../../models/Proyect';
 
 // Components
 import Layout from '../../components/layouts/Layout';
 import BackgroundImage from '../../components/BackgroundImage';
+import SvgLoader from '../../assets/icon/elements/SvgLoader';
 
-const Proyectos = () => {
+const Proyectos = (props) => {
+  const [loading, setLoading] = useState(false);
+  console.log(props);
+
+  useEffect(() => {
+    if (props.proyects.length > 0) {
+      setTimeout(() => {
+        setLoading(!loading);
+      }, 1000);
+    }
+  }, []);
+
   const { theme } = useContext(ThemeContext);
   /* console.log(theme); */
+  console.log(loading);
   return (
     <Layout theme={theme}>
       <BackgroundImage
@@ -19,60 +35,63 @@ const Proyectos = () => {
       />
       <section className="section full-lg-screen container-1200px ">
         <TitleProyects className="text-center">Proyectos</TitleProyects>
-        <GridFluid>
-          <ArticleProyectStyled theme={theme}>
-            <Link href="/">
-              <figure>
-                <Image
-                  className="proyectImage"
-                  src="https://picsum.photos/400/500"
-                  width={500}
-                  height={500}
-                  alt="test"
-                />
-              </figure>
-            </Link>
-            <ArticleDescriptionStyled>
-              <h5>React</h5>
-              <p>Webapp de registro de gastos.</p>
-              <ul>
-                <li>Nodejs</li>
-                <li>Express</li>
-                <li>Firebase</li>
-                <li>Firebase</li>
-                <li>Firebase</li>
-              </ul>
+        {!loading && <SvgLoader />}
+        {loading && (
+          <GridFluid>
+            <ArticleProyectStyled theme={theme}>
               <Link href="/">
-                <a>Código del proyecto</a>
+                <figure>
+                  <Image
+                    className="proyectImage"
+                    src="https://picsum.photos/400/500"
+                    width={500}
+                    height={500}
+                    alt="test"
+                  />
+                </figure>
               </Link>
-            </ArticleDescriptionStyled>
-          </ArticleProyectStyled>
-          <ArticleProyectStyled theme={theme}>
-            <Link href="/">
-              <figure>
-                <Image
-                  className="proyectImage"
-                  src="https://picsum.photos/400/500"
-                  width={500}
-                  height={500}
-                  alt="test"
-                />
-              </figure>
-            </Link>
-            <ArticleDescriptionStyled>
-              <h5>React</h5>
-              <p>Webapp de registro de gastos.</p>
-              <ul>
-                <li>Nodejs</li>
-                <li>Express</li>
-                <li>Firebase</li>
-              </ul>
+              <ArticleDescriptionStyled>
+                <h5>React</h5>
+                <p>Webapp de registro de gastos.</p>
+                <ul>
+                  <li>Nodejs</li>
+                  <li>Express</li>
+                  <li>Firebase</li>
+                  <li>Firebase</li>
+                  <li>Firebase</li>
+                </ul>
+                <Link href="/">
+                  <a>Código del proyecto</a>
+                </Link>
+              </ArticleDescriptionStyled>
+            </ArticleProyectStyled>
+            <ArticleProyectStyled theme={theme}>
               <Link href="/">
-                <a>Código del proyecto</a>
+                <figure>
+                  <Image
+                    className="proyectImage"
+                    src="https://picsum.photos/400/500"
+                    width={500}
+                    height={500}
+                    alt="test"
+                  />
+                </figure>
               </Link>
-            </ArticleDescriptionStyled>
-          </ArticleProyectStyled>
-        </GridFluid>
+              <ArticleDescriptionStyled>
+                <h5>React</h5>
+                <p>Webapp de registro de gastos.</p>
+                <ul>
+                  <li>Nodejs</li>
+                  <li>Express</li>
+                  <li>Firebase</li>
+                </ul>
+                <Link href="/">
+                  <a>Código del proyecto</a>
+                </Link>
+              </ArticleDescriptionStyled>
+            </ArticleProyectStyled>
+          </GridFluid>
+        )}
       </section>
     </Layout>
   );
@@ -80,8 +99,31 @@ const Proyectos = () => {
 
 export default Proyectos;
 
+export async function getServerSideProps() {
+  try {
+    await conectarDB();
+
+    const res = await Proyect.find({});
+
+    const proyects = res.map((doc) => {
+      const proyect = doc.toObject();
+      proyect._id = `${proyect._id}`;
+      return proyect;
+    });
+
+    //  console.log(res);
+
+    return {
+      props: { proyects: proyects },
+    };
+  } catch (error) {
+    console.log(error);
+    return { props: { success: false, error: 'Error' } };
+  }
+}
+
 const TitleProyects = styled.h1`
-  @media screen and (min-width: 576px) {
+  @media screen and (min-width: 36em) {
     padding: 4rem;
   }
 `;
@@ -94,7 +136,7 @@ const ArticleProyectStyled = styled.article`
   border: 5px solid
     ${(props) =>
       props.theme === 'dark' ? 'var(--white-color)' : 'var(--first-color)'};
-  border-radius: 5px;
+  border-radius: 0.5rem;
   text-align: left;
   background-color: var(--background-color);
   box-shadow: ${({ theme }) =>
@@ -110,7 +152,6 @@ const ArticleProyectStyled = styled.article`
       transform: scale(1.2);
     }
   } */
-
   img {
     width: 100%;
     /*   height: 300px !important; */
