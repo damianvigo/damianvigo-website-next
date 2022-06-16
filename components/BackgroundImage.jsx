@@ -9,6 +9,7 @@ const BackgroundImage = ({
   backgroundProyect,
   backgroundImageHome,
   backgroundImageBlog,
+  backgroundProyectBottom,
   blog,
 }) => {
   const { theme } = useContext(ThemeContext);
@@ -53,6 +54,19 @@ const BackgroundImage = ({
           </CiteBackgroundImageStyled>
         </CiteContainerStyled>
       )}
+      {backgroundProyectBottom && (
+        <CiteContainerStyled>
+          <CiteBackgroundImageStyled
+            theme={theme}
+            backgroundImage={image}
+            backgroundProyectBottom
+          >
+            <BackgroundOpacityStyled
+              backgroundProyectBottom
+            ></BackgroundOpacityStyled>
+          </CiteBackgroundImageStyled>
+        </CiteContainerStyled>
+      )}
     </>
   );
 };
@@ -68,8 +82,14 @@ const CiteBackgroundImageStyled = styled.article`
   background-repeat: no-repeat;
   background-position: ${({ backgroundProyect }) =>
     backgroundProyect ? '50% 20%' : '50% 90%'};
+  background-position: ${({ backgroundProyectBottom }) =>
+    backgroundProyectBottom && '50% -350%'};
   background-size: cover;
+  /*   background-size: ${({ backgroundProyectBottom }) =>
+    backgroundProyectBottom && 'cover'}; */
   background-attachment: scroll;
+  background-attachment: ${({ backgroundProyectBottom }) =>
+    backgroundProyectBottom && 'fixed'};
   height: 50vh;
   /*   border-top: thick solid
     ${({ theme }) =>
@@ -91,7 +111,8 @@ const BackgroundOpacityStyled = styled.div`
   justify-content: center;
   align-items: center;
   text-align: center;
-  background-color: var(--black-alpha-color);
+  background-color: ${({ backgroundProyectBottom }) =>
+    backgroundProyectBottom && 'transparent'};
   min-height: 50vh;
   width: 100%;
   color: var(--second-color);

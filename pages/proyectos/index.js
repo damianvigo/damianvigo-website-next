@@ -1,5 +1,4 @@
 import styled from 'styled-components';
-import Link from 'next/link';
 import Image from 'next/image';
 import { useContext, useState, useEffect } from 'react';
 import ThemeContext from '../../context/ThemeContext';
@@ -12,21 +11,18 @@ import Layout from '../../components/layouts/Layout';
 import BackgroundImage from '../../components/BackgroundImage';
 import SvgLoader from '../../assets/icon/elements/SvgLoader';
 
-const Proyectos = (props) => {
-  const [loading, setLoading] = useState(false);
-  console.log(props);
-
-  useEffect(() => {
-    if (props.proyects.length > 0) {
-      setTimeout(() => {
-        setLoading(!loading);
-      }, 1000);
-    }
-  }, []);
-
+const Proyectos = ({ proyects }) => {
+  const [loading, setLoading] = useState(true);
   const { theme } = useContext(ThemeContext);
-  /* console.log(theme); */
-  console.log(loading);
+
+  console.log(proyects);
+
+  /*   useEffect(() => {
+    if (proyects.length > 0) {
+      setLoading(!loading);
+    }
+  }, [proyects]); */
+
   return (
     <Layout theme={theme}>
       <BackgroundImage
@@ -38,61 +34,52 @@ const Proyectos = (props) => {
         {!loading && <SvgLoader />}
         {loading && (
           <GridFluid>
-            <ArticleProyectStyled theme={theme}>
-              <Link href="/">
-                <figure>
-                  <Image
-                    className="proyectImage"
-                    src="https://picsum.photos/400/500"
-                    width={500}
-                    height={500}
-                    alt="test"
-                  />
-                </figure>
-              </Link>
-              <ArticleDescriptionStyled>
-                <h5>React</h5>
-                <p>Webapp de registro de gastos.</p>
-                <ul>
-                  <li>Nodejs</li>
-                  <li>Express</li>
-                  <li>Firebase</li>
-                  <li>Firebase</li>
-                  <li>Firebase</li>
-                </ul>
-                <Link href="/">
-                  <a>Código del proyecto</a>
-                </Link>
-              </ArticleDescriptionStyled>
-            </ArticleProyectStyled>
-            <ArticleProyectStyled theme={theme}>
-              <Link href="/">
-                <figure>
-                  <Image
-                    className="proyectImage"
-                    src="https://picsum.photos/400/500"
-                    width={500}
-                    height={500}
-                    alt="test"
-                  />
-                </figure>
-              </Link>
-              <ArticleDescriptionStyled>
-                <h5>React</h5>
-                <p>Webapp de registro de gastos.</p>
-                <ul>
-                  <li>Nodejs</li>
-                  <li>Express</li>
-                  <li>Firebase</li>
-                </ul>
-                <Link href="/">
-                  <a>Código del proyecto</a>
-                </Link>
-              </ArticleDescriptionStyled>
-            </ArticleProyectStyled>
+            {proyects.map(
+              ({
+                _id,
+                title,
+                description,
+                img,
+                github,
+                technologies,
+                online,
+              }) => {
+                let tech = technologies.split(',');
+                return (
+                  <ArticleProyectStyled key={_id} theme={theme}>
+                    <a href={online} target="_blank" rel="noreferrer">
+                      <figure>
+                        <Image
+                          className="proyectImage"
+                          src={img}
+                          width={500}
+                          height={500}
+                          alt="test"
+                        />
+                      </figure>
+                    </a>
+                    <h2>{title}</h2>
+                    <p>{description}</p>
+                    <ul>
+                      {tech[0] && <li>{tech[0]}</li>}
+                      {tech[1] && <li>{tech[1]}</li>}
+                      {tech[2] && <li>{tech[2]}</li>}
+                      {tech[3] && <li>{tech[3]}</li>}
+                    </ul>
+                    <a href={github} target="_blank" rel="noreferrer">
+                      Código del proyecto
+                    </a>
+                  </ArticleProyectStyled>
+                );
+              }
+            )}
           </GridFluid>
         )}
       </section>
+      <BackgroundImage
+        backgroundProyectBottom
+        image="https://i.imgur.com/NNUJ5bj.jpg"
+      />
     </Layout>
   );
 };
@@ -129,8 +116,12 @@ const TitleProyects = styled.h1`
 `;
 
 const ArticleProyectStyled = styled.article`
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
   width: 100%;
-  max-width: 320px;
+  max-width: 300px;
   min-width: 200px;
   margin: 2rem auto;
   border: 5px solid
@@ -138,7 +129,7 @@ const ArticleProyectStyled = styled.article`
       props.theme === 'dark' ? 'var(--white-color)' : 'var(--first-color)'};
   border-radius: 0.5rem;
   text-align: left;
-  background-color: var(--background-color);
+  background-color: var(--card-color);
   box-shadow: ${({ theme }) =>
     theme === 'dark' ? 'var(--card-shadow-light)' : 'var(--card-shadow)'};
   transition: transform 0.3s ease-in, opacity 0.3s ease-in-out;
@@ -152,37 +143,38 @@ const ArticleProyectStyled = styled.article`
       transform: scale(1.2);
     }
   } */
-  img {
-    width: 100%;
-    /*   height: 300px !important; */
-    object-fit: cover;
-    cursor: pointer;
-  }
 
-  @media screen and (min-width: 576px) {
-    &:hover {
-      transform: scale(1.1);
+  a {
+    width: 100%;
+    figure {
+      span {
+        width: 100% !important;
+        object-fit: none;
+      }
+    }
+    img {
+      width: 100%;
+      height: 200px !important;
+      object-fit: cover;
+      cursor: pointer;
     }
   }
-`;
 
-const ArticleDescriptionStyled = styled.div`
-  background-color: var(--card-color);
-  > * {
+  h2 {
     padding: 1rem;
+    font-size: var(--step--1);
   }
+
   p {
+    padding: 1rem;
     margin: 0;
+    text-align: center;
   }
-  a {
-    display: inline-block;
-    width: 100%;
-    text-align: right;
-    text-decoration: underline;
-  }
+
   ul {
     margin: 0 auto;
-
+    width: 100%;
+    padding: 1rem;
     li {
       list-style-type: circle;
       border-radius: 0.5rem;
@@ -193,12 +185,46 @@ const ArticleDescriptionStyled = styled.div`
       margin-bottom: 0.3rem;
     }
   }
+
+  a:last-child {
+    display: block;
+    padding: 1rem;
+    text-decoration: underline;
+    &:visited {
+      color: var(--link-color);
+      text-decoration: dotted;
+    }
+    &:active {
+      transform: scale(1.1);
+    }
+  }
+
+  /*   @media screen and (min-width: 768px) {
+    a {
+      width: 100%;
+      figure {
+        span {
+          width: 100% !important;
+          object-fit: none;
+        }
+      }
+      img {
+        height: 200px !important;
+      }
+    }
+  } */
+
+  @media screen and (min-width: 576px) {
+    &:hover {
+      transform: scale(1.1);
+    }
+  }
 `;
 
 const GridFluid = styled.section`
   /* margin: 1rem auto; */
   width: 100%;
   display: grid;
-  grid-gap: 4rem;
-  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  grid-gap: 5rem;
+  grid-template-columns: repeat(auto-fit, minmax(275px, 1fr));
 `;

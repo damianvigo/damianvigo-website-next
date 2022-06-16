@@ -9,6 +9,7 @@ const SvgStyled = styled.svg`
   fill: ${({ theme }) =>
     theme === 'dark' ? 'var(--second-color)' : 'var(--first-color)'};
   fill: ${({ contact }) => contact && 'var(--second-color)'};
+  animation: showOpacity 1s 1 normal 0s ease-out both;
 `;
 
 const SvgLoader = ({ contact }) => {

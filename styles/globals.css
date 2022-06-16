@@ -208,6 +208,18 @@ h6::selection {
   ? 1200px / 16px = 75em
 */
 
+@keyframes showOpacity {
+  0% {
+    visibility: hidden;
+    opacity: 0;
+  }
+
+  100% {
+    visibility: visible;
+    opacity: 1;
+  }
+}
+
 @media screen and (min-width: 64em) {
   .full-lg-screen {
     width: 100%;

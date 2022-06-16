@@ -14,10 +14,14 @@ const ProyectSchema = new mongoose.Schema({
     required: [true, 'por favor ingrese la descripcion'],
   },
   technologies: {
-    type: Array,
+    type: String,
     required: [true, 'por favor ingrese la tecnologia'],
   },
   github: {
+    type: String,
+    required: [true, 'por favor ingrese el repositorio'],
+  },
+  online: {
     type: String,
     required: [true, 'por favor ingrese el link'],
   },
