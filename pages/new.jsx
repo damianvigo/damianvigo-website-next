@@ -33,7 +33,7 @@ const New = () => {
 
   const postData = async (form) => {
     try {
-      console.log(form);
+      // console.log(form);
 
       let options = {
         body: form,

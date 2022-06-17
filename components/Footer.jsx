@@ -6,8 +6,8 @@ import Link from 'next/link';
 // Icons
 import SvgFacebook from '../assets/icon/elements/SvgFacebook';
 import SvgGitHub from '../assets/icon/elements/SvgGitHub';
-import SvgOnlineEducation from '../assets/icon/elements/SvgOnlineEducation';
 import SvgNext from '../assets/icon/elements/SvgNext';
+import SvgPlatzi from '../assets/icon/elements/SvgPlatzi';
 
 const Footer = () => {
   const { theme } = useContext(ThemeContext);
@@ -16,21 +16,21 @@ const Footer = () => {
       <SectionFooterStyled theme={theme}>
         <div>
           <Link href="https://platzi.com/p/Damian">
-            <a target="_blank" rel="noreferrer">
-              <SvgOnlineEducation />
+            <a title="platzi" target="_blank" rel="noreferrer">
+              <SvgPlatzi />
             </a>
           </Link>
         </div>
         <div>
           <Link href="https://github.com/damianvigo">
-            <a target="_blank" rel="noreferrer">
+            <a title="github" target="_blank" rel="noreferrer">
               <SvgGitHub />
             </a>
           </Link>
         </div>
         <div>
           <Link href="https://www.facebook.com/ddamianvigo">
-            <a target="_blank" rel="noreferrer">
+            <a title="facebook" target="_blank" rel="noreferrer">
               <SvgFacebook />
             </a>
           </Link>
@@ -105,6 +105,10 @@ const SectionFooterStyled = styled.aside`
       background-color: ${({ theme }) =>
         theme === 'dark' ? 'var(--white-color)' : ''};
       border-radius: ${({ theme }) => (theme === 'dark' ? '20%' : '')};
+    }
+    &:nth-child(1) {
+      fill: ${({ theme }) =>
+        theme === 'dark' ? 'var(--white-color)' : '#98CA3C'};
     }
   }
 

@@ -15,7 +15,7 @@ const Proyectos = ({ proyects }) => {
   const [loading, setLoading] = useState(true);
   const { theme } = useContext(ThemeContext);
 
-  console.log(proyects);
+  // console.log(proyects);
 
   /*   useEffect(() => {
     if (proyects.length > 0) {

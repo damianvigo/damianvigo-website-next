@@ -1,5 +1,6 @@
 import styled from 'styled-components';
 import { useContext } from 'react';
+import { useRouter } from 'next/router';
 import ThemeContext from '../../context/ThemeContext';
 // Utils
 import BtnScrollTop from '../../utils/BtnScrollTop';
@@ -11,13 +12,28 @@ import Header from '../Header';
 import HeroImage from '../HeroImage';
 import Footer from '../Footer';
 
+import useNetworkStatus from '../../hooks/useNetworkStatus';
+import NetworkStatus from '../NetworkStatus';
+
 const Layout = ({ children }) => {
   const { theme } = useContext(ThemeContext);
   /*   console.log(theme); */
   const { toTop, scrollTop, setScrollTop } = useScrollTop();
+
+  const router = useRouter();
+  const { pathname } = router;
+
+  const [isOnline] = useNetworkStatus();
   return (
     <>
       <Head></Head>
+      {isOnline && (
+        <NetworkStatus
+          conect="var(--first-color);"
+          down="Conexión Perdida"
+          up="La conexión se ha restablecido"
+        />
+      )}
       <SectionContainerStyled theme={theme}>
         <Header theme={theme} styckyHome />
         <HeroImage
@@ -26,13 +42,17 @@ const Layout = ({ children }) => {
         />
       </SectionContainerStyled>
       <main className={theme}>{children}</main>
-      <BtnScrollTop
-        toTop={toTop}
-        scrollTop={scrollTop}
-        setScrollTop={setScrollTop}
-      />
-      <BtnDarkMode />
-      <Footer />
+      {pathname !== '/404' && (
+        <>
+          <BtnScrollTop
+            toTop={toTop}
+            scrollTop={scrollTop}
+            setScrollTop={setScrollTop}
+          />
+          <BtnDarkMode />
+          <Footer />
+        </>
+      )}
     </>
   );
 };

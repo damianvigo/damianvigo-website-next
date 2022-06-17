@@ -82,14 +82,8 @@ const CiteBackgroundImageStyled = styled.article`
   background-repeat: no-repeat;
   background-position: ${({ backgroundProyect }) =>
     backgroundProyect ? '50% 20%' : '50% 90%'};
-  background-position: ${({ backgroundProyectBottom }) =>
-    backgroundProyectBottom && '50% -350%'};
   background-size: cover;
-  /*   background-size: ${({ backgroundProyectBottom }) =>
-    backgroundProyectBottom && 'cover'}; */
   background-attachment: scroll;
-  background-attachment: ${({ backgroundProyectBottom }) =>
-    backgroundProyectBottom && 'fixed'};
   height: 50vh;
   /*   border-top: thick solid
     ${({ theme }) =>
@@ -103,6 +97,13 @@ const CiteBackgroundImageStyled = styled.article`
   cite {
     font-size: var(--step-0);
   }
+
+  @media screen and (min-width: 768px) {
+    background-attachment: ${({ backgroundProyectBottom }) =>
+      backgroundProyectBottom && 'fixed'};
+    background-position: ${({ backgroundProyectBottom }) =>
+      backgroundProyectBottom && '50% 50%'};
+  }
 `;
 
 const BackgroundOpacityStyled = styled.div`
@@ -111,6 +112,7 @@ const BackgroundOpacityStyled = styled.div`
   justify-content: center;
   align-items: center;
   text-align: center;
+  background-color: var(--black-alpha-color);
   background-color: ${({ backgroundProyectBottom }) =>
     backgroundProyectBottom && 'transparent'};
   min-height: 50vh;

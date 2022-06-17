@@ -1,6 +1,7 @@
-import { useContext } from 'react';
 import styled from 'styled-components';
+import { useContext } from 'react';
 import ThemeContext from '../../../context/ThemeContext';
+
 const SvgStyled = styled.svg`
   display: block;
   margin: clamp(1rem, 10vw, 3rem) auto;
