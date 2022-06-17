@@ -37,7 +37,7 @@ const Footer = () => {
         </div>
       </SectionFooterStyled>
       <div>
-        <p>Damián Vigo © 2022</p>
+        <p>Damián Vigo © {new Date().getFullYear()}</p>
       </div>
       <ContainerSvgNextFooter theme={theme}>
         <small>powered by</small>

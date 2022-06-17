@@ -7,7 +7,7 @@ import BackgroundImage from '../../components/BackgroundImage';
 const Blog = () => {
   const { theme } = useContext(ThemeContext);
   return (
-    <Layout theme={theme}>
+    <Layout title="Blog" theme={theme}>
       <div>
         <BackgroundImage
           image="https://i.imgur.com/SpUDEmn.jpg"

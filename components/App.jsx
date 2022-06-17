@@ -10,7 +10,7 @@ const App = () => {
 
   return (
     <>
-      <Layout theme={theme}>
+      <Layout title="Bienvenido" theme={theme}>
         <Home theme={theme} />
       </Layout>
     </>

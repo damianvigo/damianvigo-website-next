@@ -1,5 +1,5 @@
 import Layout from '../components/layouts/Layout';
-import customStyles404 from '../styles/Custom.module.css';
+import customStyles404 from '../styles/404Custom.module.css';
 
 const custom404 = () => {
   return (

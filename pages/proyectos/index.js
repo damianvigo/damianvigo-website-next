@@ -10,6 +10,7 @@ import Proyect from '../../models/Proyect';
 import Layout from '../../components/layouts/Layout';
 import BackgroundImage from '../../components/BackgroundImage';
 import SvgLoader from '../../assets/icon/elements/SvgLoader';
+import Head from 'next/head';
 
 const Proyectos = ({ proyects }) => {
   const [loading, setLoading] = useState(true);
@@ -24,7 +25,7 @@ const Proyectos = ({ proyects }) => {
   }, [proyects]); */
 
   return (
-    <Layout theme={theme}>
+    <Layout theme={theme} title="Proyectos">
       <BackgroundImage
         backgroundProyect
         image="https://i.imgur.com/fT6QwPm.jpg"
