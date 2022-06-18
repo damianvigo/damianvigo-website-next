@@ -4,12 +4,15 @@ import { useState } from 'react';
 import { useRouter } from 'next/router';
 
 // Utils
+import TextAnimated from '../utils/TextAnimated';
+import TextAnimatedModule from '../styles/TextAnimated.module.css';
 import HamburgerButton from '../utils/HamburgerButton';
 
 // Components
 import Nav from './Nav';
 
 const Header = ({ theme }) => {
+  TextAnimated();
   const [isActive, setIsActive] = useState(false);
 
   const router = useRouter();
@@ -23,7 +26,13 @@ const Header = ({ theme }) => {
       <section className="container-flex">
         <div>
           <Link href="/">
-            <a>DVDEV</a>
+            <a
+              style={{ color: 'white' }}
+              id="dvdev"
+              className={TextAnimatedModule.dvdev}
+            >
+              DVDEV
+            </a>
           </Link>
         </div>
         <Nav theme={theme} isActive={isActive} setIsActive={setIsActive} />

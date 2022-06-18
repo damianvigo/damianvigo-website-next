@@ -1,0 +1,18 @@
+.dvdev {
+    display: flex;
+    overflow: hidden;
+}
+
+.dvdev > div {
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    transition: .3s ease all;
+}
+
+.secondLine {
+    position: absolute;
+    top: 23px;
+}
+
+

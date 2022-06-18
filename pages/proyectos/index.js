@@ -10,7 +10,6 @@ import Proyect from '../../models/Proyect';
 import Layout from '../../components/layouts/Layout';
 import BackgroundImage from '../../components/BackgroundImage';
 import SvgLoader from '../../assets/icon/elements/SvgLoader';
-import Head from 'next/head';
 
 const Proyectos = ({ proyects }) => {
   const [loading, setLoading] = useState(true);
@@ -125,9 +124,8 @@ const ArticleProyectStyled = styled.article`
   max-width: 300px;
   min-width: 200px;
   margin: 2rem auto;
-  border: 5px solid
-    ${(props) =>
-      props.theme === 'dark' ? 'var(--white-color)' : 'var(--first-color)'};
+  border: 4px solid
+    ${(props) => (props.theme === 'dark' ? '#a1b5d8' : 'var(--first-color)')};
   border-radius: 0.5rem;
   text-align: left;
   background-color: var(--card-color);

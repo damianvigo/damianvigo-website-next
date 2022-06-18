@@ -42,7 +42,7 @@ const Footer = () => {
       <ContainerSvgNextFooter theme={theme}>
         <small>powered by</small>
         <Link href="https://nextjs.org">
-          <a target="_blank" rel="noreferrer ">
+          <a title="next.js" target="_blank" rel="noreferrer ">
             <SvgNext />
           </a>
         </Link>

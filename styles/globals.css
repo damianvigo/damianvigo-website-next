@@ -38,6 +38,8 @@
 --card-shadow-light: 3px 8px 10px rgba(255, 255, 255, 0.20);
 }
 
+
+
 /* Reset */
 html {
   box-sizing: border-box;
@@ -196,6 +198,11 @@ h6::selection {
 
 .text-right {
   text-align: right;
+}
+
+/* text animation */
+div.animation {
+  transform: translateY(-23px)
 }
 
 /* 

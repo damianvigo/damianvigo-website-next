@@ -14,7 +14,7 @@ import Footer from '../Footer';
 import useNetworkStatus from '../../hooks/useNetworkStatus';
 import NetworkStatus from '../NetworkStatus';
 
-const Layout = ({ children, title }) => {
+const Layout = ({ children, title, description }) => {
   const { theme } = useContext(ThemeContext);
   /*   console.log(theme); */
   const { toTop, scrollTop, setScrollTop } = useScrollTop();
@@ -28,6 +28,7 @@ const Layout = ({ children, title }) => {
     <>
       <Head>
         <title>{title}</title>
+        <meta description={description} />
       </Head>
       {isOnline && (
         <NetworkStatus
