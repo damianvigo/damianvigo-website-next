@@ -1,19 +1,20 @@
 import styled from 'styled-components';
 // Components
 import Link from 'next/link';
+import Image from 'next/image';
 import BackgroundImage from '../../components/BackgroundImage';
 import Layout from '../../components/layouts/Layout';
-import SvgCss from '../../assets/icon/elements/SvgCss';
 // Context
 import ThemeContext from '../../context/ThemeContext';
 import { useContext } from 'react';
 // DB
 import conectarDB from '../../lib/dbConnect';
-import PostDeveloper from '../../models/PostDeveloper';
+import Posts from '../../models/Posts';
 
-const Blog = ({ postsDeveloper }) => {
-  console.log(postsDeveloper);
+const Blog = ({ posts }) => {
+  console.log(posts);
   const { theme } = useContext(ThemeContext);
+
   return (
     <Layout title="Blog" theme={theme}>
       <div>
@@ -24,66 +25,88 @@ const Blog = ({ postsDeveloper }) => {
         />
         <SectionStyledContainer className="section full-lg-screen container-1200px">
           <h2>Desarrollo</h2>
-          <ArticleStyled>
-            <Link href={`/blog/${postsDeveloper[0].slug}`}>
-              <LinkStyled>
-                <FigureStyled>
-                  <SvgCss />
-                  <FigCaptionStyled>
-                    <span>{postsDeveloper[0].postDeveloper}</span>
-                    <time>6/19/2022</time>
-                  </FigCaptionStyled>
-                </FigureStyled>
-              </LinkStyled>
-            </Link>
-            <hr />
-          </ArticleStyled>
+          {posts.length > 0 &&
+            posts.map(
+              (post) =>
+                post.category !== 'personal' && (
+                  <ArticleStyled key={post._id}>
+                    <Link href={`/blog/${post.slug}`}>
+                      <LinkStyled>
+                        <FigureStyled>
+                          <Image
+                            src={post.img}
+                            width={40}
+                            height={40}
+                            alt="icono responsivo"
+                          />
+                          <FigCaptionStyled>
+                            <span>{post.title}</span>
+                            <time>{post.createdAt}</time>
+                          </FigCaptionStyled>
+                        </FigureStyled>
+                      </LinkStyled>
+                    </Link>
+                    <hr />
+                  </ArticleStyled>
+                )
+            )}
           <h2>Personal</h2>
-          <ArticleStyled>
-            <Link href="">
-              <LinkStyled>
-                <FigureStyled>
-                  <SvgCss />
-                  <FigCaptionStyled>
-                    <span>La Magia del ayuno</span>
-                    <time>6/19/2022</time>
-                  </FigCaptionStyled>
-                </FigureStyled>
-              </LinkStyled>
-            </Link>
-            <hr />
-          </ArticleStyled>
+          {posts.length > 0 &&
+            posts.map(
+              (post) =>
+                post.category !== 'developer' && (
+                  <ArticleStyled key={post._id}>
+                    <Link href={`/blog/${post.slug}`}>
+                      <LinkStyled>
+                        <FigureStyled>
+                          <Image
+                            src={post.img}
+                            width={40}
+                            height={40}
+                            alt="icono responsivo"
+                          />
+                          <FigCaptionStyled>
+                            <span>{post.title}</span>
+                            <time>{post.createdAt}</time>
+                          </FigCaptionStyled>
+                        </FigureStyled>
+                      </LinkStyled>
+                    </Link>
+                    <hr />
+                  </ArticleStyled>
+                )
+            )}
         </SectionStyledContainer>
       </div>
     </Layout>
   );
 };
 
-export default Blog;
-
 export async function getServerSideProps() {
   try {
     await conectarDB();
 
-    const res = await PostDeveloper.find({});
-    console.log(res);
+    const res = await Posts.find({});
 
-    const postsDeveloper = res.map((doc) => {
-      const postDeveloper = doc.toObject();
-      postDeveloper._id = `${postDeveloper._id}`;
-      return postDeveloper;
+    const posts = res.map((doc) => {
+      const post = doc.toObject();
+      post._id = `${post._id}`;
+      post.createdAt = new Date(post.createdAt).toLocaleDateString();
+      return post;
     });
 
-    //  console.log(res);
-
     return {
-      props: { postsDeveloper: postsDeveloper },
+      props: {
+        posts: posts,
+      },
     };
   } catch (error) {
     console.log(error);
     return { props: { success: false, error: 'Error' } };
   }
 }
+
+export default Blog;
 
 const SectionStyledContainer = styled.section`
   h2 {
