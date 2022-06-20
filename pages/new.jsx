@@ -1,8 +1,9 @@
-import Link from 'next/link';
 import { useState } from 'react';
-import Layout from '../components/layouts/Layout';
 import { helpHttp } from '../helpers/helpHttp';
-
+// Components
+import Link from 'next/link';
+import Layout from '../components/layouts/Layout';
+// Styles
 import formStyledModule from '../styles/Form.module.css';
 
 const initialState = {

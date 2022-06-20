@@ -1,6 +1,6 @@
 import styled from 'styled-components';
 import Link from 'next/link';
-import { useState } from 'react';
+import { useRef, useState } from 'react';
 import { useRouter } from 'next/router';
 
 // Utils
@@ -12,7 +12,8 @@ import HamburgerButton from '../utils/HamburgerButton';
 import Nav from './Nav';
 
 const Header = ({ theme }) => {
-  TextAnimated();
+  const txt = useRef();
+  TextAnimated(txt);
   const [isActive, setIsActive] = useState(false);
 
   const router = useRouter();
@@ -21,16 +22,18 @@ const Header = ({ theme }) => {
   return (
     <HeaderStyled
       theme={theme}
-      position={`${pathname !== '/' ? 'fixed' : 'sticky'}`}
+      position={`${
+        pathname === '/' || pathname === '/blog/[slug]'
+          ? 'sticky'
+          : pathname === '/contacto'
+          ? 'static'
+          : 'fixed'
+      }`}
     >
       <section className="container-flex">
         <div>
           <Link href="/">
-            <a
-              style={{ color: 'white' }}
-              id="dvdev"
-              className={TextAnimatedModule.dvdev}
-            >
+            <a id="dvdev" ref={txt} className={TextAnimatedModule.dvdev}>
               DVDEV
             </a>
           </Link>

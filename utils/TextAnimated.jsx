@@ -1,19 +1,22 @@
 import { useEffect } from 'react';
 import TextAnimatedModule from '../styles/TextAnimated.module.css';
 
-const TextAnimated = () => {
+const TextAnimated = (txt) => {
+  // console.log(txt);
   useEffect(() => {
-    const txt = document.getElementById('dvdev');
-    console.log(txt);
-    const letters = txt.innerText.split('');
-    console.log(letters);
+    if (window.innerWidth < 768) return;
+    const ref = txt.current;
+    /* const txt = document.getElementById('dvdev'); */
+    // console.log(txt);
+    const letters = txt.current.innerText.split('');
+    // console.log(letters);
 
-    txt.innerText = '';
+    txt.current.innerText = '';
 
     letters.forEach((letter) => {
       // let caracter = letter === ' ' ? '&nbsp;' : letter;
 
-      txt.innerHTML += `
+      txt.current.innerHTML += `
             <div>
                 <span>${letter}</span>
                 <span class=${TextAnimatedModule.secondLine} >${letter}</span>
@@ -25,8 +28,8 @@ const TextAnimated = () => {
       let count = 0;
 
       const interval = setInterval(() => {
-        if (count < txt.children.length) {
-          txt.children[count].classList.add('animation');
+        if (count < txt.current.children.length) {
+          txt.current.children[count].classList.add('animation');
           count += 1;
         } else {
           clearInterval(interval);
@@ -34,14 +37,14 @@ const TextAnimated = () => {
       }, 30);
     };
 
-    txt.addEventListener('mouseenter', mouseEnter);
+    txt.current.addEventListener('mouseenter', mouseEnter);
 
     const mouseLeave = () => {
       let count = 0;
 
       const interval = setInterval(() => {
-        if (count < txt.children.length) {
-          txt.children[count].classList.remove('animation');
+        if (count < txt.current.children.length) {
+          txt.current.children[count].classList.remove('animation');
           count += 1;
         } else {
           clearInterval(interval);
@@ -49,15 +52,15 @@ const TextAnimated = () => {
       }, 30);
     };
 
-    txt.addEventListener('mouseleave', mouseLeave);
+    txt.current.addEventListener('mouseleave', mouseLeave);
 
     return () => {
-      txt.removeEventListener('mouseenter', mouseEnter);
-      txt.removeEventListener('mouseleave', mouseLeave);
+      ref.removeEventListener('mouseenter', mouseEnter);
+      ref.removeEventListener('mouseleave', mouseLeave);
     };
 
     // console.log(txt.children.length);
-  }, []);
+  }, [txt]);
 };
 
 export default TextAnimated;
