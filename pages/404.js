@@ -1,7 +1,7 @@
 import Layout from '../components/layouts/Layout';
 import customStyles404 from '../styles/404Custom.module.css';
 
-const custom404 = () => {
+const Custom404 = ({ error = 'Página no encontrada' }) => {
   return (
     <Layout>
       <div className={customStyles404.div404}></div>
@@ -66,9 +66,10 @@ const custom404 = () => {
         </defs>
       </svg>
 
-      <h2 className={customStyles404.h2404}>Página no encontrada</h2>
+      {/* <h2 className={customStyles404.h2404}>Página no encontrada</h2> */}
+      <h2 className={customStyles404.h2404}>{error}</h2>
     </Layout>
   );
 };
 
-export default custom404;
+export default Custom404;

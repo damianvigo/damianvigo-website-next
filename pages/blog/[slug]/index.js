@@ -1,6 +1,6 @@
 import styled from 'styled-components';
 // Components
-/* import Link from 'next/link'; */
+import Link from 'next/link';
 import Layout from '../../../components/layouts/Layout';
 import MarkdownView from 'react-showdown';
 // DB
@@ -10,35 +10,30 @@ import { useRouter } from 'next/router';
 // Context
 import { useContext, useState, useEffect } from 'react';
 import ThemeContext from '../../../context/ThemeContext';
+import Custom404 from '../../404';
 
-const BlogPost = ({ post }) => {
-  const { markdown } = post;
+const BlogPost = ({ post, success, error }) => {
+  console.log(post);
+  console.log(error);
   const router = useRouter();
   const { slug } = router.query;
 
   const { theme } = useContext(ThemeContext);
-  /* 
+
   if (!success) {
-    return (
-      <>
-        <div>{Error}</div>
-        <Link href="/">
-          <a>Home</a>
-        </Link>
-      </>
-    );
-  } */
+    return <Custom404 error={error} />;
+  }
+
+  const { markdown } = post;
 
   return (
-    <div>
-      <Layout>
-        <section className="section full-lg-screen">
-          <ArticleContainerText theme={theme} className="container-900px">
-            {post && <MarkdownView markdown={markdown} />}
-          </ArticleContainerText>
-        </section>
-      </Layout>
-    </div>
+    <Layout>
+      <section className="section full-lg-screen">
+        <ArticleContainerText theme={theme} className="container-900px">
+          {post && <MarkdownView markdown={markdown} />}
+        </ArticleContainerText>
+      </section>
+    </Layout>
   );
 };
 
@@ -49,16 +44,29 @@ export async function getServerSideProps({ params }) {
 
     const post = await Post.findOne({ slug: params.slug }).lean();
 
+    if (!post) {
+      return {
+        props: {
+          succes: false,
+          error: 'No existe este post 🙄',
+        },
+      };
+    }
+
     post._id = post._id.toString();
     post.createdAt = new Date(post.createdAt).toLocaleDateString();
 
     return {
       props: {
+        success: true,
         post: post,
       },
     };
   } catch (error) {
     console.log(error);
+    if (error.kind === 'ObjectId') {
+      return { props: { success: false, error: 'Id no válido' } };
+    }
     return { props: { success: false, error: 'Error' } };
   }
 }

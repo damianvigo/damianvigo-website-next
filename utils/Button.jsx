@@ -5,7 +5,17 @@ import { useState, useEffect } from 'react';
 import { useContext } from 'react';
 import ThemeContext from '../context/ThemeContext';
 
-const Button = ({ wsp, more, submit, moreDescription, talkToMe, error }) => {
+const Button = ({
+  wsp,
+  more,
+  submit,
+  moreDescription,
+  talkToMe,
+  error,
+  crud,
+  borrar,
+  eliminar,
+}) => {
   const [isSSR, setIsSSR] = useState(true);
 
   const { theme } = useContext(ThemeContext);
@@ -55,6 +65,13 @@ const Button = ({ wsp, more, submit, moreDescription, talkToMe, error }) => {
               <a>Volver... 😅</a>
             </div>
           </Link>
+        </ButtonWspStyled>
+      )}
+      {crud && (
+        <ButtonWspStyled onClick={eliminar} type={submit} theme={theme}>
+          <div>
+            <a>{borrar} 😐</a>
+          </div>
         </ButtonWspStyled>
       )}
     </>
