@@ -79,7 +79,7 @@ const Button = ({
 };
 
 const ButtonWspStyled = styled.button`
-  width: clamp(200px, 20vw, 300px);
+  width: clamp(200px, 20vw, 250px);
   border-radius: 0.5rem;
   padding: 0 !important;
   margin: 2rem auto;

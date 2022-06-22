@@ -16,6 +16,7 @@ const FormPost = ({ formEdit, formNewMovie = true }) => {
   const router = useRouter();
 
   const [form, setForm] = useState(initialForm);
+  const [loading, setLoading] = useState(false);
 
   useEffect(() => {
     if (!formNewMovie) {
@@ -34,6 +35,18 @@ const FormPost = ({ formEdit, formNewMovie = true }) => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
+
+    if (
+      !form.title ||
+      !form.markdown ||
+      !form.slug ||
+      !form.category ||
+      !form.img
+    ) {
+      alert('Datos incompletos');
+      return;
+    }
+
     if (formNewMovie) {
       postData(form);
     } else {

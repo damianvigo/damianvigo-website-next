@@ -10,10 +10,16 @@ import { useContext } from 'react';
 // DB
 import conectarDB from '../../lib/dbConnect';
 import Posts from '../../models/Posts';
+import SvgLoader from '../../assets/icon/elements/SvgLoader';
 
 const Blog = ({ posts }) => {
+  /*   const [loading, setLoading] = useState(false); */
   console.log(posts);
   const { theme } = useContext(ThemeContext);
+
+  if (!posts) {
+    return <SvgLoader />;
+  }
 
   return (
     <Layout title="Blog" theme={theme}>

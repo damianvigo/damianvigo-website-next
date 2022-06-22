@@ -1,11 +1,10 @@
 import { useRouter } from 'next/router';
 import { useEffect, useState } from 'react';
-import SvgLoader from '../../../assets/icon/elements/SvgLoader';
+import { helpHttp } from '../../../helpers/helpHttp';
+// Components
 import FormPost from '../../../components/FormPost';
 import Layout from '../../../components/layouts/Layout';
-import { helpHttp } from '../../../helpers/helpHttp';
 import Button from '../../../utils/Button';
-import Custom404 from '../../404';
 
 const Edit = () => {
   const [formEdit, setFormEdit] = useState({
@@ -24,7 +23,7 @@ const Edit = () => {
     fetch(`/api/post/${slug}`)
       .then((res) => (res.ok ? res.json() : Promise.reject(res)))
       .then((res) => {
-        /* console.log(res); */
+        console.log(res);
         const {
           data: { category, img, markdown, slug, title },
         } = res;
@@ -41,15 +40,22 @@ const Edit = () => {
   const deleteData = async (e) => {
     e.preventDefault();
     console.log('delete');
-    try {
-      const res = await helpHttp().del(`/api/post/${slug}`);
 
-      console.log(res);
-      /*    router.push('/blog'); */
-    } catch (error) {
-      console.log(error);
+    let isDelete = window.confirm('¿Eliminas el post dami?');
+
+    if (isDelete) {
+      try {
+        const res = await helpHttp().del(`/api/post/${slug}`);
+
+        console.log(res);
+        /*    router.push('/blog'); */
+      } catch (error) {
+        console.log(error);
+      }
+      router.push('/blog');
+    } else {
+      return;
     }
-    router.push('/blog');
   };
 
   return (

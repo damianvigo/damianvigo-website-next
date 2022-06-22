@@ -2,8 +2,6 @@ import styled from 'styled-components';
 // Components
 import Link from 'next/link';
 import Layout from '../../../components/layouts/Layout';
-import MarkdownView from 'react-showdown';
-// DB
 import conectarDB from '../../../lib/dbConnect';
 import Post from '../../../models/Posts';
 import { useRouter } from 'next/router';
@@ -11,8 +9,17 @@ import { useRouter } from 'next/router';
 import { useContext, useState, useEffect } from 'react';
 import ThemeContext from '../../../context/ThemeContext';
 import Custom404 from '../../404';
+import ReactMarkdown from 'react-markdown';
 
 const BlogPost = ({ post, success, error }) => {
+  const [loading, setLoading] = useState(false);
+
+  useEffect(() => {
+    if (!post) {
+      setLoading(!loading);
+    }
+  }, [post, loading]);
+
   console.log(post);
   console.log(error);
   const router = useRouter();
@@ -30,7 +37,9 @@ const BlogPost = ({ post, success, error }) => {
     <Layout>
       <section className="section full-lg-screen">
         <ArticleContainerText theme={theme} className="container-900px">
-          {post && <MarkdownView markdown={markdown} />}
+          <div>
+            <ReactMarkdown linkTarget="_blank">{post.markdown}</ReactMarkdown>
+          </div>
         </ArticleContainerText>
       </section>
     </Layout>
@@ -82,12 +91,34 @@ const ArticleContainerText = styled.article`
         theme === 'dark' ? 'var(--light-color)' : 'var(--text-color)'};
       text-decoration: underline;
     }
+    img {
+      display: block;
+      width: 100%;
+      max-width: 43.75rem;
+      margin-left: auto;
+      margin-right: auto;
+    }
   }
   div > h1 {
     text-align: center;
     line-height: 3.5rem;
-    @media screen and (min-width: 480px) {
+    font-size: var(--step-4);
+    @media screen and (min-width: 36em) {
       text-align: left;
+    }
+  }
+  pre {
+    width: 100%;
+    max-width: 43.75rem;
+    margin-left: auto;
+    margin-right: auto;
+    background-color: rgba(0, 0, 0, 0.9);
+    padding: 1.5rem;
+    color: var(--light-color);
+    white-space: pre-wrap;
+    code {
+      font-family: 'consolas';
+      font-size: var(--step--2);
     }
   }
 `;
