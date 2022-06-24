@@ -38,13 +38,15 @@ const BlogPost = ({ post, success, error }) => {
       <section className="section full-lg-screen">
         <ArticleContainerText theme={theme} className="container-900px">
           <div>
-            <ReactMarkdown linkTarget="_blank">{post.markdown}</ReactMarkdown>
+            <ReactMarkdown linkTarget="_blank">{markdown}</ReactMarkdown>
           </div>
         </ArticleContainerText>
       </section>
     </Layout>
   );
 };
+
+export default BlogPost;
 
 export async function getServerSideProps({ params }) {
   console.log(params);
@@ -80,12 +82,19 @@ export async function getServerSideProps({ params }) {
   }
 }
 
-export default BlogPost;
-
 const ArticleContainerText = styled.article`
+  p {
+    margin-top: 2rem;
+    margin-bottom: 2rem;
+  }
   div > * {
-    line-height: 2rem;
-    margin-top: 3rem;
+    line-height: 2.2rem;
+    /* padding-top: 2.5rem; */
+    /*   margin-left: 5rem;
+    margin-right: 5rem; */
+    p {
+      margin: 2rem;
+    }
     a {
       color: ${({ theme }) =>
         theme === 'dark' ? 'var(--light-color)' : 'var(--text-color)'};
@@ -97,12 +106,27 @@ const ArticleContainerText = styled.article`
       max-width: 43.75rem;
       margin-left: auto;
       margin-right: auto;
+      margin-top: 3.5rem;
+      margin-bottom: 3.5rem;
     }
   }
-  div > h1 {
+  @media screen and (min-width: 48em) {
+    div > * {
+      margin-left: 5rem;
+      margin-right: 5rem;
+    }
+  }
+  div > h1,
+  h2 {
+    ${({ theme }) =>
+      theme === 'dark' ? 'var(--light-color)' : 'var(--title-color)'};
     text-align: center;
     line-height: 3.5rem;
     font-size: var(--step-4);
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 4rem;
+    margin-bottom: 4rem;
     @media screen and (min-width: 36em) {
       text-align: left;
     }
@@ -116,6 +140,7 @@ const ArticleContainerText = styled.article`
     padding: 1.5rem;
     color: var(--light-color);
     white-space: pre-wrap;
+    margin-bottom: 3rem;
     code {
       font-family: 'consolas';
       font-size: var(--step--2);

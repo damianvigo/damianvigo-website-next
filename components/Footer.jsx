@@ -28,13 +28,6 @@ const Footer = () => {
             </a>
           </Link>
         </div>
-        <div>
-          <Link href="https://www.facebook.com/ddamianvigo">
-            <a title="facebook" target="_blank" rel="noreferrer">
-              <SvgFacebook />
-            </a>
-          </Link>
-        </div>
       </SectionFooterStyled>
       <div>
         <p>Damián Vigo © {new Date().getFullYear()}</p>
@@ -98,9 +91,6 @@ const SectionFooterStyled = styled.aside`
     a {
       display: inline-block;
     }
-    &:hover {
-      animation: icon 1s ease-out infinite both;
-    }
     &:nth-child(2) {
       background-color: ${({ theme }) =>
         theme === 'dark' ? 'var(--white-color)' : ''};
@@ -109,6 +99,11 @@ const SectionFooterStyled = styled.aside`
     &:nth-child(1) {
       fill: ${({ theme }) =>
         theme === 'dark' ? 'var(--white-color)' : '#98CA3C'};
+    }
+    @media screen and (min-width: 48em) {
+      &:hover {
+        animation: icon 1s ease-out infinite both;
+      }
     }
   }
 

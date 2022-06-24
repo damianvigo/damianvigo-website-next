@@ -88,7 +88,9 @@ const Blog = ({ posts }) => {
   );
 };
 
-export async function getServerSideProps() {
+export default Blog;
+
+export async function getStaticProps() {
   try {
     await conectarDB();
 
@@ -111,8 +113,6 @@ export async function getServerSideProps() {
     return { props: { success: false, error: 'Error' } };
   }
 }
-
-export default Blog;
 
 const SectionStyledContainer = styled.section`
   h2 {
