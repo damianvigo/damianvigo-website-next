@@ -24,7 +24,11 @@ const Proyectos = ({ proyects }) => {
   }, [proyects]); */
 
   return (
-    <Layout theme={theme} title="Proyectos">
+    <Layout
+      theme={theme}
+      title="Proyectos"
+      description="Aquí encontrarás algunos de mis proyectos realizados con javascript 💛"
+    >
       <BackgroundImage
         backgroundProyect
         image="https://i.imgur.com/fT6QwPm.jpg"

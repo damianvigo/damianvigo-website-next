@@ -84,7 +84,6 @@ const CiteBackgroundImageStyled = styled.article`
     backgroundProyect ? '50% 20%' : '50% 90%'};
   background-size: cover;
   background-attachment: scroll;
-  height: 50vh;
   /*   border-top: thick solid
     ${({ theme }) =>
     theme === 'dark' ? 'var(--second-color)' : 'var(--black-alpha-color)'};

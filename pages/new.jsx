@@ -40,7 +40,7 @@ const New = () => {
         headers: { 'content-type': 'application/json' },
       };
 
-      const res = await helpHttp().post('/api/proyect', options);
+      const res = await helpHttp().post('/api/proyects', options);
 
       console.log(res);
 

@@ -20,7 +20,7 @@ const Edit = () => {
   const { slug } = router.query;
 
   useEffect(() => {
-    fetch(`/api/post/${slug}`)
+    fetch(`/api/posts/${slug}`)
       .then((res) => (res.ok ? res.json() : Promise.reject(res)))
       .then((res) => {
         console.log(res);
@@ -45,7 +45,7 @@ const Edit = () => {
 
     if (isDelete) {
       try {
-        const res = await helpHttp().del(`/api/post/${slug}`);
+        const res = await helpHttp().del(`/api/posts/${slug}`);
 
         console.log(res);
         /*    router.push('/blog'); */

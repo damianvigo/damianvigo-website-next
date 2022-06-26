@@ -8,7 +8,10 @@ export default function Index() {
   const { theme } = useContext(ThemeContext);
   return (
     <>
-      <Layout title="Bienvenido" description="hello">
+      <Layout
+        title="Bienvenido"
+        description="Hola bienvenido/a a mi sitio web, soy Damian Vigo. Programador web"
+      >
         <Home theme={theme} />
       </Layout>
     </>

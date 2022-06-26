@@ -22,10 +22,14 @@ const Blog = ({ posts }) => {
   }
 
   return (
-    <Layout title="Blog" theme={theme}>
+    <Layout
+      title="Blog"
+      theme={theme}
+      description="En esta sección encontrarás notas sobre mis intereses personales, tales como filosofía de vida, estoicismo, minimalismo y todo lo que considere contenido de valor 🧠💪"
+    >
       <div>
         <BackgroundImage
-          image="https://i.imgur.com/SpUDEmn.jpg"
+          image="https://i.imgur.com/wYrN8N3.jpg"
           backgroundImageBlog
           blog="Blog"
         />
@@ -37,13 +41,13 @@ const Blog = ({ posts }) => {
                 post.category !== 'personal' && (
                   <ArticleStyled key={post._id}>
                     <Link href={`/blog/${post.slug}`}>
-                      <LinkStyled>
+                      <LinkStyled theme={theme}>
                         <FigureStyled>
                           <Image
                             src={post.img}
                             width={40}
                             height={40}
-                            alt="icono responsivo"
+                            alt={post.title}
                           />
                           <FigCaptionStyled>
                             <span>{post.title}</span>
@@ -63,13 +67,13 @@ const Blog = ({ posts }) => {
                 post.category !== 'developer' && (
                   <ArticleStyled key={post._id}>
                     <Link href={`/blog/${post.slug}`}>
-                      <LinkStyled>
+                      <LinkStyled theme={theme}>
                         <FigureStyled>
                           <Image
                             src={post.img}
                             width={40}
                             height={40}
-                            alt="icono responsivo"
+                            alt={post.title}
                           />
                           <FigCaptionStyled>
                             <span>{post.title}</span>
@@ -143,6 +147,8 @@ const ArticleStyled = styled.article`
 const LinkStyled = styled.a`
   display: flex;
   align-items: center;
+  color: ${({ theme }) =>
+    theme === 'dark' ? 'var(--light-color)' : 'var(--title-color)'};
 `;
 
 const FigureStyled = styled.figure`

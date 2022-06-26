@@ -29,6 +29,11 @@ const Layout = ({ children, title, description }) => {
       <Head>
         <title>{title}</title>
         <meta description={description} />
+        <meta
+          name="twitter:description"
+          property="og:description"
+          content={description}
+        />
       </Head>
       {isOnline && (
         <NetworkStatus

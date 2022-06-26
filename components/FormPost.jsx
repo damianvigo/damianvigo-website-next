@@ -70,7 +70,7 @@ const FormPost = ({ formEdit, formNewMovie = true }) => {
         headers: { 'content-type': 'application/json' },
       };
 
-      const res = await helpHttp().put(`/api/post/${form.slug}`, options);
+      const res = await helpHttp().put(`/api/posts/${form.slug}`, options);
 
       console.log(res);
       router.push('/blog');
@@ -88,7 +88,7 @@ const FormPost = ({ formEdit, formNewMovie = true }) => {
         headers: { 'content-type': 'application/json' },
       };
 
-      const res = await helpHttp().post('/api/post', options);
+      const res = await helpHttp().post('/api/posts', options);
 
       console.log(res);
     } catch (error) {

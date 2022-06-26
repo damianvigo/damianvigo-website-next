@@ -118,10 +118,10 @@ const ArticleContainerText = styled.article`
   }
   div > h1,
   h2 {
-    ${({ theme }) =>
+    color: ${({ theme }) =>
       theme === 'dark' ? 'var(--light-color)' : 'var(--title-color)'};
     text-align: center;
-    line-height: 3.5rem;
+    line-height: 3rem;
     font-size: var(--step-4);
     margin-left: auto;
     margin-right: auto;
@@ -129,6 +129,7 @@ const ArticleContainerText = styled.article`
     margin-bottom: 4rem;
     @media screen and (min-width: 36em) {
       text-align: left;
+      line-height: 3.7rem;
     }
   }
   pre {

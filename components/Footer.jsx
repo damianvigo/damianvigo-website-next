@@ -4,7 +4,6 @@ import ThemeContext from '../context/ThemeContext';
 import Link from 'next/link';
 
 // Icons
-import SvgFacebook from '../assets/icon/elements/SvgFacebook';
 import SvgGitHub from '../assets/icon/elements/SvgGitHub';
 import SvgNext from '../assets/icon/elements/SvgNext';
 import SvgPlatzi from '../assets/icon/elements/SvgPlatzi';
