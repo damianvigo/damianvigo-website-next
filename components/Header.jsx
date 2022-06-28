@@ -64,7 +64,6 @@ const HeaderStyled = styled.header`
   transition: background-color 0.3s ease-in;
   background-color: ${({ theme }) =>
     theme === 'dark' ? 'var(--first-color)' : 'var(--second-color)'};
-
   .container-flex {
     display: flex;
     justify-content: space-around;

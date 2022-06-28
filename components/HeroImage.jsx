@@ -1,5 +1,6 @@
 import styled from 'styled-components';
 import { useRouter } from 'next/router';
+import { AnimationOnScroll } from 'react-animation-on-scroll';
 // Components
 import Image from 'next/image';
 import Form from './Form';
@@ -14,17 +15,25 @@ const HeroImage = ({ backgroundImage, contactTitle }) => {
         <HeroImageStyled backgroundImage={backgroundImage}>
           <HeroImageOpacity>
             <HeroImageBox>
-              <HeroImageTitle contact="home">
-                Hola, soy Damián Vigo
-              </HeroImageTitle>
-              <HeroImageSubtitle>Desarrollador Web</HeroImageSubtitle>
-              <Image
-                width={'200'}
-                height={'200'}
-                src="https://i.imgur.com/o3jywgM.jpg"
-                title="Selfie Damián Vigo"
-                alt="Imagen retrato de Damián Vigo"
-              />
+              <AnimationOnScroll animateIn="animate__zoomInLeft" duration={1}>
+                <HeroImageTitle contact="home">
+                  Hola, soy Damián Vigo
+                </HeroImageTitle>
+              </AnimationOnScroll>
+
+              <AnimationOnScroll animateIn="animate__zoomInRight" duration={2}>
+                <HeroImageSubtitle>Desarrollador Web</HeroImageSubtitle>
+              </AnimationOnScroll>
+
+              <AnimationOnScroll animateIn="animate__zoomInUp" duration={4}>
+                <Image
+                  width="200"
+                  height="200"
+                  src="https://i.imgur.com/o3jywgM.jpg"
+                  title="Selfie Damián Vigo"
+                  alt="Imagen retrato de Damián Vigo"
+                />
+              </AnimationOnScroll>
             </HeroImageBox>
           </HeroImageOpacity>
         </HeroImageStyled>
@@ -33,7 +42,15 @@ const HeroImage = ({ backgroundImage, contactTitle }) => {
         <HeroImageStyled backgroundImage="https://i.imgur.com/aXb9Pux.jpg">
           <HeroImageOpacity>
             <HeroImageBox form="true">
-              <HeroImageTitle contact="contact">{contactTitle}</HeroImageTitle>
+              <AnimationOnScroll
+                animateIn="animate__fadeInDown"
+                duration={2}
+                animateOnce
+              >
+                <HeroImageTitle contact="contact">
+                  {contactTitle}
+                </HeroImageTitle>
+              </AnimationOnScroll>
               <Form />
             </HeroImageBox>
           </HeroImageOpacity>
@@ -46,6 +63,7 @@ const HeroImage = ({ backgroundImage, contactTitle }) => {
 export default HeroImage;
 
 const HeroImageStyled = styled.article`
+  overflow-x: hidden;
   background-image: url(${(props) => props.backgroundImage});
   background-repeat: no-repeat;
   background-size: cover;
@@ -63,6 +81,7 @@ const HeroImageOpacity = styled.aside`
   padding-bottom: ${(props) => props.contactPaddingBottom};
   text-align: center;
   background-color: var(--black-alpha-color);
+  /*   overflow-y: hidden; */
 
   /*   @media screen and (min-width: 768px) {
     align-items: center;

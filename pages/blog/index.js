@@ -11,21 +11,21 @@ import { useContext } from 'react';
 import conectarDB from '../../lib/dbConnect';
 import Posts from '../../models/Posts';
 import SvgLoader from '../../assets/icon/elements/SvgLoader';
+import Message from '../../components/Message';
+// Hooks
+import useNextProps from '../../hooks/useNextProps';
+// Utils
+import { AnimationOnScroll } from 'react-animation-on-scroll';
 
 const Blog = ({ posts }) => {
-  /*   const [loading, setLoading] = useState(false); */
-  console.log(posts);
   const { theme } = useContext(ThemeContext);
-
-  if (!posts) {
-    return <SvgLoader />;
-  }
+  const { loading, db } = useNextProps(posts);
 
   return (
     <Layout
       title="Blog"
       theme={theme}
-      description="En esta sección encontrarás notas sobre mis intereses personales, tales como filosofía de vida, estoicismo, minimalismo y todo lo que considere contenido de valor 🧠💪"
+      description="En esta sección encontrarás artículos sobre mis intereses personales, tales como filosofía de vida, estoicismo, minimalismo y todo lo que considere contenido de valor 🧠💪"
     >
       <div>
         <BackgroundImage
@@ -34,8 +34,11 @@ const Blog = ({ posts }) => {
           blog="Blog"
         />
         <SectionStyledContainer className="section full-lg-screen container-1200px">
-          <h2>Desarrollo</h2>
-          {posts.length > 0 &&
+          <AnimationOnScroll animateIn="animate__bounceInLeft" duration={2}>
+            <h2>Desarrollo</h2>
+          </AnimationOnScroll>
+          {!loading && <SvgLoader gridBlog="span 2" />}
+          {db ? (
             posts.map(
               (post) =>
                 post.category !== 'personal' && (
@@ -59,9 +62,19 @@ const Blog = ({ posts }) => {
                     <hr />
                   </ArticleStyled>
                 )
-            )}
-          <h2>Personal</h2>
-          {posts.length > 0 &&
+            )
+          ) : (
+            <Message
+              msg="Hubo un error al cargar los posts de la categoría de desarrollo 🤔
+              Intenta recargar la página"
+              bgColor="var(--first-color)"
+            />
+          )}
+          <AnimationOnScroll animateIn="animate__bounceInRight" duration={2}>
+            <h2>Personal</h2>
+          </AnimationOnScroll>
+          {!loading && <SvgLoader gridBlog="span 2" />}
+          {db ? (
             posts.map(
               (post) =>
                 post.category !== 'developer' && (
@@ -85,7 +98,14 @@ const Blog = ({ posts }) => {
                     <hr />
                   </ArticleStyled>
                 )
-            )}
+            )
+          ) : (
+            <Message
+              msg="Hubo un error al cargar los posts de la categoría personal 🤔
+              Intenta recargar la página"
+              bgColor="var(--first-color)"
+            />
+          )}
         </SectionStyledContainer>
       </div>
     </Layout>
@@ -99,6 +119,8 @@ export async function getStaticProps() {
     await conectarDB();
 
     const res = await Posts.find({});
+
+    console.log(res);
 
     const posts = res.map((doc) => {
       const post = doc.toObject();
@@ -119,6 +141,7 @@ export async function getStaticProps() {
 }
 
 const SectionStyledContainer = styled.section`
+  overflow-x: hidden;
   h2 {
     text-align: center;
   }
@@ -127,7 +150,7 @@ const SectionStyledContainer = styled.section`
     grid-template-columns: repeat(2, 45%);
     gap: 1rem;
     justify-content: center;
-    h2 {
+    div {
       grid-column: 1 / 3;
     }
   }
@@ -180,5 +203,6 @@ const FigCaptionStyled = styled.figcaption`
   @media screen and (min-width: 768px) {
     flex-direction: row;
     justify-content: space-between;
+    align-content: space-evenly;
   }
 `;

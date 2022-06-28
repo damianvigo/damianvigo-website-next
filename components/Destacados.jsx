@@ -1,6 +1,7 @@
 import styled from 'styled-components';
 import Link from 'next/link';
 import { useContext } from 'react';
+import { AnimationOnScroll } from 'react-animation-on-scroll';
 import ThemeContext from '../context/ThemeContext';
 
 // Components
@@ -11,73 +12,77 @@ const Destacados = () => {
   const { theme } = useContext(ThemeContext);
   return (
     <DestacadosSectionStyled theme={theme} className="section">
-      <DestacadosStyled theme={theme}>Destacados</DestacadosStyled>
-      <SeccionDestacada>
-        <ArticleDestacado theme={theme}>
-          <h3>Portafolio de Arte</h3>
-          <p>
-            Diseño y maquetación <i>responsive</i>. Desarrollado con{' '}
-            <i>React JS</i>.
-          </p>
-          <br />
-          <div>
+      <AnimationOnScroll animateIn="animate__fadeInDown" duration={2}>
+        <DestacadosStyled theme={theme}>Destacados</DestacadosStyled>
+      </AnimationOnScroll>
+      <AnimationOnScroll animateIn="animate__bounceIn" duration={3}>
+        <SeccionDestacada>
+          <ArticleDestacado theme={theme}>
+            <h3>Portafolio de Arte</h3>
+            <p>
+              Diseño y maquetación <i>responsive</i>. Desarrollado con{' '}
+              <i>React JS</i>.
+            </p>
+            <br />
+            <div>
+              <a
+                href="https://github.com/damianvigo/arte-webapp"
+                target="_blank"
+                rel="noreferrer"
+              >
+                Código del proyecto
+              </a>
+              <small>2022</small>
+            </div>
+          </ArticleDestacado>
+          <ArticleDestacado theme={theme}>
             <a
-              href="https://github.com/damianvigo/arte-webapp"
+              href="https://adrianastigliano.art/"
               target="_blank"
               rel="noreferrer"
             >
-              Código del proyecto
+              <Image
+                src="https://i.imgur.com/0oX7ktW.png"
+                width={1920}
+                height={937}
+                alt="Portafolio de arte de Adriana Stigliano"
+                title="Portfolio Arte"
+              />
             </a>
-            <small>2022</small>
-          </div>
-        </ArticleDestacado>
-        <ArticleDestacado theme={theme}>
-          <a
-            href="https://adrianastigliano.art/"
-            target="_blank"
-            rel="noreferrer"
-          >
-            <Image
-              src="https://i.imgur.com/0oX7ktW.png"
-              width={1920}
-              height={937}
-              alt="Portafolio de arte de Adriana Stigliano"
-              title="Portfolio Arte"
-            />
-          </a>
-        </ArticleDestacado>
-        <ArticleDestacado theme={theme}>
-          <h3>Portafolio Desarrollador</h3>
-          <p>
-            Maquetación <i>responsive</i> sin <i>frameworks</i>.
-          </p>
-          <div>
+          </ArticleDestacado>
+          <ArticleDestacado theme={theme}>
+            <h3>Portafolio Desarrollador</h3>
+            <p>
+              Maquetación <i>responsive</i> sin <i>frameworks</i>.
+            </p>
+            <div>
+              <a
+                href="https://github.com/damianvigo/portfolio-cv"
+                target="_blank"
+                rel="noreferrer"
+              >
+                Código del proyecto
+              </a>
+              <small>2021</small>
+            </div>
+          </ArticleDestacado>
+          <ArticleDestacado theme={theme}>
             <a
-              href="https://github.com/damianvigo/portfolio-cv"
+              href="https://portfolio-dv.netlify.app/"
               target="_blank"
               rel="noreferrer"
             >
-              Código del proyecto
+              <Image
+                src="https://i.imgur.com/V6uS093.jpg"
+                width={1605}
+                height={880}
+                alt="Portafolio CV"
+                title="Porfolio DVDEV"
+              />
             </a>
-            <small>2021</small>
-          </div>
-        </ArticleDestacado>
-        <ArticleDestacado theme={theme}>
-          <a
-            href="https://portfolio-dv.netlify.app/"
-            target="_blank"
-            rel="noreferrer"
-          >
-            <Image
-              src="https://i.imgur.com/V6uS093.jpg"
-              width={1605}
-              height={880}
-              alt="Portafolio CV"
-              title="Porfolio DVDEV"
-            />
-          </a>
-        </ArticleDestacado>
-      </SeccionDestacada>
+          </ArticleDestacado>
+        </SeccionDestacada>
+      </AnimationOnScroll>
       <Button more moreDescription={'Ver más'} />
     </DestacadosSectionStyled>
   );

@@ -1,6 +1,4 @@
-import Head from 'next/head';
 import styled from 'styled-components';
-
 // Icons
 import SvgBootstrap from '../assets/icon/elements/SvgBootstrap';
 import SvgCss from '../assets/icon/elements/SvgCss';
@@ -14,10 +12,9 @@ import SvgNode from '../assets/icon/elements/SvgNode';
 import SvgReact from '../assets/icon/elements/SvgReact';
 import SvgSass from '../assets/icon/elements/SvgSass';
 import SvgVSC from '../assets/icon/elements/SvgVSC';
-
 // Utils
 import Button from '../utils/Button';
-
+import { AnimationOnScroll } from 'react-animation-on-scroll';
 // Components
 import BackgroundImage from './BackgroundImage';
 import Destacados from './Destacados';
@@ -35,20 +32,22 @@ const Home = ({ theme }) => {
         <ArticlePerfil className="container-900px">
           <PerfilDescription />
           <Button wsp talkToMe="Hablemos" />
-          <AsideContainerSvgStyled theme={theme}>
-            <SvgJs />
-            <SvgReact />
-            <SvgNext />
-            <SvgCss />
-            <SvgHtml />
-            <SvgSass />
-            <SvgVSC />
-            <SvgBootstrap />
-            <SvgGit />
-            <SvgNode />
-            <SvgMongo />
-            <SvgMysql />
-          </AsideContainerSvgStyled>
+          <AnimationOnScroll animateIn="animate__backInUp" duration={2}>
+            <AsideContainerSvgStyled theme={theme}>
+              <SvgJs />
+              <SvgReact />
+              <SvgNext />
+              <SvgCss />
+              <SvgHtml />
+              <SvgSass />
+              <SvgVSC />
+              <SvgBootstrap />
+              <SvgGit />
+              <SvgNode />
+              <SvgMongo />
+              <SvgMysql />
+            </AsideContainerSvgStyled>
+          </AnimationOnScroll>
         </ArticlePerfil>
       </SectionPerfil>
       <BackgroundImage
@@ -67,8 +66,8 @@ export default Home;
 
 const SectionPerfil = styled.section`
   display: flex;
-  background-color: ${({ theme }) =>
-    theme === 'dark' ? '' : 'var(--third-color)'};
+  /*   background-color: ${({ theme }) =>
+    theme === 'dark' ? '' : 'var(--third-color)'}; */
 `;
 
 const ArticlePerfil = styled.article`
@@ -81,7 +80,7 @@ const ArticlePerfil = styled.article`
     padding-bottom: 3rem;
   }
   &:first-child {
-    padding-top: 0;
+    padding-top: 5rem;
   }
   button {
     padding: 1rem;

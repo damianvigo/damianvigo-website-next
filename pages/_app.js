@@ -1,7 +1,8 @@
+import '../styles/globals.css';
+import 'animate.css/animate.min.css';
 import 'hamburgers/dist/hamburgers.min.css';
 import { ThemeProvider } from '../context/ThemeContext';
 import NextNProgress from 'nextjs-progressbar';
-import '../styles/globals.css';
 
 function MyApp({ Component, pageProps }) {
   return (

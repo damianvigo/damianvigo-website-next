@@ -1,6 +1,7 @@
 import styled from 'styled-components';
 import Image from 'next/image';
-import { useContext, useState, useEffect } from 'react';
+import { AnimationOnScroll } from 'react-animation-on-scroll';
+import { useContext } from 'react';
 import ThemeContext from '../../context/ThemeContext';
 
 import conectarDB from '../../lib/dbConnect';
@@ -10,18 +11,15 @@ import Proyect from '../../models/Proyect';
 import Layout from '../../components/layouts/Layout';
 import BackgroundImage from '../../components/BackgroundImage';
 import SvgLoader from '../../assets/icon/elements/SvgLoader';
+import Message from '../../components/Message';
+// Hooks
+import useNextProps from '../../hooks/useNextProps';
 
 const Proyectos = ({ proyects }) => {
-  const [loading, setLoading] = useState(true);
   const { theme } = useContext(ThemeContext);
+  const { loading, db } = useNextProps(proyects);
 
   // console.log(proyects);
-
-  /*   useEffect(() => {
-    if (proyects.length > 0) {
-      setLoading(!loading);
-    }
-  }, [proyects]); */
 
   return (
     <Layout
@@ -34,9 +32,11 @@ const Proyectos = ({ proyects }) => {
         image="https://i.imgur.com/fT6QwPm.jpg"
       />
       <section className="section full-lg-screen container-1200px ">
-        <TitleProyects className="text-center">Proyectos</TitleProyects>
+        <AnimationOnScroll animateIn="animate__jello" duration={2}>
+          <TitleProyects className="text-center">Proyectos</TitleProyects>
+        </AnimationOnScroll>
         {!loading && <SvgLoader />}
-        {loading && (
+        {db ? (
           <GridFluid>
             {proyects.map(
               ({
@@ -78,6 +78,12 @@ const Proyectos = ({ proyects }) => {
               }
             )}
           </GridFluid>
+        ) : (
+          <Message
+            msg="Hubo un error al cargar los proyectos 🤔
+            Intenta recargar la página"
+            bgColor="var(--first-color)"
+          />
         )}
       </section>
       <BackgroundImage

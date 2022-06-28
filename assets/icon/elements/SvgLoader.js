@@ -5,18 +5,20 @@ import ThemeContext from '../../../context/ThemeContext';
 const SvgStyled = styled.svg`
   display: block;
   margin: clamp(1rem, 10vw, 3rem) auto;
-  width: clamp(5rem, 30vw, 8rem);
-  height: clamp(5rem, 30vw, 8rem);
+  width: clamp(5rem, 30vw, 6rem);
+  height: clamp(5rem, 30vw, 6rem);
   fill: ${({ theme }) =>
     theme === 'dark' ? 'var(--second-color)' : 'var(--first-color)'};
   fill: ${({ contact }) => contact && 'var(--second-color)'};
   animation: showOpacity 1s 1 normal 0s ease-out both;
+  grid-column: ${({ gridBlog }) => gridBlog};
 `;
 
-const SvgLoader = ({ contact }) => {
+const SvgLoader = ({ contact, gridBlog }) => {
   const { theme } = useContext(ThemeContext);
   return (
     <SvgStyled
+      gridBlog={gridBlog}
       contact={contact}
       width={135}
       height={135}

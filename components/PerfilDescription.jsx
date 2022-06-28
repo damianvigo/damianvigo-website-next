@@ -1,5 +1,7 @@
+import { AnimationOnScroll } from 'react-animation-on-scroll';
+
 const PerfilDescription = () => (
-  <>
+  <AnimationOnScroll animateIn="animate__fadeInUp" offset={200}>
     <h3>¿Quién Soy?</h3>
     <p>
       ¡Hola! 👋 Me llamo Damián Vigo y soy{' '}
@@ -17,6 +19,6 @@ const PerfilDescription = () => (
       <i>web</i>, así como la optimización, para el buen posicionamiento y el
       rendimiento de carga de sitios y aplicaciones web.
     </p>
-  </>
+  </AnimationOnScroll>
 );
 export default PerfilDescription;

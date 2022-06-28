@@ -12,16 +12,6 @@ import Custom404 from '../../404';
 import ReactMarkdown from 'react-markdown';
 
 const BlogPost = ({ post, success, error }) => {
-  const [loading, setLoading] = useState(false);
-
-  useEffect(() => {
-    if (!post) {
-      setLoading(!loading);
-    }
-  }, [post, loading]);
-
-  console.log(post);
-  console.log(error);
   const router = useRouter();
   const { slug } = router.query;
 

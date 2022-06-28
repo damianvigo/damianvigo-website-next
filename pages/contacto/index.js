@@ -3,7 +3,7 @@ const Contacto = () => {
   return (
     <Layout
       title="Contacto"
-      description="Aqui puedes mandarme tu solicitud de lo que necesites y me pondré en contacto contigo"
+      description="Aqui puedes contarme lo que necesites y a la brevedad me contactaré contigo"
     ></Layout>
   );
 };
