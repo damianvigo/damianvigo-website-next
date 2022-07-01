@@ -4,6 +4,7 @@ import Link from 'next/link';
 import Image from 'next/image';
 import BackgroundImage from '../../components/BackgroundImage';
 import Layout from '../../components/layouts/Layout';
+import { AnimationOnScroll } from 'react-animation-on-scroll';
 // Context
 import ThemeContext from '../../context/ThemeContext';
 import { useContext } from 'react';
@@ -15,7 +16,6 @@ import Message from '../../components/Message';
 // Hooks
 import useNextProps from '../../hooks/useNextProps';
 // Utils
-import { AnimationOnScroll } from 'react-animation-on-scroll';
 
 const Blog = ({ posts }) => {
   const { theme } = useContext(ThemeContext);
@@ -120,12 +120,13 @@ export async function getStaticProps() {
 
     const res = await Posts.find({});
 
-    console.log(res);
+    // console.log(res);
 
     const posts = res.map((doc) => {
       const post = doc.toObject();
       post._id = `${post._id}`;
       post.createdAt = new Date(post.createdAt).toLocaleDateString();
+      post.updatedAt = new Date(post.updatedAt).toLocaleDateString();
       return post;
     });
 

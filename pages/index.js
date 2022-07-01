@@ -10,7 +10,7 @@ export default function Index() {
     <>
       <Layout
         title="Bienvenido"
-        description="Hola bienvenido/a a mi sitio web, soy Damian Vigo. Programador web"
+        description="Hola bienvenido/a a mi sitio web, soy Damian Vigo. Programador web 🤓"
       >
         <Home theme={theme} />
       </Layout>

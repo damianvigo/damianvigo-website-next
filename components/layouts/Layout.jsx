@@ -1,5 +1,4 @@
 import styled from 'styled-components';
-import Script from 'next/script';
 import { useContext } from 'react';
 import { useRouter } from 'next/router';
 import ThemeContext from '../../context/ThemeContext';

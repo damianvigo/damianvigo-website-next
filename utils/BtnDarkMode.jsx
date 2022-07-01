@@ -15,7 +15,7 @@ const Btn = styled.button`
     width: var(--step-4);
     height: var(--step-4);
     left: 3vw;
-    bottom: 9vh;
+    bottom: calc(var(--header-height) + 2vw);
     transition: opacity 0.5s ease-out;
     :hover {
       opacity: 0.8;

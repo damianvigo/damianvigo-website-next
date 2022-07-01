@@ -1,6 +1,5 @@
 import styled from 'styled-components';
 import Image from 'next/image';
-import { AnimationOnScroll } from 'react-animation-on-scroll';
 import { useContext } from 'react';
 import ThemeContext from '../../context/ThemeContext';
 
@@ -8,6 +7,7 @@ import conectarDB from '../../lib/dbConnect';
 import Proyect from '../../models/Proyect';
 
 // Components
+import { AnimationOnScroll } from 'react-animation-on-scroll';
 import Layout from '../../components/layouts/Layout';
 import BackgroundImage from '../../components/BackgroundImage';
 import SvgLoader from '../../assets/icon/elements/SvgLoader';
@@ -25,7 +25,7 @@ const Proyectos = ({ proyects }) => {
     <Layout
       theme={theme}
       title="Proyectos"
-      description="Aquí encontrarás algunos de mis proyectos realizados con javascript 💛"
+      description="Aquí encontrarás algunos de mis proyectos realizados 🤓"
     >
       <BackgroundImage
         backgroundProyect

@@ -39,7 +39,6 @@ const Edit = () => {
 
   const deleteData = async (e) => {
     e.preventDefault();
-    console.log('delete');
 
     let isDelete = window.confirm('¿Eliminas el post dami?');
 

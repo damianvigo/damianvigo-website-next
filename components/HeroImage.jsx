@@ -15,13 +15,16 @@ const HeroImage = ({ backgroundImage, contactTitle }) => {
         <HeroImageStyled backgroundImage={backgroundImage}>
           <HeroImageOpacity>
             <HeroImageBox>
-              <AnimationOnScroll animateIn="animate__zoomInLeft" duration={1}>
+              <AnimationOnScroll animateIn="animate__zoomInLeft" duration={1.5}>
                 <HeroImageTitle contact="home">
                   Hola, soy Damián Vigo
                 </HeroImageTitle>
               </AnimationOnScroll>
 
-              <AnimationOnScroll animateIn="animate__zoomInRight" duration={2}>
+              <AnimationOnScroll
+                animateIn="animate__zoomInRight"
+                duration={2.5}
+              >
                 <HeroImageSubtitle>Desarrollador Web</HeroImageSubtitle>
               </AnimationOnScroll>
 

@@ -1,17 +1,8 @@
 // Components
 import FormPost from '../components/FormPost';
 import Layout from '../components/layouts/Layout';
-// Styles
 
 const NewPost = () => {
-  /*   const formData = {
-    img: '',
-    title: '',
-    markdown: '',
-    slug: '',
-    category: '',
-  }; */
-
   return (
     <Layout>
       <section
@@ -24,7 +15,7 @@ const NewPost = () => {
       >
         <div>
           <h1>Agregar Post</h1>
-          <FormPost /* formData={formData} */ />
+          <FormPost />
         </div>
       </section>
     </Layout>

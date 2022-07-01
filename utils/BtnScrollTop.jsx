@@ -25,7 +25,7 @@ export default BtnScrollTop;
 
 const BtnScrollTopStyled = styled.button`
   position: fixed;
-  bottom: 1vh;
+  bottom: 2vh;
   right: 1vw;
   width: var(--step-4);
   height: var(--step-4);
@@ -56,6 +56,6 @@ const BtnScrollTopStyled = styled.button`
   } */
 
   @media screen and (max-width: 64em) {
-    bottom: 9vh;
+    bottom: calc(var(--header-height) + 2vw);
   }
 `;

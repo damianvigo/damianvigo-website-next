@@ -56,6 +56,7 @@ export async function getServerSideProps({ params }) {
 
     post._id = post._id.toString();
     post.createdAt = new Date(post.createdAt).toLocaleDateString();
+    post.updatedAt = new Date(post.updatedAt).toLocaleDateString();
 
     return {
       props: {

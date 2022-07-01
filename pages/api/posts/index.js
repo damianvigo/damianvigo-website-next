@@ -16,7 +16,7 @@ export default async function handler(req, res) {
         const post = new Posts(req.body);
         await post.save();
 
-        return res.status(200).json({ success: true, post });
+        return res.status(201).json({ success: true, post });
       } catch (error) {
         return res.status(400).json({ success: false, error });
       }
