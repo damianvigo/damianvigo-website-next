@@ -59,22 +59,6 @@ const Layout = ({ children, title, description }) => {
           />
           <BtnDarkMode />
           <Footer />
-          {/*   <Script
-            id="my-script"
-            strategy="afterInteractive"
-            async
-            src="https://www.googletagmanager.com/gtag/js?id=UA-145056950-1"
-          />
-          <Script id="google-analytics" strategy="afterInteractive">
-            {`
-           window.dataLayer = window.dataLayer || [];
-            function gtag() {
-           dataLayer.push(arguments);
-          }
-        gtag('js', new Date());
-        gtag('config', 'UA-145056950-1');
-          `}
-          </Script> */}
         </>
       )}
     </>

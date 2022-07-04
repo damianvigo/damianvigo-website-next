@@ -1,6 +1,5 @@
 import styled from 'styled-components';
 // Components
-import Link from 'next/link';
 import Layout from '../../../components/layouts/Layout';
 import conectarDB from '../../../lib/dbConnect';
 import Post from '../../../models/Posts';

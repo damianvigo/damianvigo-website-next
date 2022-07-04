@@ -10,9 +10,8 @@ const useScrollTop = () => {
     const top = () => {
       w.addEventListener('scroll', (e) => {
         let scrollTop = w.pageYOffset || d.documentElementScrollTop;
-        // console.log(scrollTop);
         if (scrollTop > 300) {
-          setScrollTop(null);
+          setScrollTop('visible');
         } else {
           setScrollTop('hidden');
         }
