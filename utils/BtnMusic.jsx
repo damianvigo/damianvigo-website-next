@@ -33,7 +33,7 @@ const BtnMusic = () => {
 
   useEffect(() => {
     const $song = document.createElement('audio');
-    $song.src = '/assets/audio/oscuro-my-weakness.opus';
+    $song.src = '/assets/audio/oscuro-wander.m4a';
     $song.loop = true;
     setSong($song);
   }, []);
