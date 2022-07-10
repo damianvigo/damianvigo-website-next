@@ -16,7 +16,6 @@ const FormPost = ({ formEdit, formNewMovie = true }) => {
   const router = useRouter();
 
   const [form, setForm] = useState(initialForm);
-  const [loading, setLoading] = useState(false);
 
   useEffect(() => {
     if (!formNewMovie) {
@@ -63,7 +62,7 @@ const FormPost = ({ formEdit, formNewMovie = true }) => {
 
   const putData = async (form) => {
     try {
-      console.log(form);
+      // console.log(form);
 
       let options = {
         body: form,
@@ -72,16 +71,16 @@ const FormPost = ({ formEdit, formNewMovie = true }) => {
 
       const res = await helpHttp().put(`/api/posts/${form.slug}`, options);
 
-      console.log(res);
+      // console.log(res);
       router.push('/blog');
     } catch (error) {
-      console.log(error);
+      // console.log(error);
     }
   };
 
   const postData = async (form) => {
     try {
-      console.log(form);
+      // console.log(form);
 
       let options = {
         body: form,
@@ -90,9 +89,9 @@ const FormPost = ({ formEdit, formNewMovie = true }) => {
 
       const res = await helpHttp().post('/api/posts', options);
 
-      console.log(res);
+      //  console.log(res);
     } catch (error) {
-      console.log(error);
+      // console.log(error);
     }
   };
   return (

@@ -58,7 +58,7 @@ const Proyectos = ({ proyects }) => {
                           src={img}
                           width={500}
                           height={500}
-                          alt="test"
+                          alt={title}
                         />
                       </figure>
                     </a>

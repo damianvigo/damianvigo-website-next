@@ -33,13 +33,13 @@ const BtnMusic = () => {
 
   useEffect(() => {
     const $song = document.createElement('audio');
-    $song.src = '/assets/audio/oscuro-wander.m4a';
+    $song.src = '/audio/oscuro-wander.m4a';
     $song.loop = true;
     setSong($song);
   }, []);
 
   const handleMusic = (e) => {
-    if (e.target.matches('#btn-music *')) {
+    if (e.target.matches('#btn-music-play *')) {
       song.play();
       e.target.disabled = true;
       setbtnSvgMusic(!btnSvgMusic);
@@ -55,7 +55,7 @@ const BtnMusic = () => {
   return (
     <>
       {!btnSvgMusic ? (
-        <Btn id="btn-music" onClick={handleMusic}>
+        <Btn id="btn-music-play" onClick={handleMusic}>
           <SvgPlay />
         </Btn>
       ) : (

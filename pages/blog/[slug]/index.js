@@ -9,8 +9,10 @@ import { useContext, useState, useEffect } from 'react';
 import ThemeContext from '../../../context/ThemeContext';
 import Custom404 from '../../404';
 import ReactMarkdown from 'react-markdown';
+import remarkGfm from 'remark-gfm';
 
 const BlogPost = ({ post, success, error }) => {
+  // console.log(post);
   const router = useRouter();
   const { slug } = router.query;
 
@@ -20,14 +22,16 @@ const BlogPost = ({ post, success, error }) => {
     return <Custom404 error={error} />;
   }
 
-  const { markdown } = post;
+  const { markdown, title } = post;
 
   return (
-    <Layout>
+    <Layout title={title} description={title}>
       <section className="section full-lg-screen">
         <ArticleContainerText theme={theme} className="container-900px">
           <div>
-            <ReactMarkdown linkTarget="_blank">{markdown}</ReactMarkdown>
+            <ReactMarkdown remarkPlugins={[remarkGfm]} linkTarget="_blank">
+              {markdown}
+            </ReactMarkdown>
           </div>
         </ArticleContainerText>
       </section>
@@ -100,8 +104,12 @@ const ArticleContainerText = styled.article`
       margin-bottom: 3.5rem;
     }
   }
+
+  hr {
+    margin-top: 3rem;
+  }
   @media screen and (min-width: 48em) {
-    div > * {
+    div > *:not(hr, h1, h2, h3, h4, h5, h6) {
       margin-left: 5rem;
       margin-right: 5rem;
     }

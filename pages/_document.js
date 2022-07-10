@@ -1,6 +1,8 @@
 import { Html, Head, Main, NextScript } from 'next/document';
 
 export default function Document() {
+  const path = process.env.DOMINIO;
+
   return (
     <Html>
       <Head>
@@ -8,12 +10,20 @@ export default function Document() {
         <link
           rel="icon"
           type="image/png"
-          href="http://localhost:3000/assets/favicon/favicon-16x16.png"
+          href={
+            path === 'damianvigo.com'
+              ? `http://${path}/favicon-16x16.png`
+              : `http://localhost:3000/favicon-16x16.png`
+          }
         />
         <link
           rel="apple-touch-icon"
           type="image/png"
-          href="http://localhost:3000/assets/favicon/favicon-16x16.png"
+          href={
+            path === 'damianvigo.com'
+              ? `http://${path}/favicon-16x16.png`
+              : `http://localhost:3000/favicon-16x16.png`
+          }
         />
         <link rel="preconnect" href="https://fonts.googleapis.com" />
         <link
@@ -37,7 +47,7 @@ export default function Document() {
         <meta name="MobileOptimized" content="width" />
         <meta name="HandheldFriendly" content="true" />
         <meta name="twitter:card" content="summary" />
-        <meta property="og:type" content="website" />
+        <meta property="og:type" content="website dvdev" />
         <meta
           property="og:title"
           name="twitter:title"

@@ -54,7 +54,7 @@ const Blog = ({ posts }) => {
                           />
                           <FigCaptionStyled>
                             <span>{post.title}</span>
-                            <time>{post.createdAt}</time>
+                            <time>{post.updatedAt}</time>
                           </FigCaptionStyled>
                         </FigureStyled>
                       </LinkStyled>
@@ -90,7 +90,7 @@ const Blog = ({ posts }) => {
                           />
                           <FigCaptionStyled>
                             <span>{post.title}</span>
-                            <time>{post.createdAt}</time>
+                            <time>{post.updatedAt}</time>
                           </FigCaptionStyled>
                         </FigureStyled>
                       </LinkStyled>
@@ -136,7 +136,7 @@ export async function getStaticProps() {
       },
     };
   } catch (error) {
-    console.log(error);
+    // console.log(error);
     return { props: { success: false, error: 'Error' } };
   }
 }
@@ -195,13 +195,9 @@ const FigCaptionStyled = styled.figcaption`
     margin-bottom: 0.3rem;
     font-size: var(--step--1);
     font-weight: 900;
-    cursor: auto !important;
-  }
-  time {
-    cursor: auto !important;
   }
 
-  @media screen and (min-width: 768px) {
+  @media screen and (min-width: 48em) {
     flex-direction: row;
     justify-content: space-between;
     align-content: space-evenly;

@@ -142,6 +142,47 @@ button {
   font-size: var(--step-0);
 }
 
+blockquote {
+  color: #666;
+  margin: 0;
+  border-left: 0.5em #ccc9 solid;
+}
+
+main.dark blockquote {
+  color: var(--color-light);
+}
+
+thead {
+  background-color: var(--second-color);
+}
+
+main.dark table thead tr {
+  background-color: var(--first-color);
+}
+
+main.dark table tbody tr {
+  background-color: var(--black-alpha-color);
+}
+
+main.dark tbody tr:nth-child(2n) {
+  background-color: var(--first-alpha-color);
+}
+
+tr {
+  border-top: 1px solid #c6cbd1;
+  background: var(--third-color);
+}
+
+th,
+td {
+  padding: 6px 13px;
+  border: 1px solid #dfe2e5;
+}
+
+table tr:nth-child(2n) {
+  background: #f6f8fa;
+}
+
 .responsive-media {
   position: relative;
   max-width: 100%;
@@ -215,7 +256,6 @@ h6::selection {
 .text-right {
   text-align: right;
 }
-
 
 /* 
   ? 320px / 16px = 20em - xs

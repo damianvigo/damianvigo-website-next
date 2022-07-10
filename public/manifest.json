@@ -4,7 +4,7 @@
     "display": "standalone",
     "scope": "/",
     "start_url": "/",
-    "name": "Damian Vigo",
+    "name": "<Damian Vigo>",
     "short_name": "dvdev",
     "description": "Portfolio with Nextjs",
     "icons": [

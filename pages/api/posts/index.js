@@ -13,8 +13,10 @@ export default async function handler(req, res) {
   switch (method) {
     case 'POST':
       try {
-        const post = new Posts(req.body);
-        await post.save();
+        // const post = new Posts(req.body);
+        // await post.save();
+
+        const post = await Posts.create(req.body);
 
         return res.status(201).json({ success: true, post });
       } catch (error) {
