@@ -201,7 +201,7 @@ const ArticleProyectStyled = styled.article`
     padding: 1rem;
     text-decoration: underline;
     &:visited {
-      color: var(--link-color);
+      color: ${({ theme }) => theme === 'dark' && 'var(--light-color)'};
       text-decoration: dotted;
     }
     &:active {
