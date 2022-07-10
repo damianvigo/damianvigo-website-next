@@ -12,7 +12,7 @@ export default function Document() {
           type="image/png"
           href={
             path === 'damianvigo.com'
-              ? `http://${path}/favicon-16x16.png`
+              ? `https://${path}/favicon-16x16.png`
               : `http://localhost:3000/favicon-16x16.png`
           }
         />
@@ -21,7 +21,7 @@ export default function Document() {
           type="image/png"
           href={
             path === 'damianvigo.com'
-              ? `http://${path}/favicon-16x16.png`
+              ? `https://${path}/favicon-16x16.png`
               : `http://localhost:3000/favicon-16x16.png`
           }
         />
