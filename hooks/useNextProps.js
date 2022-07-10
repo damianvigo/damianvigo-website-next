@@ -1,25 +1,16 @@
 import { useState, useEffect } from 'react';
 
 const useNextProps = (nextProps) => {
-  const [loading, setLoading] = useState(false);
-  const [db, setDb] = useState(true);
+  const [db, setDb] = useState(false);
 
   useEffect(() => {
     if (nextProps.length > 0) {
-      setLoading(true);
       setDb(true);
     } else {
-      setTimeout(() => {
-        setLoading(true);
-      }, 1000);
-      setTimeout(() => {
-        setDb(false);
-      }, 2000);
     }
-  }, [nextProps, loading]);
+  }, [nextProps]);
 
   return {
-    loading,
     db,
   };
 };

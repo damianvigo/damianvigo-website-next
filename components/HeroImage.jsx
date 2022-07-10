@@ -32,7 +32,10 @@ const HeroImage = ({ backgroundImage, contactTitle }) => {
                 <Image
                   width="200"
                   height="200"
-                  src="https://i.imgur.com/o3jywgM.jpg"
+                  src={
+                    `http://localhost:3000/img/me.jpg` ||
+                    `https://damianvigo.com/img/me.jpg`
+                  }
                   title="Selfie Damián Vigo"
                   alt="Imagen retrato de Damián Vigo"
                 />
@@ -42,7 +45,12 @@ const HeroImage = ({ backgroundImage, contactTitle }) => {
         </HeroImageStyled>
       )}
       {pathname === '/contacto' && (
-        <HeroImageStyled backgroundImage="https://i.imgur.com/aXb9Pux.jpg">
+        <HeroImageStyled
+          backgroundImage={
+            `http://localhost:3000/img/great.jpg` ||
+            `https://damianvigo.com/img/great.jpg`
+          }
+        >
           <HeroImageOpacity>
             <HeroImageBox form="true">
               <AnimationOnScroll

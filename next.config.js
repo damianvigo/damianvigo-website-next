@@ -11,7 +11,13 @@ module.exports = withPWA({
   },
   reactStrictMode: false,
   images: {
-    domains: ['i.imgur.com', 'picsum.photos', 'www.svgrepo.com'],
+    domains: [
+      'i.imgur.com',
+      'picsum.photos',
+      'www.svgrepo.com',
+      'damianvigo.com',
+      'localhost',
+    ],
   },
   experimental: {
     forceSwcTransforms: true,

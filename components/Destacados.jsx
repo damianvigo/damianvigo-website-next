@@ -15,7 +15,11 @@ const Destacados = () => {
       <AnimationOnScroll animateIn="animate__fadeInDown" duration={2}>
         <DestacadosStyled theme={theme}>Destacados</DestacadosStyled>
       </AnimationOnScroll>
-      <AnimationOnScroll animateIn="animate__bounceIn" duration={3}>
+      <AnimationOnScroll
+        animateIn="animate__bounceIn"
+        duration={3.5}
+        offset={500}
+      >
         <SeccionDestacada>
           <ArticleDestacado theme={theme}>
             <h3>Portafolio de Arte</h3>

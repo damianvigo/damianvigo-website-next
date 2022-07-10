@@ -17,7 +17,7 @@ import useNextProps from '../../hooks/useNextProps';
 
 const Proyectos = ({ proyects }) => {
   const { theme } = useContext(ThemeContext);
-  const { loading, db } = useNextProps(proyects);
+  const { db } = useNextProps(proyects);
 
   // console.log(proyects);
 
@@ -35,7 +35,6 @@ const Proyectos = ({ proyects }) => {
         <AnimationOnScroll animateIn="animate__jello" duration={2}>
           <TitleProyects className="text-center">Proyectos</TitleProyects>
         </AnimationOnScroll>
-        {!loading && <SvgLoader />}
         {db ? (
           <GridFluid>
             {proyects.map(
@@ -120,6 +119,7 @@ export async function getServerSideProps() {
 }
 
 const TitleProyects = styled.h1`
+  padding: 2rem 0;
   @media screen and (min-width: 36em) {
     padding: 4rem;
   }
@@ -139,7 +139,7 @@ const ArticleProyectStyled = styled.article`
   border-radius: 0.5rem;
   text-align: left;
   background-color: ${({ theme }) =>
-    theme === 'dark' ? 'var(--black-alpha-color)' : 'var(--card-color)'};
+    theme === 'dark' ? 'var(--black-alpha-color-cards)' : 'var(--card-color)'};
   box-shadow: ${({ theme }) =>
     theme === 'dark' ? 'var(--card-shadow-light)' : 'var(--card-shadow)'};
   transition: transform 0.3s ease-in, opacity 0.3s ease-in-out;

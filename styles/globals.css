@@ -22,6 +22,7 @@
 --text-color: #222;
 --white-alpha-color: rgba(255, 255, 255, 0.5);
 --black-alpha-color: rgba(0, 0, 0, 0.75); 
+--black-alpha-color-cards: rgba(0, 0, 0, 0.45); 
 --high-black-alpha-color: rgba(0, 0, 0, 0.9);
 --javascript-color: #f7df1e;
 --active: #e0aaff;

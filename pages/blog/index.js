@@ -19,7 +19,7 @@ import useNextProps from '../../hooks/useNextProps';
 
 const Blog = ({ posts }) => {
   const { theme } = useContext(ThemeContext);
-  const { loading, db } = useNextProps(posts);
+  const { db } = useNextProps(posts);
 
   return (
     <Layout
@@ -34,10 +34,9 @@ const Blog = ({ posts }) => {
           blog="Blog"
         />
         <SectionStyledContainer className="section full-lg-screen container-1200px">
-          <AnimationOnScroll animateIn="animate__bounceInLeft" duration={2}>
+          <AnimationOnScroll animateIn="animate__bounceInLeft" duration={2.5}>
             <h2>Desarrollo</h2>
           </AnimationOnScroll>
-          {!loading && <SvgLoader gridBlog="span 2" />}
           {db ? (
             posts.map(
               (post) =>
@@ -70,10 +69,9 @@ const Blog = ({ posts }) => {
               bgColor="var(--first-color)"
             />
           )}
-          <AnimationOnScroll animateIn="animate__bounceInRight" duration={2}>
+          <AnimationOnScroll animateIn="animate__bounceInRight" duration={2.5}>
             <h2>Personal</h2>
           </AnimationOnScroll>
-          {!loading && <SvgLoader gridBlog="span 2" />}
           {db ? (
             posts.map(
               (post) =>
