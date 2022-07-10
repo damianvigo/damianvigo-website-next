@@ -34,7 +34,7 @@ const HeroImage = ({ backgroundImage, contactTitle }) => {
                   height="200"
                   src={
                     `http://localhost:3000/img/me.jpg` ||
-                    `https://damianvigo.com/img/me.jpg`
+                    `https://www.damianvigo.com/img/me.jpg`
                   }
                   title="Selfie Damián Vigo"
                   alt="Imagen retrato de Damián Vigo"
