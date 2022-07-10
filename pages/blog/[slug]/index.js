@@ -5,7 +5,7 @@ import conectarDB from '../../../lib/dbConnect';
 import Post from '../../../models/Posts';
 import { useRouter } from 'next/router';
 // Context
-import { useContext, useState, useEffect } from 'react';
+import { useContext } from 'react';
 import ThemeContext from '../../../context/ThemeContext';
 import Custom404 from '../../404';
 import ReactMarkdown from 'react-markdown';
@@ -14,7 +14,6 @@ import remarkGfm from 'remark-gfm';
 const BlogPost = ({ post, success, error }) => {
   // console.log(post);
   const router = useRouter();
-  const { slug } = router.query;
 
   const { theme } = useContext(ThemeContext);
 
