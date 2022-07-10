@@ -138,12 +138,13 @@ const ArticleProyectStyled = styled.article`
     ${(props) => (props.theme === 'dark' ? '#a1b5d8' : 'var(--first-color)')};
   border-radius: 0.5rem;
   text-align: left;
-  background-color: var(--card-color);
+  background-color: ${({ theme }) =>
+    theme === 'dark' ? 'var(--black-alpha-color)' : 'var(--card-color)'};
   box-shadow: ${({ theme }) =>
     theme === 'dark' ? 'var(--card-shadow-light)' : 'var(--card-shadow)'};
   transition: transform 0.3s ease-in, opacity 0.3s ease-in-out;
   color: ${({ theme }) =>
-    theme === 'dark' ? 'var(--first-color)' : 'var(--text-color)'};
+    theme === 'dark' ? 'var(--light-color)' : 'var(--text-color)'};
   /*   @keyframes zoomCard {
     0% {
       transform: scale(0);

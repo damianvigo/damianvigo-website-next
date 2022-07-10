@@ -114,12 +114,16 @@ const ArticleContainerText = styled.article`
     }
   }
   div > h1,
-  h2 {
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
     color: ${({ theme }) =>
       theme === 'dark' ? 'var(--light-color)' : 'var(--title-color)'};
     text-align: center;
     line-height: 3rem;
-    font-size: var(--step-4);
+
     margin-left: auto;
     margin-right: auto;
     margin-top: 4rem;
