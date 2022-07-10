@@ -32,10 +32,7 @@ const HeroImage = ({ backgroundImage, contactTitle }) => {
                 <Image
                   width="200"
                   height="200"
-                  src={
-                    `http://localhost:3000/img/me.jpg` ||
-                    `https://www.damianvigo.com/img/me.jpg`
-                  }
+                  src="https://i.imgur.com/o3jywgM.jpg"
                   title="Selfie Damián Vigo"
                   alt="Imagen retrato de Damián Vigo"
                 />
