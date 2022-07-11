@@ -1,18 +1,32 @@
 import styled from 'styled-components';
 import { useRouter } from 'next/router';
+import { useState, useEffect } from 'react';
 import { AnimationOnScroll } from 'react-animation-on-scroll';
 // Components
 import Image from 'next/image';
 import Form from './Form';
 
-const HeroImage = ({ backgroundImage, contactTitle }) => {
+const HeroImage = ({ contactTitle }) => {
+  const [protocol, setOrigin] = useState('');
   const router = useRouter();
   const { pathname } = router;
+  // console.log(router);
+
+  useEffect(() => {
+    const { protocol } = window.location;
+    setOrigin(protocol);
+  }, [protocol]);
 
   return (
     <>
       {pathname === '/' && (
-        <HeroImageStyled backgroundImage={backgroundImage}>
+        <HeroImageStyled
+          backgroundImage={
+            protocol === 'https'
+              ? `https://damianvigo.com/img/great.jpg`
+              : `http://localhost:3000/img/great.jpg`
+          }
+        >
           <HeroImageOpacity>
             <HeroImageBox>
               <AnimationOnScroll animateIn="animate__zoomInLeft" duration={1.5}>
@@ -44,8 +58,9 @@ const HeroImage = ({ backgroundImage, contactTitle }) => {
       {pathname === '/contacto' && (
         <HeroImageStyled
           backgroundImage={
-            `http://localhost:3000/img/great.jpg` ||
-            `https://damianvigo.com/img/great.jpg`
+            protocol === 'https'
+              ? `https://damianvigo.com/img/contacto.jpg`
+              : `http://localhost:3000/img/contacto.jpg`
           }
         >
           <HeroImageOpacity>

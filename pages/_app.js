@@ -29,22 +29,16 @@ function MyApp({ Component, pageProps }) {
       {/* Global Site Tag (gtag.js) - Google Analytics */}
       <Script
         strategy="afterInteractive"
-        src={`https://www.googletagmanager.com/gtag/js?id=UA-145056950-1`}
+        src={`https://www.googletagmanager.com/gtag/js?id=${process.env.GOOGLE_ANALYTICS}`}
       />
-      <Script
-        id="gtag-init"
-        strategy="afterInteractive"
-        dangerouslySetInnerHTML={{
-          __html: `
-            window.dataLayer = window.dataLayer || [];
+      <Script id="google-analytics" strategy="afterInteractive">
+        {`window.dataLayer = window.dataLayer || [];
             function gtag(){dataLayer.push(arguments);}
             gtag('js', new Date());
-            gtag('config', 'UA-145056950-1', {
+            gtag('config', '${process.env.GOOGLE_ANALYTICS}', {
               page_path: window.location.pathname,
-            });
-          `,
-        }}
-      />
+            });`}
+      </Script>
       <ThemeProvider>
         {pathname !== '/404' && <BtnMusic />}
         <NextNProgress color="#f72585" />
