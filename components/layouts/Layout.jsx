@@ -10,7 +10,6 @@ import Head from 'next/head';
 import Header from '../Header';
 import HeroImage from '../HeroImage';
 import Footer from '../Footer';
-
 import useNetworkStatus from '../../hooks/useNetworkStatus';
 import NetworkStatus from '../NetworkStatus';
 
