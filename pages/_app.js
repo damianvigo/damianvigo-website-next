@@ -1,43 +1,50 @@
 import '../styles/globals.css';
 import 'animate.css/animate.min.css';
 import 'hamburgers/dist/hamburgers.min.css';
+import { useRouter } from 'next/router';
+import { useEffect } from 'react';
 import { ThemeProvider } from '../context/ThemeContext';
 import NextNProgress from 'nextjs-progressbar';
 import BtnMusic from '../utils/BtnMusic';
 import Script from 'next/script';
-import { useRouter } from 'next/router';
+import * as gtag from '../lib/gtag';
 
 function MyApp({ Component, pageProps }) {
   const router = useRouter();
   const { pathname } = router;
+
+  useEffect(() => {
+    const handleRouteChange = (url) => {
+      gtag.pageview(url);
+    };
+    router.events.on('routeChangeComplete', handleRouteChange);
+    router.events.on('hashChangeComplete', handleRouteChange);
+    return () => {
+      router.events.off('routeChangeComplete', handleRouteChange);
+      router.events.off('hashChangeComplete', handleRouteChange);
+    };
+  }, [router.events]);
   return (
     <>
+      {/* Global Site Tag (gtag.js) - Google Analytics */}
       <Script
-        strategy="lazyOnload"
+        strategy="afterInteractive"
         src={`https://www.googletagmanager.com/gtag/js?id=${process.env.GOOGLE_ANALYTICS}`}
       />
-
-      <Script id="google-analytics" strategy="lazyOnload">
-        {`
-          window.dataLayer = window.dataLayer || [];
-          function gtag(){dataLayer.push(arguments);}
-          gtag('js', new Date());
-
-          gtag('config', ${process.env.GOOGLE_ANALYTICS});
-          `}
-      </Script>
-      <Script id="google-tag-manager-head">
-        {`
-        <!-- Google Tag Manager -->
-        <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
-        new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
-        j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
-        'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
-        })(window,document,'script','dataLayer','GTM-TD8JFJT');</script>
-        <!-- End Google Tag Manager -->
-        
-        `}
-      </Script>
+      <Script
+        id="gtag-init"
+        strategy="afterInteractive"
+        dangerouslySetInnerHTML={{
+          __html: `
+            window.dataLayer = window.dataLayer || [];
+            function gtag(){dataLayer.push(arguments);}
+            gtag('js', new Date());
+            gtag('config', '${process.env.GOOGLE_ANALYTICS}', {
+              page_path: window.location.pathname,
+            });
+          `,
+        }}
+      />
       <ThemeProvider>
         {pathname !== '/404' && <BtnMusic />}
         <NextNProgress color="#f72585" />

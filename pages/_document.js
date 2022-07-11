@@ -1,5 +1,4 @@
 import { Html, Head, Main, NextScript } from 'next/document';
-import Script from 'next/script';
 
 export default function Document() {
   const path = process.env.DOMINIO;
@@ -67,14 +66,6 @@ export default function Document() {
       <body>
         <Main />
         <NextScript />
-        <Script id="google-tag-manager-body">
-          {`
-        <!-- Google Tag Manager (noscript) -->
-        <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-TD8JFJT"
-        height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
-        <!-- End Google Tag Manager (noscript) -->
-        `}
-        </Script>
       </body>
     </Html>
   );
