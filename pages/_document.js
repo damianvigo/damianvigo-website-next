@@ -10,20 +10,12 @@ export default function Document() {
         <link
           rel="icon"
           type="image/png"
-          href={
-            path === 'damianvigo.com'
-              ? `https://${path}/favicon-16x16.png`
-              : `http://localhost:3000/favicon-16x16.png`
-          }
+          href="https://damianvigo.com/favicon-16x16.png"
         />
         <link
           rel="apple-touch-icon"
           type="image/png"
-          href={
-            path === 'damianvigo.com'
-              ? `https://${path}/favicon-16x16.png`
-              : `http://localhost:3000/favicon-16x16.png`
-          }
+          href="https://damianvigo.com/favicon-16x16.png"
         />
         <link rel="preconnect" href="https://fonts.googleapis.com" />
         <link
@@ -39,7 +31,7 @@ export default function Document() {
           name="google-site-verification"
           content="KvRh1BJjaDvoO88GM-j14cKqnfAnUZDmS_zcsLxK0wg"
         />
-        {/* <link rel="canonical" href="https://damianvigo.com" /> */}
+        <link rel="canonical" href="https://damianvigo.com" />
         <meta name="robots" content="index" />
         <meta name="robots" content="follow" />
         <meta name="author" content="Damian Vigo" />
