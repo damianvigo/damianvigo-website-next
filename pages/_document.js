@@ -54,6 +54,10 @@ export default function Document() {
           content="Website - Damian Vigo"
         />
         <meta
+          property="og:description"
+          content="¡Hola! 🖐️ Bienvenido/a a mi portafolio ✨ Mi nombre es Damián Vigo, soy programador web 🤓"
+        ></meta>
+        <meta
           property="og:image"
           name="twitter:image"
           content="https://i.imgur.com/SpUDEmn.jpg"
