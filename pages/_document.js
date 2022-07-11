@@ -35,6 +35,10 @@ export default function Document() {
           href="https://fonts.googleapis.com/css2?family=Raleway:wght@400;900&display=swap"
           rel="stylesheet"
         />
+        <meta
+          name="google-site-verification"
+          content={process.env.SITE_VERIFICATION}
+        />
         <link rel="canonical" href="https://damianvigo.com" />
         <meta name="robots" content="index" />
         <meta name="robots" content="follow" />
