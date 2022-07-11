@@ -3,7 +3,7 @@ import { AnimationOnScroll } from 'react-animation-on-scroll';
 
 const PerfilDescription = () => (
   <AnimationOnScroll animateIn="animate__fadeInUp" offset={200}>
-    <h3>¿Quién Soy?</h3>
+    <TitleDescription>¿Quién Soy?</TitleDescription>
     <p>
       ¡Hola! 👋 Me llamo Damián Vigo y soy{' '}
       <strong>
@@ -11,7 +11,7 @@ const PerfilDescription = () => (
       </strong>{' '}
       de Buenos Aires Argentina.
     </p>
-    <p>
+    <Description>
       <strong>
         Mi <i>stack</i> actual es{' '}
         <LettersTech>
@@ -25,10 +25,14 @@ const PerfilDescription = () => (
       . Disfruto llevar a cabo la maquetación e interactividad de interfaces
       <i>web</i>, así como la optimización, para el buen posicionamiento y el
       rendimiento de carga de sitios y aplicaciones web.
-    </p>
+    </Description>
   </AnimationOnScroll>
 );
 export default PerfilDescription;
+
+const TitleDescription = styled.h3`
+  padding-bottom: 2rem;
+`;
 
 const LettersTech = styled.span`
   i:first-child {
@@ -42,5 +46,12 @@ const LettersTech = styled.span`
   }
   i:last-child {
     color: #6cc24a;
+  }
+`;
+
+const Description = styled.p`
+  @media screen and (min-width: 48em) {
+    margin-left: 4rem;
+    margin-right: 4rem;
   }
 `;
