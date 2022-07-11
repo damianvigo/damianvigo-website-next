@@ -26,6 +26,8 @@ const Blog = ({ posts }) => {
       title="Blog"
       theme={theme}
       description="En esta sección encontrarás artículos sobre mis intereses personales, tales como filosofía de vida, estoicismo, minimalismo y todo lo que considere contenido de valor 🧠💪"
+      ogDescription="En esta sección encontrarás artículos sobre mis intereses personales, tales como filosofía de vida, estoicismo, minimalismo y todo lo que considere contenido de valor 🧠💪"
+      ogImage="https://i.imgur.com/wYrN8N3.jpg"
     >
       <div>
         <BackgroundImage

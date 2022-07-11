@@ -10,7 +10,9 @@ export default function Index() {
     <>
       <Layout
         title="Bienvenido"
-        description="Hola bienvenido/a a mi sitio web, soy Damian Vigo. Programador web 🤓"
+        description="¡Hola! 🖐️ Bienvenido/a a mi sitio web ✨ Mi nombre es Damián Vigo, soy programador web 🤓"
+        ogDescription="¡Hola! 🖐️ Bienvenido/a a mi sitio web ✨ Mi nombre es Damián Vigo, soy programador web 🤓"
+        ogImage="https://i.imgur.com/SpUDEmn.jpg"
       >
         <Home theme={theme} />
       </Layout>

@@ -14,7 +14,7 @@ import Footer from '../Footer';
 import useNetworkStatus from '../../hooks/useNetworkStatus';
 import NetworkStatus from '../NetworkStatus';
 
-const Layout = ({ children, title, description }) => {
+const Layout = ({ children, title, description, ogDescription, ogImage }) => {
   const { theme } = useContext(ThemeContext);
   /*   console.log(theme); */
   const { toTop, scrollTop, setScrollTop } = useScrollTop();
@@ -29,6 +29,8 @@ const Layout = ({ children, title, description }) => {
       <Head>
         <title>{title}</title>
         <meta description={description} />
+        <meta property="og:description" content={ogDescription} />
+        <meta property="og:image" name="twitter:image" content={ogImage} />
         <meta
           name="twitter:description"
           property="og:description"

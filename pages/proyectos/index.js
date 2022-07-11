@@ -25,7 +25,9 @@ const Proyectos = ({ proyects }) => {
     <Layout
       theme={theme}
       title="Proyectos"
-      description="Aquí encontrarás algunos de mis proyectos realizados 🤓"
+      description="Aquí encontrarás algunos de mis proyectos realizados 💻"
+      ogDescription="Aquí encontrarás algunos de mis proyectos realizados 💻"
+      ogImage="https://i.imgur.com/fT6QwPm.jpg"
     >
       <BackgroundImage
         backgroundProyect
