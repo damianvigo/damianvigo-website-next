@@ -8,7 +8,6 @@ import NextNProgress from 'nextjs-progressbar';
 import BtnMusic from '../utils/BtnMusic';
 
 function MyApp({ Component, pageProps }) {
-  usePageViews();
   const router = useRouter();
   const { pathname } = router;
 
@@ -21,15 +20,11 @@ function MyApp({ Component, pageProps }) {
         />
         <Script id="google-analytics" strategy="lazyOnload">
           {`
-          <script async src="https://www.googletagmanager.com/gtag/js?id=UA-145056950-1"></script>
-          <script>
             window.dataLayer = window.dataLayer || [];
             function gtag(){dataLayer.push(arguments);}
             gtag('js', new Date());
           
             gtag('config', 'UA-145056950-1');
-          </script>
-          
           `}
         </Script>
         {pathname !== '/404' && <BtnMusic />}
