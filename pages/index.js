@@ -12,7 +12,7 @@ export default function Index() {
         title="Bienvenido"
         description="¡Hola! 🖐️ Bienvenido/a a mi sitio web ✨ Mi nombre es Damián Vigo, soy programador web 🤓"
         ogDescription="¡Hola! 🖐️ Bienvenido/a a mi sitio web ✨ Mi nombre es Damián Vigo, soy programador web 🤓"
-        ogImage="https://i.imgur.com/SpUDEmn.jpg"
+        ogImage="https://i.imgur.com/BjlU9xu.jpg"
       >
         <Home theme={theme} />
       </Layout>

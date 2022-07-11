@@ -28,12 +28,11 @@ const Layout = ({ children, title, description, ogDescription, ogImage }) => {
       <Head>
         <title>{title}</title>
         <meta description={description} />
-        <meta property="og:description" content={ogDescription} />
         <meta property="og:image" name="twitter:image" content={ogImage} />
         <meta
           name="twitter:description"
           property="og:description"
-          content={description}
+          content={ogDescription}
         />
       </Head>
       {isOnline && (
