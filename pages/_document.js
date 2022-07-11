@@ -37,7 +37,7 @@ export default function Document() {
         />
         <meta
           name="google-site-verification"
-          content={process.env.SITE_VERIFICATION}
+          content="KvRh1BJjaDvoO88GM-j14cKqnfAnUZDmS_zcsLxK0wg"
         />
         <link rel="canonical" href="https://damianvigo.com" />
         <meta name="robots" content="index" />
