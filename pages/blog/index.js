@@ -15,11 +15,13 @@ import SvgLoader from '../../assets/icon/elements/SvgLoader';
 import Message from '../../components/Message';
 // Hooks
 import useNextProps from '../../hooks/useNextProps';
+import useLocation from '../../hooks/useLocation';
 // Utils
 
 const Blog = ({ posts }) => {
   const { theme } = useContext(ThemeContext);
   const { db } = useNextProps(posts);
+  const { href } = useLocation();
 
   return (
     <Layout
@@ -31,7 +33,11 @@ const Blog = ({ posts }) => {
     >
       <div>
         <BackgroundImage
-          image="https://i.imgur.com/wYrN8N3.jpg"
+          image={
+            href === 'https://damianvigo.com/blog'
+              ? 'https://damianvigo.com/img/blog.jpg'
+              : 'https://i.imgur.com/wYrN8N3.jpg'
+          }
           backgroundImageBlog
           blog="Blog"
         />

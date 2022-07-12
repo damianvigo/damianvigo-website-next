@@ -14,11 +14,13 @@ import SvgLoader from '../../assets/icon/elements/SvgLoader';
 import Message from '../../components/Message';
 // Hooks
 import useNextProps from '../../hooks/useNextProps';
+import useLocation from '../../hooks/useLocation';
 
 const Proyectos = ({ proyects }) => {
   const { theme } = useContext(ThemeContext);
   const { db } = useNextProps(proyects);
 
+  const { href } = useLocation();
   // console.log(proyects);
 
   return (
@@ -30,8 +32,12 @@ const Proyectos = ({ proyects }) => {
       ogImage="https://i.imgur.com/fT6QwPm.jpg"
     >
       <BackgroundImage
+        image={
+          href === 'https://damianvigo.com/proyectos'
+            ? 'https://damianvigo.com/img/react-fragment.jpg'
+            : 'https://i.imgur.com/fT6QwPm.jpg'
+        }
         backgroundProyect
-        image="https://i.imgur.com/fT6QwPm.jpg"
       />
       <section className="section full-lg-screen container-1200px ">
         <AnimationOnScroll animateIn="animate__jello" duration={2}>
@@ -89,7 +95,11 @@ const Proyectos = ({ proyects }) => {
       </section>
       <BackgroundImage
         backgroundProyectBottom
-        image="https://i.imgur.com/NNUJ5bj.jpg"
+        image={
+          href === 'https://damianvigo.com/proyectos'
+            ? 'https://damianvigo.com/img/design.jpg'
+            : 'https://i.imgur.com/NNUJ5bj.jpg'
+        }
       />
     </Layout>
   );

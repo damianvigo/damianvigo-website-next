@@ -57,10 +57,7 @@ const Layout = ({
       )}
       <SectionContainerStyled theme={theme}>
         <Header theme={theme} />
-        <HeroImage
-          backgroundImage="https://i.imgur.com/SpUDEmn.jpg"
-          contactTitle="Contacto"
-        />
+        <HeroImage contactTitle="Contacto" />
       </SectionContainerStyled>
       <main className={theme}>{children}</main>
       {pathname !== '/404' && (

@@ -1,25 +1,27 @@
 import styled from 'styled-components';
 import { useRouter } from 'next/router';
-import { useState, useEffect } from 'react';
 import { AnimationOnScroll } from 'react-animation-on-scroll';
 // Components
 import Image from 'next/image';
 import Form from './Form';
+import useLocation from '../hooks/useLocation';
 
 const HeroImage = ({ contactTitle }) => {
-  const [href, setHref] = useState('');
   const router = useRouter();
   const { pathname } = router;
 
-  useEffect(() => {
-    const { href } = window.location;
-    setHref(href);
-  }, [href]);
+  const { href } = useLocation();
 
   return (
     <>
       {pathname === '/' && (
-        <HeroImageStyled backgroundImage="https://i.imgur.com/BjlU9xu.jpg">
+        <HeroImageStyled
+          backgroundImage={
+            href === 'https://damianvigo.com/'
+              ? 'https://damianvigo.com/img/great.jpg'
+              : 'https://i.imgur.com/BjlU9xu.jpg'
+          }
+        >
           <HeroImageOpacity>
             <HeroImageBox>
               <AnimationOnScroll animateIn="animate__zoomInLeft" duration={1.5}>
@@ -49,7 +51,13 @@ const HeroImage = ({ contactTitle }) => {
         </HeroImageStyled>
       )}
       {pathname === '/contacto' && (
-        <HeroImageStyled backgroundImage="https://i.imgur.com/aXb9Pux.jpg">
+        <HeroImageStyled
+          backgroundImage={
+            href === 'https://damianvigo.com/contacto'
+              ? 'https://damianvigo.com/img/contacto.jpg'
+              : 'https://i.imgur.com/aXb9Pux.jpg'
+          }
+        >
           <HeroImageOpacity>
             <HeroImageBox form="true">
               <AnimationOnScroll
