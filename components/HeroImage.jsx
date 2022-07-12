@@ -19,13 +19,7 @@ const HeroImage = ({ contactTitle }) => {
   return (
     <>
       {pathname === '/' && (
-        <HeroImageStyled
-          backgroundImage={
-            href === 'https://damianvigo.com/'
-              ? `https://damianvigo.com/img/great.jpg`
-              : `http://localhost:3000/img/great.jpg`
-          }
-        >
+        <HeroImageStyled backgroundImage="https://i.imgur.com/BjlU9xu.jpg">
           <HeroImageOpacity>
             <HeroImageBox>
               <AnimationOnScroll animateIn="animate__zoomInLeft" duration={1.5}>
@@ -55,13 +49,7 @@ const HeroImage = ({ contactTitle }) => {
         </HeroImageStyled>
       )}
       {pathname === '/contacto' && (
-        <HeroImageStyled
-          backgroundImage={
-            href === 'https://damianvigo.com/contacto'
-              ? `https://damianvigo.com/img/contacto.jpg`
-              : `http://localhost:3000/img/contacto.jpg`
-          }
-        >
+        <HeroImageStyled backgroundImage="https://i.imgur.com/aXb9Pux.jpg">
           <HeroImageOpacity>
             <HeroImageBox form="true">
               <AnimationOnScroll
