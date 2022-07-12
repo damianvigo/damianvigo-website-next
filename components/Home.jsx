@@ -20,8 +20,11 @@ import BackgroundImage from './BackgroundImage';
 import Destacados from './Destacados';
 import PerfilDescription from './PerfilDescription';
 import Video from './Video';
+import useLocation from '../hooks/useLocation';
 
 const Home = ({ theme }) => {
+  const { href } = useLocation();
+
   return (
     <div className={theme}>
       <SectionPerfil
@@ -53,7 +56,11 @@ const Home = ({ theme }) => {
       <BackgroundImage
         title="« La simplicidad es la máxima sofisticación »"
         author="Leonardo Da Vinci"
-        image="https://i.imgur.com/OOBLd2e.jpg"
+        image={
+          href === 'https://www.damianvigo.com/'
+            ? 'https://damianvigo.com/img/minimalist.jpg'
+            : 'https://i.imgur.com/OOBLd2e.jpg'
+        }
         backgroundImageHome
       />
       <Destacados />

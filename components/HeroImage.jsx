@@ -39,8 +39,8 @@ const HeroImage = ({ contactTitle }) => {
 
               <AnimationOnScroll animateIn="animate__zoomInUp" duration={4}>
                 <Image
-                  width="200"
-                  height="200"
+                  width={200}
+                  height={200}
                   src="https://i.imgur.com/o3jywgM.jpg"
                   title="Selfie Damián Vigo"
                   alt="Imagen retrato de Damián Vigo"
