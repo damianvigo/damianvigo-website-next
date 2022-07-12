@@ -17,7 +17,7 @@ const HeroImage = ({ contactTitle }) => {
       {pathname === '/' && (
         <HeroImageStyled
           backgroundImage={
-            href === 'https://damianvigo.com/'
+            href === 'https://www.damianvigo.com/'
               ? 'https://damianvigo.com/img/great.jpg'
               : 'https://i.imgur.com/BjlU9xu.jpg'
           }
@@ -53,7 +53,7 @@ const HeroImage = ({ contactTitle }) => {
       {pathname === '/contacto' && (
         <HeroImageStyled
           backgroundImage={
-            href === 'https://damianvigo.com/contacto'
+            href === 'https://www.damianvigo.com/contacto'
               ? 'https://damianvigo.com/img/contacto.jpg'
               : 'https://i.imgur.com/aXb9Pux.jpg'
           }

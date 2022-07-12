@@ -33,7 +33,7 @@ const Proyectos = ({ proyects }) => {
     >
       <BackgroundImage
         image={
-          href === 'https://damianvigo.com/proyectos'
+          href === 'https://www.damianvigo.com/proyectos'
             ? 'https://damianvigo.com/img/react-fragment.jpg'
             : 'https://i.imgur.com/fT6QwPm.jpg'
         }
@@ -96,7 +96,7 @@ const Proyectos = ({ proyects }) => {
       <BackgroundImage
         backgroundProyectBottom
         image={
-          href === 'https://damianvigo.com/proyectos'
+          href === 'https://www.damianvigo.com/proyectos'
             ? 'https://damianvigo.com/img/design.jpg'
             : 'https://i.imgur.com/NNUJ5bj.jpg'
         }

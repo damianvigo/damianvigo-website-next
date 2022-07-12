@@ -34,7 +34,7 @@ const Blog = ({ posts }) => {
       <div>
         <BackgroundImage
           image={
-            href === 'https://damianvigo.com/blog'
+            href === 'https://www.damianvigo.com/blog'
               ? 'https://damianvigo.com/img/blog.jpg'
               : 'https://i.imgur.com/wYrN8N3.jpg'
           }
