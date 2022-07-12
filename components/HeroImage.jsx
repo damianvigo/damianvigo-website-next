@@ -7,22 +7,21 @@ import Image from 'next/image';
 import Form from './Form';
 
 const HeroImage = ({ contactTitle }) => {
-  const [protocol, setOrigin] = useState('');
+  const [href, setHref] = useState('');
   const router = useRouter();
   const { pathname } = router;
-  // console.log(router);
 
   useEffect(() => {
-    const { protocol } = window.location;
-    setOrigin(protocol);
-  }, [protocol]);
+    const { href } = window.location;
+    setHref(href);
+  }, [href]);
 
   return (
     <>
       {pathname === '/' && (
         <HeroImageStyled
           backgroundImage={
-            protocol === 'https'
+            href === 'https://damianvigo.com/'
               ? `https://damianvigo.com/img/great.jpg`
               : `http://localhost:3000/img/great.jpg`
           }
@@ -58,7 +57,7 @@ const HeroImage = ({ contactTitle }) => {
       {pathname === '/contacto' && (
         <HeroImageStyled
           backgroundImage={
-            protocol === 'https'
+            href === 'https://damianvigo.com/contacto'
               ? `https://damianvigo.com/img/contacto.jpg`
               : `http://localhost:3000/img/contacto.jpg`
           }
