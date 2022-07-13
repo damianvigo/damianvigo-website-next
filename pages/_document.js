@@ -29,7 +29,7 @@ export default function Document() {
           name="google-site-verification"
           content="KvRh1BJjaDvoO88GM-j14cKqnfAnUZDmS_zcsLxK0wg"
         />
-        <link rel="canonical" href="https://www.damianvigo.com" />
+        <link rel="canonical" href="https://damianvigo.com" />
         <meta name="robots" content="index" />
         <meta name="robots" content="follow" />
         <meta name="author" content="Damian Vigo" />

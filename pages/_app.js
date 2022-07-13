@@ -16,7 +16,7 @@ function MyApp({ Component, pageProps }) {
       <ThemeProvider>
         <Script
           strategy="lazyOnload"
-          src="https://www.googletagmanager.com/gtag/js?id=G-HZ60N77HTE"
+          src={`https://www.googletagmanager.com/gtag/js?id=${process.env.GOOGLE_ANALYTICS}`}
         />
         <Script id="google-analytics" strategy="lazyOnload">
           {`
@@ -24,7 +24,7 @@ function MyApp({ Component, pageProps }) {
             function gtag(){dataLayer.push(arguments);}
             gtag('js', new Date());
           
-            gtag('config', 'G-HZ60N77HTE');
+            gtag('config', '${process.env.GOOGLE_ANALYTICS}');
           `}
         </Script>
         {pathname !== '/404' && <BtnMusic />}
