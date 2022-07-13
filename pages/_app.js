@@ -27,9 +27,9 @@ function MyApp({ Component, pageProps }) {
             gtag('config', '${process.env.GOOGLE_ANALYTICS}');
           `}
         </Script>
-        {pathname !== '/404' && <BtnMusic />}
         <NextNProgress color="#f72585" />
         <Component {...pageProps} />
+        {pathname !== '/404' && <BtnMusic />}
       </ThemeProvider>
     </>
   );
