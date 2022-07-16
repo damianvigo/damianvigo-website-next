@@ -9,7 +9,6 @@ const Btn = styled.div`
   position: fixed;
   cursor: pointer;
   background-color: var(--high-black-alpha-color);
-  z-index: 999;
   svg {
     position: fixed;
     width: var(--step-4);

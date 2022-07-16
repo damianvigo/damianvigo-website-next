@@ -19,7 +19,8 @@ export default async function handler(req, res) {
   switch (method) {
     case 'PUT':
       try {
-        const post = await Posts.findOneAndUpdate({ slug: slug }, req.body);
+        // const post = await Posts.findOneAndUpdate({ slug: slug }, req.body);
+        const post = await Posts.updateOne({ slug: slug }, req.body);
 
         if (!post) {
           return res.status(404).json({ success: false, error });
