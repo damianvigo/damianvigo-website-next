@@ -32,7 +32,7 @@ const BtnMusic = () => {
 
   useEffect(() => {
     const $song = document.createElement('audio');
-    $song.src = '/audio/oscuro-wander.m4a';
+    $song.src = '/audio/oscuro-wander-mean-to-be-ambientalist.mp3';
     $song.loop = true;
     setSong($song);
   }, []);
