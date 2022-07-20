@@ -53,6 +53,7 @@ const FormPost = ({ formEdit, formNewMovie = true }) => {
       putData(form);
     }
 
+    router.push('/blog');
     handleReset();
   };
 
