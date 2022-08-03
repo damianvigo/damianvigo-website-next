@@ -53,7 +53,6 @@ const FormPost = ({ formEdit, formNewMovie = true }) => {
       putData(form);
     }
 
-    router.push('/blog');
     handleReset();
   };
 
@@ -73,10 +72,11 @@ const FormPost = ({ formEdit, formNewMovie = true }) => {
       const res = await helpHttp().put(`/api/posts/${form.slug}`, options);
 
       // console.log(res);
-      router.push('/blog');
     } catch (error) {
       // console.log(error);
     }
+
+    router.push('/blog');
   };
 
   const postData = async (form) => {
@@ -94,6 +94,8 @@ const FormPost = ({ formEdit, formNewMovie = true }) => {
     } catch (error) {
       // console.log(error);
     }
+
+    router.push('/blog');
   };
   return (
     <form onSubmit={handleSubmit} className={formStyledModule.contactForm}>

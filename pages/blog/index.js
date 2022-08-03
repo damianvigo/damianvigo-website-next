@@ -11,7 +11,6 @@ import { useContext } from 'react';
 // DB
 import conectarDB from '../../lib/dbConnect';
 import Posts from '../../models/Posts';
-import SvgLoader from '../../assets/icon/elements/SvgLoader';
 import Message from '../../components/Message';
 // Hooks
 import useNextProps from '../../hooks/useNextProps';
