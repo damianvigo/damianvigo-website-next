@@ -1,17 +1,5 @@
 # ¿Qué es el estoicismo?
 
-> Apenas amanezca, hazte en tu interior esta cuenta: hoy tropezaré con algún entremetido, con algún ingrato, con algún insolente, con un doloso, un envidioso, un egoísta.
->
-> Todos estos vicios les sobrevinieron por ignorancia del bien y del mal. Pero yo, habiendo observado que la naturaleza del bien es lo bello, y que la del mal es lo torpe, y que la condición del pecador mismo es tal que no deja de ser mi pariente, participante, no de mi misma sangre o prosapia, pero sí de una misma inteligencia y de una partícula de la divinidad
->
-> No puedo recibir afrenta de ninguno de ellos, porque ninguno podría mancharme con su infamia. No puedo tampoco enojarme contra mi pariente ni aborrecerle, que hemos sido creados para ayudarnos mutuamente, como lo hacen los pies, las manos, los párpados, los dos órdenes de dientes, el superior y el inferior.
->
-> Marco Aurelio, Meditaciones, 2.1
-
-Este extracto de Meditaciones, unos escritos que escribía por la noche en su tienda de campaña mientras luchaba contra los germanos a orillas del río Rin. Nos habla de que en algún momento del día nos encontraremos con alguien que se comporte como un idiota y que esta en nosotros habernos preparado con antelación para responder con paciencia y comprensión ya que nos une la misma naturaleza.
-
-![Marco Aurelio](https://i.imgur.com/1fdNLVv.jpg 'Marco Aurelio')
-
 El estoicismo es una escuela fundada por Zenón de Citio en el 301 a.C.
 Se basa en el dominio de las pasiones que perturban la vida valiéndose de la **virtud y la razón**.
 
@@ -20,6 +8,20 @@ El ideal de los estoicos es lograr la imperturbabilidad e independencia ante los
 El filósofo moderno y escritor Nassim Taleb define a un estoico como:
 
 > Alguien que transforma el miedo en prudencia, el dolor en transformación, los errores en iniciación y el deseo en una misión.
+
+---
+
+> Apenas amanezca, hazte en tu interior esta cuenta: hoy tropezaré con algún entremetido, con algún ingrato, con algún insolente, con un doloso, un envidioso, un egoísta.
+>
+> Todos estos vicios les sobrevinieron por ignorancia del bien y del mal. Pero yo, habiendo observado que la naturaleza del bien es lo bello, y que la del mal es lo torpe, y que la condición del pecador mismo es tal que no deja de ser mi pariente, participante, no de mi misma sangre o prosapia, pero sí de una misma inteligencia y de una partícula de la divinidad
+>
+> No puedo recibir afrenta de ninguno de ellos, porque ninguno podría mancharme con su infamia. No puedo tampoco enojarme contra mi pariente ni aborrecerle, que hemos sido creados para ayudarnos mutuamente, como lo hacen los pies, las manos, los párpados, los dos órdenes de dientes, el superior y el inferior.
+>
+> Marco Aurelio, Meditaciones, 2.1
+
+Este extracto de Meditaciones, unos escritos que escribía por la noche en su tienda de campaña mientras luchaba contra los germanos a orillas del río Rin. Nos dice de que en algún momento del día nos encontraremos con alguien que se comporte como un idiota y que esta en nosotros habernos preparado con antelación para responder con paciencia y comprensión ya que nos une la misma naturaleza.
+
+![Marco Aurelio](https://i.imgur.com/1fdNLVv.jpg 'Marco Aurelio')
 
 ---
 
