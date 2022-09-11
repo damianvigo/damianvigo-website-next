@@ -1,13 +1,14 @@
 # CommonJS | ECMAScript modules
 
-En el ecosistema de _javascript_ tenemos dos formas de importar y exportar módulos(acceder a otros archivos).
+En el ecosistema de _javascript_ tenemos dos formas de importar y exportar módulos (acceder a otros archivos).
 **En el _frontend_ por una lado tenemos el _import_ y _export_ y en el _backend_ con _Nodejs_ tenemos _CommonJS._**
 
 La forma en la que _Nodejs_ maneja sus módulos desde el 2009 es _CommonJS_.
 
 _CommonJS_ a quedado anticuado debido a las nuevas características de javascript sin embargo aún sigue vigente y es bastante utilizado.
 
-Recordemos como funciona _CommonJS_
+Recordemos como funciona _CommonJS_.
+
 Supongamos que tenemos un archivo _my_module.js_ y queremos exportar
 
 ```node

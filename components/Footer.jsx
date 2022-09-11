@@ -14,23 +14,16 @@ const Footer = () => {
     <FooterStyled theme={theme}>
       <SectionFooterStyled theme={theme}>
         <div>
-          <Link href="https://platzi.com/p/Damian">
-            <a title="platzi" target="_blank" rel="noreferrer">
-              <SvgPlatzi />
-            </a>
-          </Link>
-        </div>
-        <div>
           <Link href="https://github.com/damianvigo">
             <a title="github" target="_blank" rel="noreferrer">
               <SvgGitHub />
             </a>
           </Link>
         </div>
+        <div>
+          <p>Damián Vigo © {new Date().getFullYear()}</p>
+        </div>
       </SectionFooterStyled>
-      <div>
-        <p>Damián Vigo © {new Date().getFullYear()}</p>
-      </div>
       <ContainerSvgNextFooter theme={theme}>
         <small>powered by</small>
         <Link href="https://nextjs.org">
@@ -90,25 +83,27 @@ const SectionFooterStyled = styled.aside`
     a {
       display: inline-block;
     }
-    &:nth-child(2) {
+    &:nth-child(1) {
       background-color: ${({ theme }) =>
         theme === 'dark' ? 'var(--white-color)' : ''};
       border-radius: ${({ theme }) => (theme === 'dark' ? '20%' : '')};
     }
-    &:nth-child(1) {
+    /*    &:nth-child(1) {
       fill: ${({ theme }) =>
-        theme === 'dark' ? 'var(--white-color)' : '#98CA3C'};
-    }
+      theme === 'dark' ? 'var(--white-color)' : '#98CA3C'};
+    } */
     @media screen and (min-width: 48em) {
-      &:hover {
-        animation: icon 1s ease-out infinite both;
+      :nth-child(1) {
+        &:hover {
+          animation: icon 1s ease-out infinite both;
+        }
       }
     }
   }
 
   svg {
-    width: clamp(5px, 15vw, 40px);
-    height: clamp(5px, 15vw, 40px);
+    width: clamp(5px, 15vw, 35px);
+    height: clamp(5px, 15vw, 35px);
   }
 `;
 
