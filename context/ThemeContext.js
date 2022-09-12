@@ -8,6 +8,16 @@ const initialTheme = JSON.parse(localStorage.getItem('theme')) || '';
 const initialBtnIcon = JSON.parse(localStorage.getItem('btnIcon') || false); */
 
 const ThemeProvider = ({ children }) => {
+  const [theme, setTheme] = useState(null);
+  const [btnSvg, setBtnSvg] = useState(false);
+
+  useEffect(() => {
+    if (window.matchMedia('(prefers-color-scheme: dark)').matches) {
+      localStorage.setItem('theme', JSON.stringify('dark'));
+      localStorage.setItem('btnIcon', JSON.stringify(true));
+    }
+  }, [theme]);
+
   useEffect(() => {
     if (localStorage.getItem('theme')) {
       setTheme(JSON.parse(localStorage.getItem('theme')));
@@ -17,9 +27,6 @@ const ThemeProvider = ({ children }) => {
       setBtnSvg(JSON.parse(localStorage.getItem('btnIcon')));
     }
   }, []);
-
-  const [theme, setTheme] = useState('');
-  const [btnSvg, setBtnSvg] = useState(false);
 
   const handleTheme = (e) => {
     if (btnSvg) {
@@ -32,11 +39,11 @@ const ThemeProvider = ({ children }) => {
   };
 
   useEffect(() => {
-    /*    JSON.parse(localStorage.getItem('theme')) || '';
-    JSON.parse(localStorage.getItem('btnIcon') || false); */
     localStorage.setItem('theme', JSON.stringify(theme));
     localStorage.setItem('btnIcon', JSON.stringify(btnSvg));
   }, [theme, btnSvg]);
+
+  // console.log(theme);
 
   const data = { theme, handleTheme, btnSvg };
 
