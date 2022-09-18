@@ -102,6 +102,9 @@ const ArticleContainerText = styled.article`
       margin-top: 3.5rem;
       margin-bottom: 3.5rem;
     }
+    figcaption {
+      text-align: center;
+    }
   }
 
   hr {
