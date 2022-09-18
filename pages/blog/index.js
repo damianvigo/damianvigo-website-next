@@ -151,6 +151,9 @@ export async function getStaticProps() {
 
 const SectionStyledContainer = styled.section`
   overflow-x: hidden;
+  div {
+    padding: 2rem 0;
+  }
   h2 {
     text-align: center;
   }
@@ -167,7 +170,6 @@ const SectionStyledContainer = styled.section`
 
 const ArticleStyled = styled.article`
   cursor: pointer;
-  padding: 1rem;
   h2 {
     color: var(--title-color);
   }

@@ -35,7 +35,11 @@ const Home = ({ theme }) => {
         <ArticlePerfil className="container-900px">
           <PerfilDescription />
           <Button wsp talkToMe="Hablemos" />
-          <AnimationOnScroll animateIn="animate__backInUp" duration={2}>
+          <AnimationOnScroll
+            animateIn="animate__backInUp"
+            animateOnce
+            duration={2}
+          >
             <AsideContainerSvgStyled theme={theme}>
               <SvgJs />
               <SvgReact />

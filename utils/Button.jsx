@@ -53,7 +53,11 @@ const Button = ({
         </AnimationOnScroll>
       )}
       {more && (
-        <AnimationOnScroll animateIn="animate__flipInX" duration={2}>
+        <AnimationOnScroll
+          animateOnce
+          animateIn="animate__flipInX"
+          duration={2}
+        >
           <ButtonWspStyled theme={theme}>
             <Link href="/proyectos">
               <div>

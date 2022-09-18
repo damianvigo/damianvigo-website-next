@@ -22,7 +22,7 @@ Una base de datos es un conjunto de datos pertenecientes a un mismo contexto y a
   - **Priorizan el acceso rápido a la información por sobre la integridad de los datos.**
 ---
 
-## _DBMS_
+## _DBMS(Database Management System)_
 
 **Un _DBMS_ se le conoce como el motor que no es mas que un software que funciona como un gestor de base de datos.**. Este permite administrar, acceder, controlar permisos, respaldar, crear informes etc.
 Este sistema _(DBMS)_ necesita de alguna manera consultar datos y para ello una alternativa es utilizar _SQL._
@@ -33,10 +33,10 @@ Este sistema _(DBMS)_ necesita de alguna manera consultar datos y para ello una 
 
 ![Bases de datos Relacionales](https://imgur.com/e6qkoIf.jpg)
 
-_SQL_ es un lenguaje de consulta estructurada, diseñado para administrar, y recuperar información de sistemas de gestión de bases de datos relaciones.
+_SQL(Structured Query Language)_ es un lenguaje de consulta estructurada, diseñado para administrar, y recuperar información de sistemas de gestión de bases de datos relaciones.
 Organizan la información en tablas como hojas de cálculo en excel.
 
-**Si un _DBMS_ utiliza _SQL_ sería un _RDBMS._ "Un sistema de gestión de bases de datos relacionales".**
+**Si un _DBMS_ utiliza _SQL_ sería un _RDBMS.(Relational Database Management System)._ "Un sistema de gestión de bases de datos relacionales".**
 _SQL_ es el lenguaje más común para realizar consultas en base de datos
 
 ## _RDBMS_ populares
@@ -55,15 +55,12 @@ _SQL_ es el lenguaje más común para realizar consultas en base de datos
 
 **En este caso no existen tablas, se puede guardar la información de diferentes maneras, una de ellas son las documentales, es decir en documentos _JSON._**
 
-_JSON_ es un formato ligero de intercambio de datos y se ha convertido en un estándar.
+_JSON(JavaScript Object Notation)_ es un formato ligero de intercambio de datos y se ha convertido en un estándar.
 Podemos estructurar la información con la sintaxis de _javascript_ que se usan para los objetos.
 
 **El tipo de base de datos documental más usado es _MongoDB_** (aquí tengo guardados mis artículos del blog).
 
-<figure>
-<img src='https://imgur.com/DuqpxiA.png' alt='documento de mongodb' />
-<figcaption>Estructura de un documento en MongoDB</figcaption>
-</figure>
+![Estructura de un documento en MongoDB](https://imgur.com/DuqpxiA.png)
 
 ## Motores de bases de datos _NoSQL_
 
@@ -83,8 +80,3 @@ Podemos estructurar la información con la sintaxis de _javascript_ que se usan 
 Ninguna es mejor que otra, todo depende de las necesidades del proyecto.
 
 Para sistemas financieros, reservas de hoteles, vuelos o _e-commerce_ se utiliza _SQL_ por la integridad de los datos, por otro lado _NoSQL_ será mas eficiente de utilizar en redes sociales, en búsquedas como en _Google,_ en sistemas de recomendaciones o en sistemas de rutas como _Uber_, por su velocidad de acceso a los datos.
-
-*[JSON]:(JavaScript Object Notation)
-*[RDBMS]:(Relational Database Management System)
-*[SQL]:(Structured Query Language)
-*[DBMS]:(Database Management System)

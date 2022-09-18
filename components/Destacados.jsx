@@ -12,13 +12,18 @@ const Destacados = () => {
   const { theme } = useContext(ThemeContext);
   return (
     <DestacadosSectionStyled theme={theme} className="section">
-      <AnimationOnScroll animateIn="animate__fadeInDown" duration={2}>
+      <AnimationOnScroll
+        animateIn="animate__fadeInDown"
+        animateOnce
+        duration={2}
+      >
         <DestacadosStyled theme={theme}>Destacados</DestacadosStyled>
       </AnimationOnScroll>
       <AnimationOnScroll
-        animateIn="animate__bounceIn"
+        animateIn="animate__jackInTheBox"
         duration={3.5}
         offset={500}
+        animateOnce
       >
         <SeccionDestacada>
           <ArticleDestacado theme={theme}>
@@ -87,7 +92,7 @@ const Destacados = () => {
           </ArticleDestacado>
         </SeccionDestacada>
       </AnimationOnScroll>
-      <Button more moreDescription={'Ver más'} />
+      <Button more moreDescription="Ver más" />
     </DestacadosSectionStyled>
   );
 };
