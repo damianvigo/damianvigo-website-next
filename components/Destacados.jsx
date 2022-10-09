@@ -20,8 +20,8 @@ const Destacados = () => {
         <DestacadosStyled theme={theme}>Destacados</DestacadosStyled>
       </AnimationOnScroll>
       <AnimationOnScroll
-        animateIn="animate__jackInTheBox"
-        duration={3.5}
+        animateIn="animate__fadeInLeft"
+        duration={2}
         offset={500}
         animateOnce
       >

@@ -1,4 +1,4 @@
-# Art portfolio
+# _DvDev_ _Portfolio_ _Personal_
 
 ## Table of Contents
 
@@ -30,6 +30,8 @@ npm i or npm install
 ```
 npm run dev
 ```
+
+Now you can see my proyect at http://localhost:3000
 
 ---
 
