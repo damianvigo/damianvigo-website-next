@@ -2,6 +2,8 @@
 
 Antes de hablar de _scrum_ debemos saber que es una metodología ágil, ya que _scrum_ es una de muchas metodologías ágiles y una de las más utilizadas.
 
+![metodologías ágiles](https://i.imgur.com/WwMenuY.png)
+
 **Una metodología ágil es una forma de trabajar que acepta el cambio y se adapta con rapidez y flexibilidad entregando productos que respondan a las necesidades del cliente generando valor al usuario.**
 
 Existe varias metodologías ágiles
@@ -18,15 +20,17 @@ Estas metodologías nacieron en la industria del desarrollo de _software_ porque
 1. **Grupos de trabajo**
    - **Tradicional**
      - Puede generar dificultades como saber quién está trabajando en qué.
-   - **Ágil**
-     - Equipos de trabajo más pequeños con un tiempo de desarrollo corto ejemplo: 2 semanas (1 iteración).
-       <br />
+   - **Ágil** - Equipos de trabajo más pequeños con un tiempo de desarrollo corto ejemplo: 2 semanas (1 iteración).
+
+---
+
 2. **¿Cómo se manejan los requerimientos?**
    - **Tradicional**
      - Grandes listas de requerimientos
-   - **Ágil**
-     - Pequeñas listas de requerimientos que vamos a trabajar durante la iteración.
-       <br />
+   - **Ágil** - Pequeñas listas de requerimientos que vamos a trabajar durante la iteración.
+
+---
+
 3. **Generación de valor**
    - **Tradicional**
      - Trabajar toda la lista de requerimientos y al final mostrar al cliente con lo que creemos que es el producto terminado.
@@ -36,8 +40,6 @@ Estas metodologías nacieron en la industria del desarrollo de _software_ porque
 ---
 
 ### ¿Qué es _Scrum_?
-
-![scrum](https://i.imgur.com/UlaEBSZ.png)
 
 **Es un marco de trabajo por el que las personas pueden abordar problemas complejos adaptativos, a la vez que se entregan productos del máximo valor posible productiva y creativamente.**
 

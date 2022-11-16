@@ -125,7 +125,7 @@ const ArticleContainerText = styled.article`
     color: ${({ theme }) =>
       theme === 'dark' ? 'var(--light-color)' : 'var(--title-color)'};
     text-align: center;
-    line-height: 3rem;
+    line-height: 4.7rem;
 
     margin-left: auto;
     margin-right: auto;
