@@ -2,7 +2,7 @@ import { Html, Head, Main, NextScript } from 'next/document';
 
 export default function Document() {
   return (
-    <Html>
+    <Html lang="es">
       <Head>
         <link rel="manifest" href="/manifest.json" />
         <link rel="alternate" hrefLang="es" href="https://damianvigo.com/" />

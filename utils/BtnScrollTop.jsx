@@ -6,6 +6,7 @@ const BtnScrollTop = ({ scrollTop, toTop }) => {
       <BtnScrollTopStyled
         onClick={toTop}
         id="btn-scroll"
+        title="btn-scroll"
         className={`${scrollTop}`}
       >
         <svg

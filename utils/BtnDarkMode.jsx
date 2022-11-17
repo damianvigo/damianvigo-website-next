@@ -33,11 +33,11 @@ const BtnDarkMode = () => {
   return (
     <>
       {btnSvg ? (
-        <Btn>
+        <Btn title="btn-light">
           <SvgSun handleTheme={handleTheme} />
         </Btn>
       ) : (
-        <Btn>
+        <Btn title="btn-dark">
           <SvgMoon onClick={handleTheme} />
         </Btn>
       )}
