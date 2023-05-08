@@ -46,7 +46,7 @@ const Destacados = () => {
           </ArticleDestacado>
           <ArticleDestacado theme={theme}>
             <a
-              href="https://adrianastigliano.art/"
+              href="https://adrianastiglianoarte.netlify.app"
               target="_blank"
               rel="noreferrer"
             >
