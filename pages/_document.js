@@ -5,16 +5,16 @@ export default function Document() {
     <Html lang="es">
       <Head>
         <link rel="manifest" href="/manifest.json" />
-        <link rel="alternate" hrefLang="es" href="https://damianvigo.com/" />
+        <link rel="alternate" hrefLang="es" href="https://dvdev.vercel.app/" />
         <link
           rel="icon"
           type="image/png"
-          href="https://damianvigo.com/favicon-16x16.png"
+          href="https://dvdev.vercel.app/favicon-16x16.png"
         />
         <link
           rel="apple-touch-icon"
           type="image/png"
-          href="https://damianvigo.com/favicon-16x16.png"
+          href="https://dvdev.vercel.app/favicon-16x16.png"
         />
         <link rel="preconnect" href="https://fonts.googleapis.com" />
         <link
@@ -30,7 +30,7 @@ export default function Document() {
           name="google-site-verification"
           content="KvRh1BJjaDvoO88GM-j14cKqnfAnUZDmS_zcsLxK0wg"
         />
-        <link rel="canonical" href="https://damianvigo.com" />
+        <link rel="canonical" href="https://dvdev.vercel.app/" />
         <meta name="robots" content="index" />
         <meta name="robots" content="follow" />
         <meta name="author" content="Damian Vigo" />
@@ -51,7 +51,7 @@ export default function Document() {
         <meta
           property="og:url"
           name="twitter:url"
-          content="https://damianvigo.com"
+          content="https://dvdev.vercel.app/"
         />
       </Head>
       <body>
