@@ -1,8 +1,13 @@
 import styled from 'styled-components';
-import { AnimationOnScroll } from 'react-animation-on-scroll';
+import { motion } from 'framer-motion';
 
 const PerfilDescription = () => (
-  <AnimationOnScroll animateIn="animate__fadeInUp" offset={200}>
+  <motion.div 
+    initial={{ opacity: 0, y: 20 }}
+    whileInView={{ opacity: 1, y: 0 }}
+    viewport={{ once: true }}
+    transition={{ type: 'spring', stiffness: 100 }}
+  >
     <TitleDescription>¿Quién Soy?</TitleDescription>
     <p>
       ¡Hola! 👋 Me llamo Damián Vigo y soy{' '}
@@ -26,7 +31,7 @@ const PerfilDescription = () => (
       <i>web</i>, así como la optimización, para el buen posicionamiento y el
       rendimiento de carga de sitios y aplicaciones web.
     </Description>
-  </AnimationOnScroll>
+  </motion.div>
 );
 export default PerfilDescription;
 

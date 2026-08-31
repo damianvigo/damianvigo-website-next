@@ -1,4 +1,5 @@
 import styled from 'styled-components';
+import { motion } from 'framer-motion';
 // Icons
 import SvgBootstrap from '../assets/icon/elements/SvgBootstrap';
 import SvgCss from '../assets/icon/elements/SvgCss';
@@ -14,13 +15,40 @@ import SvgSass from '../assets/icon/elements/SvgSass';
 import SvgVSC from '../assets/icon/elements/SvgVSC';
 // Utils
 import Button from '../utils/Button';
-import { AnimationOnScroll } from 'react-animation-on-scroll';
 // Components
 import BackgroundImage from './BackgroundImage';
 import Destacados from './Destacados';
 import PerfilDescription from './PerfilDescription';
 import Video from './Video';
 import useLocation from '../hooks/useLocation';
+
+const containerVariants = {
+  hidden: { opacity: 0 },
+  visible: {
+    opacity: 1,
+    transition: {
+      staggerChildren: 0.1,
+    },
+  },
+};
+
+const itemVariants = {
+  hidden: { opacity: 0, y: 20 },
+  visible: { 
+    opacity: 1, 
+    y: 0,
+    transition: { type: 'spring', stiffness: 100 }
+  },
+};
+
+const floatingAnimation = {
+  y: [0, -10, 0],
+  transition: {
+    duration: 3,
+    repeat: Infinity,
+    ease: 'easeInOut',
+  },
+};
 
 const Home = ({ theme }) => {
   const { href } = useLocation();
@@ -35,26 +63,26 @@ const Home = ({ theme }) => {
         <ArticlePerfil className="container-900px">
           <PerfilDescription />
           <Button wsp talkToMe="Hablemos" />
-          <AnimationOnScroll
-            animateIn="animate__backInUp"
-            animateOnce
-            duration={2}
+          <motion.div
+            variants={containerVariants}
+            initial="hidden"
+            animate="visible"
           >
             <AsideContainerSvgStyled theme={theme}>
-              <SvgJs />
-              <SvgReact />
-              <SvgNext />
-              <SvgCss />
-              <SvgHtml />
-              <SvgSass />
-              <SvgVSC />
-              <SvgBootstrap />
-              <SvgGit />
-              <SvgNode />
-              <SvgMongo />
-              <SvgMysql />
+              <motion.div variants={itemVariants} animate={floatingAnimation}><SvgJs /></motion.div>
+              <motion.div variants={itemVariants} animate={floatingAnimation}><SvgReact /></motion.div>
+              <motion.div variants={itemVariants} animate={floatingAnimation}><SvgNext /></motion.div>
+              <motion.div variants={itemVariants} animate={floatingAnimation}><SvgCss /></motion.div>
+              <motion.div variants={itemVariants} animate={floatingAnimation}><SvgHtml /></motion.div>
+              <motion.div variants={itemVariants} animate={floatingAnimation}><SvgSass /></motion.div>
+              <motion.div variants={itemVariants} animate={floatingAnimation}><SvgVSC /></motion.div>
+              <motion.div variants={itemVariants} animate={floatingAnimation}><SvgBootstrap /></motion.div>
+              <motion.div variants={itemVariants} animate={floatingAnimation}><SvgGit /></motion.div>
+              <motion.div variants={itemVariants} animate={floatingAnimation}><SvgNode /></motion.div>
+              <motion.div variants={itemVariants} animate={floatingAnimation}><SvgMongo /></motion.div>
+              <motion.div variants={itemVariants} animate={floatingAnimation}><SvgMysql /></motion.div>
             </AsideContainerSvgStyled>
-          </AnimationOnScroll>
+          </motion.div>
         </ArticlePerfil>
       </SectionPerfil>
       <BackgroundImage
@@ -107,11 +135,17 @@ const AsideContainerSvgStyled = styled.aside`
   padding: 0;
   margin: 5rem 0;
 
+  div {
+    margin: 1rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
   svg {
-    /*  transform: scale(1.1); */
     width: clamp(40px, 15vw, 70px);
     height: clamp(40px, 15vw, 70px);
-    margin: 1rem;
+    
     &:nth-child(3) {
       fill: ${({ theme }) => (theme === 'dark' ? 'var(--white-color)' : '')};
     }
@@ -124,7 +158,7 @@ const AsideContainerSvgStyled = styled.aside`
   }
 
   @media screen and (min-width: 48em) {
-    svg {
+    div {
       transition: transform 0.3s ease-in-out;
       &:hover {
         transform: scale(1.6);

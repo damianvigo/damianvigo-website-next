@@ -1,5 +1,5 @@
 import { useForm } from '../hooks/useForm';
-import { AnimationOnScroll } from 'react-animation-on-scroll';
+import { motion } from 'framer-motion';
 
 // Styles
 import formStyledModule from '../styles/Form.module.css';
@@ -24,7 +24,12 @@ const Form = () => {
   } = useForm(initialForm, validationsForm);
 
   return (
-    <AnimationOnScroll animateIn="animate__fadeInUp" duration={2} animateOnce>
+    <motion.div 
+      initial={{ opacity: 0, y: 20 }}
+      whileInView={{ opacity: 1, y: 0 }}
+      viewport={{ once: true }}
+      transition={{ duration: 0.8 }}
+    >
       <form onSubmit={handleSubmit} className={formStyledModule.contactForm}>
         <input
           type="text"
@@ -90,7 +95,7 @@ const Form = () => {
           </div>
         )}
       </form>
-    </AnimationOnScroll>
+    </motion.div>
   );
 };
 

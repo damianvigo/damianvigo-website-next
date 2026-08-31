@@ -1,6 +1,6 @@
 import styled from 'styled-components';
 import { useRouter } from 'next/router';
-import { AnimationOnScroll } from 'react-animation-on-scroll';
+import { motion } from 'framer-motion';
 // Components
 import Image from 'next/image';
 import Form from './Form';
@@ -24,20 +24,29 @@ const HeroImage = ({ contactTitle }) => {
         >
           <HeroImageOpacity>
             <HeroImageBox>
-              <AnimationOnScroll animateIn="animate__zoomInLeft" duration={1.5}>
+              <motion.div
+                initial={{ opacity: 0, x: -50 }}
+                whileInView={{ opacity: 1, x: 0 }}
+                transition={{ duration: 0.8 }}
+              >
                 <HeroImageTitle contact="home">
                   Hola, soy Damián Vigo
                 </HeroImageTitle>
-              </AnimationOnScroll>
+              </motion.div>
 
-              <AnimationOnScroll
-                animateIn="animate__zoomInRight"
-                duration={2.5}
+              <motion.div
+                initial={{ opacity: 0, x: 50 }}
+                whileInView={{ opacity: 1, x: 0 }}
+                transition={{ duration: 0.8, delay: 0.2 }}
               >
                 <HeroImageSubtitle>Frontend Developer (React / Next.js)</HeroImageSubtitle>
-              </AnimationOnScroll>
+              </motion.div>
 
-              <AnimationOnScroll animateIn="animate__zoomInUp" duration={4}>
+              <motion.div
+                initial={{ opacity: 0, scale: 0.5 }}
+                whileInView={{ opacity: 1, scale: 1 }}
+                transition={{ type: 'spring', stiffness: 100, delay: 0.4 }}
+              >
                 <Image
                   width={200}
                   height={200}
@@ -45,7 +54,7 @@ const HeroImage = ({ contactTitle }) => {
                   title="Selfie Damián Vigo"
                   alt="Imagen retrato de Damián Vigo"
                 />
-              </AnimationOnScroll>
+              </motion.div>
             </HeroImageBox>
           </HeroImageOpacity>
         </HeroImageStyled>
@@ -60,15 +69,15 @@ const HeroImage = ({ contactTitle }) => {
         >
           <HeroImageOpacity>
             <HeroImageBox form="true">
-              <AnimationOnScroll
-                animateIn="animate__fadeInDown"
-                duration={2}
-                animateOnce
+              <motion.div
+                initial={{ opacity: 0, y: -20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.8 }}
               >
                 <HeroImageTitle contact="contact">
                   {contactTitle}
                 </HeroImageTitle>
-              </AnimationOnScroll>
+              </motion.div>
               <Form />
             </HeroImageBox>
           </HeroImageOpacity>

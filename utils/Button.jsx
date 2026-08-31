@@ -3,7 +3,7 @@ import Link from 'next/link';
 
 import { useState, useEffect } from 'react';
 import { useContext } from 'react';
-import { AnimationOnScroll } from 'react-animation-on-scroll';
+import { motion } from 'framer-motion';
 import ThemeContext from '../context/ThemeContext';
 
 const Button = ({
@@ -27,7 +27,12 @@ const Button = ({
   return (
     <>
       {!isSSR && wsp && (
-        <AnimationOnScroll animateIn="animate__fadeInUp">
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ type: 'spring', stiffness: 100 }}
+        >
           <ButtonWspStyled theme={theme}>
             <a
               href="https://api.whatsapp.com/send?phone=5491168602250&text=¡Hola!%20¿Podemos%20conversar%20ahora?"
@@ -50,13 +55,14 @@ const Button = ({
               </div>
             </a>
           </ButtonWspStyled>
-        </AnimationOnScroll>
+        </motion.div>
       )}
       {more && (
-        <AnimationOnScroll
-          animateOnce
-          animateIn="animate__flipInX"
-          duration={2}
+        <motion.div
+          initial={{ opacity: 0, rotateY: 90 }}
+          whileInView={{ opacity: 1, rotateY: 0 }}
+          viewport={{ once: true }}
+          transition={{ type: 'spring', stiffness: 100 }}
         >
           <ButtonWspStyled theme={theme}>
             <Link href="/proyectos">
@@ -65,7 +71,7 @@ const Button = ({
               </div>
             </Link>
           </ButtonWspStyled>
-        </AnimationOnScroll>
+        </motion.div>
       )}
       {error && (
         <ButtonWspStyled theme={theme}>

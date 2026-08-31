@@ -6,6 +6,12 @@ import { ThemeProvider } from '../context/ThemeContext';
 import Script from 'next/script';
 import NextNProgress from 'nextjs-progressbar';
 import BtnMusic from '../utils/BtnMusic';
+import { motion, AnimatePresence } from 'framer-motion';
+import styled from 'styled-components';
+
+const PageWrapper = styled(motion.div)`
+  background-color: var(--first-color);
+`;
 
 function MyApp({ Component, pageProps }) {
   const router = useRouter();
@@ -28,7 +34,17 @@ function MyApp({ Component, pageProps }) {
           `}
         </Script>
         <NextNProgress color="#f72585" />
-        <Component {...pageProps} />
+        <AnimatePresence mode="wait">
+          <PageWrapper
+            key={pathname}
+            initial={{ opacity: 0, y: 10 }}
+            animate={{ opacity: 1, y: 0 }}
+            exit={{ opacity: 0, y: -10 }}
+            transition={{ duration: 0.3 }}
+          >
+            <Component {...pageProps} />
+          </PageWrapper>
+        </AnimatePresence>
         {pathname !== '/404' && <BtnMusic />}
       </ThemeProvider>
     </>

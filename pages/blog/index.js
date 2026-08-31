@@ -4,7 +4,7 @@ import Link from 'next/link';
 import Image from 'next/image';
 import BackgroundImage from '../../components/BackgroundImage';
 import Layout from '../../components/layouts/Layout';
-import { AnimationOnScroll } from 'react-animation-on-scroll';
+import { motion } from 'framer-motion';
 // Context
 import ThemeContext from '../../context/ThemeContext';
 import { useContext } from 'react';
@@ -42,13 +42,14 @@ const Blog = ({ posts }) => {
           blog="Blog"
         />
         <SectionStyledContainer className="section full-lg-screen container-1200px">
-          <AnimationOnScroll
-            animateIn="animate__bounceInLeft"
-            duration={2.5}
-            animateOnce
+          <motion.div
+            initial={{ opacity: 0, x: -50 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.8 }}
           >
-            <h2>Desarrollo</h2>
-          </AnimationOnScroll>
+            <h2 style={{ textAlign: 'center' }}>Desarrollo</h2>
+          </motion.div>
           {db ? (
             posts.map(
               (post) =>
@@ -58,16 +59,16 @@ const Blog = ({ posts }) => {
                       <LinkStyled theme={theme}>
                         <FigureStyled>
                            <img
-                             src={post.img}
-                             style={{ width: 40, height: 40 }}
-                             alt={post.title}
-                           />
+                              src={post.img}
+                              style={{ width: 40, height: 40 }}
+                              alt={post.title}
+                            />
 
-                          <FigCaptionStyled>
-                            <span>{post.title}</span>
-                            <time>{post.updatedAt}</time>
-                          </FigCaptionStyled>
-                        </FigureStyled>
+                           <FigCaptionStyled>
+                             <span>{post.title}</span>
+                             <time>{post.updatedAt}</time>
+                           </FigCaptionStyled>
+                         </FigureStyled>
                       </LinkStyled>
                     </Link>
                     <hr />
@@ -81,13 +82,14 @@ const Blog = ({ posts }) => {
               bgColor="var(--first-color)"
             />
           )}
-          <AnimationOnScroll
-            animateIn="animate__bounceInRight"
-            duration={2.5}
-            animateOnce
+          <motion.div
+            initial={{ opacity: 0, x: 50 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.8 }}
           >
-            <h2>Personal</h2>
-          </AnimationOnScroll>
+            <h2 style={{ textAlign: 'center' }}>Personal</h2>
+          </motion.div>
           {db ? (
             posts.map(
               (post) =>
@@ -97,16 +99,16 @@ const Blog = ({ posts }) => {
                       <LinkStyled theme={theme}>
                         <FigureStyled>
                            <img
-                             src={post.img}
-                             style={{ width: 40, height: 40 }}
-                             alt={post.title}
-                           />
+                              src={post.img}
+                              style={{ width: 40, height: 40 }}
+                              alt={post.title}
+                            />
 
-                          <FigCaptionStyled>
-                            <span>{post.title}</span>
-                            <time>{post.updatedAt}</time>
-                          </FigCaptionStyled>
-                        </FigureStyled>
+                           <FigCaptionStyled>
+                             <span>{post.title}</span>
+                             <time>{post.updatedAt}</time>
+                           </FigCaptionStyled>
+                         </FigureStyled>
                       </LinkStyled>
                     </Link>
                     <hr />
@@ -221,3 +223,4 @@ const FigCaptionStyled = styled.figcaption`
     align-content: space-evenly;
   }
 `;
+
