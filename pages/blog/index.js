@@ -57,12 +57,12 @@ const Blog = ({ posts }) => {
                     <Link href={`/blog/${post.slug}`}>
                       <LinkStyled theme={theme}>
                         <FigureStyled>
-                          <Image
-                            src={post.img}
-                            width={40}
-                            height={40}
-                            alt={post.title}
-                          />
+                           <img
+                             src={post.img}
+                             style={{ width: 40, height: 40 }}
+                             alt={post.title}
+                           />
+
                           <FigCaptionStyled>
                             <span>{post.title}</span>
                             <time>{post.updatedAt}</time>
@@ -96,12 +96,12 @@ const Blog = ({ posts }) => {
                     <Link href={`/blog/${post.slug}`}>
                       <LinkStyled theme={theme}>
                         <FigureStyled>
-                          <Image
-                            src={post.img}
-                            width={40}
-                            height={40}
-                            alt={post.title}
-                          />
+                           <img
+                             src={post.img}
+                             style={{ width: 40, height: 40 }}
+                             alt={post.title}
+                           />
+
                           <FigCaptionStyled>
                             <span>{post.title}</span>
                             <time>{post.updatedAt}</time>

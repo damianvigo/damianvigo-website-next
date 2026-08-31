@@ -34,14 +34,14 @@ const HeroImage = ({ contactTitle }) => {
                 animateIn="animate__zoomInRight"
                 duration={2.5}
               >
-                <HeroImageSubtitle>Desarrollador Web</HeroImageSubtitle>
+                <HeroImageSubtitle>Frontend Developer (React / Next.js)</HeroImageSubtitle>
               </AnimationOnScroll>
 
               <AnimationOnScroll animateIn="animate__zoomInUp" duration={4}>
                 <Image
                   width={200}
                   height={200}
-                  src="https://i.imgur.com/o3jywgM.jpg"
+                  src="/img/damianvigo.jpg"
                   title="Selfie Damián Vigo"
                   alt="Imagen retrato de Damián Vigo"
                 />
@@ -133,4 +133,5 @@ const HeroImageSubtitle = styled.h2`
   font-family: var(--fontSans);
   color: var(--white-color);
   font-weight: var(--fontWeightSans-400);
+  font-size: var(--step-2)
 `;

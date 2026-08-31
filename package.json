@@ -10,6 +10,7 @@
   },
   "dependencies": {
     "animate.css": "^4.1.1",
+    "dotenv": "^17.4.2",
     "hamburgers": "^1.2.1",
     "moment": "^2.29.4",
     "mongoose": "^6.3.8",

@@ -124,10 +124,10 @@ export async function getServerSideProps() {
     return {
       props: { proyects: proyects },
     };
-  } catch (error) {
-    console.log(error);
-    return { props: { success: false, error: 'Error' } };
-  }
+    } catch (error) {
+      console.error('Detailed Error in getServerSideProps:', error);
+      return { props: { success: false, error: error.message || 'Error' } };
+    }
 }
 
 const TitleProyects = styled.h1`
