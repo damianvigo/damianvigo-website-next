@@ -24,10 +24,10 @@ const VideoContainer = styled.div`
   background-color: var(--black-color);
   border-top: thick solid
     ${({ theme }) =>
-      theme === 'dark' ? 'var(--second-color)' : 'var(--dark-color)'};
+      theme === 'dark' ? 'var(--second-color)' : 'var(--second-color)'};
   border-bottom: 4px solid
     ${({ theme }) =>
-      theme === 'dark' ? 'var(--second-color)' : 'var(--dark-color)'};
+      theme === 'dark' ? 'var(--second-color)' : 'var(--second-color)'};
 `;
 
 const VideoStyled = styled.video`

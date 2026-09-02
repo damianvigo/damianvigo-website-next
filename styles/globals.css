@@ -78,7 +78,7 @@ body {
 }
 
 main {
-  background-color: var(--third-color);
+  background-color: var(--second-color);
 }
 
 h1 {
@@ -170,7 +170,7 @@ main.dark tbody tr:nth-child(2n) {
 
 tr {
   border-top: 1px solid #c6cbd1;
-  background: var(--third-color);
+  background: var(--second-color);
 }
 
 th,

@@ -80,5 +80,5 @@ export default Layout;
 const SectionContainerStyled = styled.section`
   border-bottom: thin solid
     ${({ theme }) =>
-      theme === 'dark' ? 'var(--second-color)' : 'var(--black-alpha-color)'};
+      theme === 'dark' ? 'var(--second-color)' : 'var(--second-color)'};
 `;

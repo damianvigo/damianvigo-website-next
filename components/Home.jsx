@@ -147,7 +147,7 @@ const AsideContainerSvgStyled = styled.aside`
     height: clamp(40px, 15vw, 70px);
     
     &:nth-child(3) {
-      fill: ${({ theme }) => (theme === 'dark' ? 'var(--white-color)' : '')};
+      fill: ${({ theme }) => (theme === 'dark' ? 'var(--white-color)' : 'inherit')};
     }
     &:nth-child(4) {
       fill: ${({ theme }) => (theme === 'dark' ? 'var(--white-color)' : '')};

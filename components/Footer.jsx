@@ -41,16 +41,16 @@ export default Footer;
 const FooterStyled = styled.footer`
   transition: background-color 0.3s ease-in;
   background-color: ${({ theme }) =>
-    theme === 'dark' ? 'var(--dark-color)' : 'var(--third-color)'};
+    theme === 'dark' ? 'var(--dark-color)' : 'var(--second-color)'};
   /* background-color: var(--third-alpha-color); */
   border-top: thin solid
     ${({ theme }) =>
-      theme === 'dark' ? 'var(--second-color)' : 'var(--black-alpha-color)'};
+      theme === 'dark' ? 'var(--second-color)' : 'var(--second-color)'};
   margin-bottom: var(--header-height);
   div {
     p {
       color: ${({ theme }) =>
-        theme === 'dark' ? 'var(--second-color)' : 'var(--text-color)'};
+        theme === 'dark' ? 'var(--second-color)' : '#222222'};
       text-align: center;
       margin: 0;
       font-size: var(--step--2);
@@ -121,7 +121,8 @@ const ContainerSvgNextFooter = styled.div`
       width: clamp(40px, 15vw, 70px);
       height: clamp(40px, 15vw, 70px);
       margin-left: 0.4rem;
-      fill: ${({ theme }) => (theme === 'dark' ? 'var(--light-color)' : '')};
+       color: ${({ theme }) => (theme === 'dark' ? 'var(--white-color)' : 'var(--black-color)')};
+       fill: ${({ theme }) => (theme === 'dark' ? 'var(--white-color)' : 'var(--black-color)')};
     }
   }
 `;

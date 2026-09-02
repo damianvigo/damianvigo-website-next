@@ -101,7 +101,7 @@ export default Destacados;
 
 const DestacadosSectionStyled = styled.section`
   background-color: ${({ theme }) =>
-    theme === 'dark' ? '' : 'var(--third-color)'};
+    theme === 'dark' ? '' : 'var(--second-color)'};
   text-align: center;
 `;
 
@@ -109,7 +109,7 @@ const DestacadosStyled = styled.h2`
   margin: 1rem auto;
   text-align: center;
   color: ${({ theme }) =>
-    theme === 'dark' ? 'var(--second-color)' : 'var(--title-color)'};
+    theme === 'dark' ? 'var(--second-color)' : '#222222'};
 `;
 
 const SeccionDestacada = styled.section`
@@ -142,12 +142,12 @@ const ArticleDestacado = styled.article`
   margin: 2rem 0;
   padding: 1rem;
   transition: background-color 0.3s ease-in-out;
-  background-color: ${({ theme }) =>
+    background-color: ${({ theme }) =>
     theme === 'dark' ? 'var(--first-color)' : 'var(--second-color)'};
   box-shadow: 0 2px 4px rgb(0 0 0 / 75%);
-  border: thin solid
+    border: thin solid
     ${({ theme }) =>
-      theme === 'dark' ? 'var(--second-color)' : 'var(--black-color)'};
+      theme === 'dark' ? 'var(--second-color)' : 'var(--second-color)'};
   text-align: center;
   max-width: 600px;
 
@@ -174,7 +174,7 @@ const ArticleDestacado = styled.article`
     /*   color: var(--title-color); */
     font-size: var(--step-1);
     color: ${({ theme }) =>
-      theme === 'dark' ? 'var(--second-color)' : 'var(--title-color)'};
+      theme === 'dark' ? 'var(--second-color)' : '#222222'};
     &::selection {
       background-color: ${({ theme }) =>
         theme === 'dark' && 'var(--second-color)'};
@@ -184,7 +184,7 @@ const ArticleDestacado = styled.article`
 
   p {
     color: ${({ theme }) =>
-      theme === 'dark' ? 'var(--second-color)' : 'var(--text-color)'};
+      theme === 'dark' ? 'var(--second-color)' : '#222222'};
     &::selection {
       background-color: ${({ theme }) =>
         theme === 'dark' && 'var(--second-color)'};
