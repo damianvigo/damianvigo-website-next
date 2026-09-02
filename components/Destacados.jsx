@@ -1,7 +1,7 @@
 import styled from 'styled-components';
 import Link from 'next/link';
 import { useContext } from 'react';
-import { AnimationOnScroll } from 'react-animation-on-scroll';
+import { motion } from 'framer-motion';
 import ThemeContext from '../context/ThemeContext';
 
 // Components
@@ -12,18 +12,19 @@ const Destacados = () => {
   const { theme } = useContext(ThemeContext);
   return (
     <DestacadosSectionStyled theme={theme} className="section">
-      <AnimationOnScroll
-        animateIn="animate__fadeInDown"
-        animateOnce
-        duration={2}
+      <motion.div 
+        initial={{ opacity: 0, y: -20 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        viewport={{ once: true }}
+        transition={{ duration: 0.8 }}
       >
         <DestacadosStyled theme={theme}>Destacados</DestacadosStyled>
-      </AnimationOnScroll>
-      <AnimationOnScroll
-        animateIn="animate__fadeInLeft"
-        duration={2}
-        offset={500}
-        animateOnce
+      </motion.div>
+      <motion.div 
+        initial={{ opacity: 0, x: -50 }}
+        whileInView={{ opacity: 1, x: 0 }}
+        viewport={{ once: true }}
+        transition={{ duration: 0.8 }}
       >
         <SeccionDestacada>
           <ArticleDestacado theme={theme}>
@@ -90,9 +91,9 @@ const Destacados = () => {
               />
             </a>
           </ArticleDestacado>
-        </SeccionDestacada>
-      </AnimationOnScroll>
-      <Button more moreDescription="Ver más" />
+          </SeccionDestacada>
+        </motion.div>
+        <Button more moreDescription="Ver más" />
     </DestacadosSectionStyled>
   );
 };

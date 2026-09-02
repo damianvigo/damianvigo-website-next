@@ -7,7 +7,7 @@ import conectarDB from '../../lib/dbConnect';
 import Proyect from '../../models/Proyect';
 
 // Components
-import { AnimationOnScroll } from 'react-animation-on-scroll';
+import { motion } from 'framer-motion';
 import Layout from '../../components/layouts/Layout';
 import BackgroundImage from '../../components/BackgroundImage';
 import SvgLoader from '../../assets/icon/elements/SvgLoader';
@@ -40,9 +40,14 @@ const Proyectos = ({ proyects }) => {
         backgroundProyect
       />
       <section className="section full-lg-screen container-1200px ">
-        <AnimationOnScroll animateIn="animate__jello" duration={2}>
+        <motion.div 
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.8 }}
+        >
           <TitleProyects className="text-center">Proyectos</TitleProyects>
-        </AnimationOnScroll>
+        </motion.div>
         {db ? (
           <GridFluid>
             {proyects.map(

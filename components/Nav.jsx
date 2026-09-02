@@ -23,6 +23,9 @@ const Nav = ({ theme, isActive, setIsActive }) => {
       <Link href="/blog">
         <a>Blog</a>
       </Link>
+      <Link href="/cv">
+        <a>Asesoría de CV</a>
+      </Link>
       <Link href="/contacto">
         <a>Contacto</a>
       </Link>
@@ -39,6 +42,7 @@ const Nav = ({ theme, isActive, setIsActive }) => {
       <NavLink href="/proyectos">Proyectos</NavLink>
       {/* <Link href="/proyectos">Proyectos</Link> */}
       <NavLink href="/blog">Blog</NavLink>
+      <NavLink href="/cv">Asesoría de CV</NavLink>
       {/*     <Link href="/blog">
         <a>Blog</a>
       </Link> */}

@@ -16,8 +16,15 @@ export const useForm = (initialForm, validateForm) => {
   };
 
   const handleBlur = (e) => {
-    handleChange(e);
-    setErrors(validateForm(form));
+    const { name, value } = e.target;
+    setErrors((prevErrors) => {
+      const currentForm = { ...form, [name]: value };
+      const validationErrors = validateForm(currentForm);
+      return {
+        ...prevErrors,
+        [name]: validationErrors[name],
+      };
+    });
   };
 
   const handleSubmit = (e) => {

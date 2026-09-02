@@ -56,7 +56,7 @@ const Form = () => {
           value={form.email}
           autoComplete="off"
         />
-        {errors.name && <MessageErrorForm errorEmail={errors.email} />}
+        {errors.email && <MessageErrorForm errorEmail={errors.email} />}
         <input
           type="text"
           name="subject"
@@ -68,7 +68,7 @@ const Form = () => {
           value={form.subject}
           autoComplete="off"
         />
-        {errors.name && <MessageErrorForm errorSubject={errors.subject} />}
+        {errors.subject && <MessageErrorForm errorSubject={errors.subject} />}
         <textarea
           name="comments"
           cols="50"
@@ -82,7 +82,7 @@ const Form = () => {
           value={form.comments}
           autoComplete="off"
         ></textarea>
-        {errors.name && <MessageErrorForm errorComment={errors.comments} />}
+        {errors.comments && <MessageErrorForm errorComment={errors.comments} />}
         <input type="submit" value="Envíar" />
         {loading && <SvgLoader contact />}
         {response && (
