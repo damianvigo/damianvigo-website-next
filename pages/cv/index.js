@@ -11,7 +11,10 @@ const CvPage = () => {
       theme={theme}
       title="Asesoría de CV | Damián Vigo"
       description="Armado profesional de CV y optimización LinkedIn. ATS-friendly, palabras clave, formato PDF + Word. Desde $6.000 ARS."
-      ogImage="https://i.imgur.com/fT6QwPm.jpg"
+      ogImage="https://dvdev.vercel.app/img/imagen-cv.jpg"
+      width="1200"
+      height="630"
+      type="image/jpeg"
     >
       <div className={theme}>
         <section
