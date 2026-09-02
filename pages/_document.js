@@ -41,18 +41,6 @@ export default function Document() {
         <meta name="theme-color" content="#022b3a" />
         <meta name="MobileOptimized" content="width" />
         <meta name="HandheldFriendly" content="true" />
-        <meta name="twitter:card" content="summary" />
-        <meta property="og:type" content="website dvdev" />
-        <meta
-          property="og:title"
-          name="twitter:title"
-          content="Website - Damian Vigo"
-        />
-        <meta
-          property="og:url"
-          name="twitter:url"
-          content="https://dvdev.vercel.app/"
-        />
       </Head>
       <body>
         <Main />
