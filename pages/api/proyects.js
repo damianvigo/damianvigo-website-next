@@ -1,19 +1,35 @@
-// Next.js API route support: https://nextjs.org/docs/api-routes/introduction
-
 import conectarDB from '../../lib/dbConnect';
 import Proyect from '../../models/Proyect';
+import { verifyApiKey } from '../../lib/verifyApiKey';
+
+async function revalidate(path) {
+  try {
+    const host = process.env.VERCEL_URL || 'http://localhost:3000';
+    await fetch(`${host}/api/revalidate?secret=${process.env.REVALIDATION_SECRET}&path=${path}`);
+  } catch (error) {
+    // revalidation failed silently, page will update on next ISR cycle
+  }
+}
 
 export default async function handler(req, res) {
   await conectarDB();
-  // POST api/proyect
 
   const { method } = req;
+
+  if (method === 'POST') {
+    const auth = verifyApiKey(req);
+    if (!auth.valid) {
+      return res.status(401).json({ success: false, error: auth.error });
+    }
+  }
+
   switch (method) {
     case 'POST':
       try {
         const proyect = new Proyect(req.body);
         await proyect.save();
 
+        await revalidate('/proyectos');
         return res.status(201).json({ success: true, proyect });
       } catch (error) {
         return res.status(400).json({ success: false, error });

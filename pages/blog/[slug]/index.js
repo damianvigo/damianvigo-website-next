@@ -3,7 +3,6 @@ import styled from 'styled-components';
 import Layout from '../../../components/layouts/Layout';
 import conectarDB from '../../../lib/dbConnect';
 import Post from '../../../models/Posts';
-import { useRouter } from 'next/router';
 // Context
 import { useContext } from 'react';
 import ThemeContext from '../../../context/ThemeContext';
@@ -12,8 +11,6 @@ import ReactMarkdown from 'react-markdown';
 import remarkGfm from 'remark-gfm';
 
 const BlogPost = ({ post, success, error }) => {
-  // console.log(post);
-  const router = useRouter();
 
   const { theme } = useContext(ThemeContext);
 
@@ -40,8 +37,15 @@ const BlogPost = ({ post, success, error }) => {
 
 export default BlogPost;
 
-export async function getServerSideProps({ params }) {
-  console.log(params);
+export async function getStaticPaths() {
+  await conectarDB();
+  const posts = await Post.find({}).select('slug -_id').lean();
+  const paths = posts.map((post) => ({ params: { slug: post.slug } }));
+
+  return { paths, fallback: 'blocking' };
+}
+
+export async function getStaticProps({ params }) {
   try {
     await conectarDB();
 
@@ -49,10 +53,7 @@ export async function getServerSideProps({ params }) {
 
     if (!post) {
       return {
-        props: {
-          succes: false,
-          error: 'No existe este post 🙄',
-        },
+        notFound: true,
       };
     }
 
@@ -65,9 +66,9 @@ export async function getServerSideProps({ params }) {
         success: true,
         post: post,
       },
+      revalidate: 60,
     };
   } catch (error) {
-    console.log(error);
     if (error.kind === 'ObjectId') {
       return { props: { success: false, error: 'Id no válido' } };
     }

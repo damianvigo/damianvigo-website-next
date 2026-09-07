@@ -1,13 +1,17 @@
 import '../styles/globals.css';
 import 'animate.css/animate.min.css';
 import 'hamburgers/dist/hamburgers.min.css';
+import NProgress from 'nprogress';
+import 'nprogress/nprogress.css';
 import { useRouter } from 'next/router';
 import { ThemeProvider } from '../context/ThemeContext';
 import Script from 'next/script';
-import NextNProgress from 'nextjs-progressbar';
 import BtnMusic from '../utils/BtnMusic';
 import { motion, AnimatePresence } from 'framer-motion';
 import styled from 'styled-components';
+import { useEffect } from 'react';
+
+NProgress.configure({ showSpinner: false });
 
 const PageWrapper = styled(motion.div)`
   background-color: var(--first-color);
@@ -16,6 +20,21 @@ const PageWrapper = styled(motion.div)`
 function MyApp({ Component, pageProps }) {
   const router = useRouter();
   const { pathname } = router;
+
+  useEffect(() => {
+    const handleStart = () => NProgress.start();
+    const handleComplete = () => NProgress.done();
+
+    router.events.on('routeChangeStart', handleStart);
+    router.events.on('routeChangeComplete', handleComplete);
+    router.events.on('routeChangeError', handleComplete);
+
+    return () => {
+      router.events.off('routeChangeStart', handleStart);
+      router.events.off('routeChangeComplete', handleComplete);
+      router.events.off('routeChangeError', handleComplete);
+    };
+  }, [router]);
 
   return (
     <>
@@ -33,7 +52,6 @@ function MyApp({ Component, pageProps }) {
             gtag('config', '${process.env.GOOGLE_ANALYTICS}');
           `}
         </Script>
-        <NextNProgress color="#f72585" />
         <AnimatePresence mode="wait">
           <PageWrapper
             key={pathname}

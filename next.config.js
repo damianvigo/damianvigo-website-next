@@ -1,6 +1,6 @@
 /** @type {import('next').NextConfig} */
 
-const withPWA = require('next-pwa');
+const withPWA = require('@ducanh2912/next-pwa').default;
 
 module.exports = withPWA({
   pwa: {
@@ -9,17 +9,19 @@ module.exports = withPWA({
     skipWaiting: true,
     disable: process.env.NODE_ENV === 'development',
   },
-  reactStrictMode: false,
+})({
+  reactStrictMode: true,
+  swcMinify: true,
+  poweredByHeader: false,
   images: {
-    domains: [
-      'i.imgur.com',
-      'picsum.photos',
-      'www.svgrepo.com',
-      'damianvigo.com',
-      'localhost',
+    remotePatterns: [
+      { protocol: 'https', hostname: 'i.imgur.com' },
+      { protocol: 'https', hostname: 'picsum.photos' },
+      { protocol: 'https', hostname: 'www.svgrepo.com' },
+      { protocol: 'https', hostname: 'damianvigo.com' },
     ],
   },
-  experimental: {
-    forceSwcTransforms: true,
+  compiler: {
+    styledComponents: true,
   },
 });

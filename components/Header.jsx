@@ -1,6 +1,6 @@
 import styled from 'styled-components';
 import Link from 'next/link';
-import { useRef, useState } from 'react';
+import { useRef, useState, useEffect } from 'react';
 import { useRouter } from 'next/router';
 
 // Utils
@@ -15,14 +15,20 @@ const Header = ({ theme }) => {
   const txt = useRef();
   TextAnimated(txt);
   const [isActive, setIsActive] = useState(false);
+  const [hasApiKey, setHasApiKey] = useState(false);
 
   const router = useRouter();
   const { pathname } = router;
 
+  useEffect(() => {
+    const key = localStorage.getItem('API_KEY');
+    setHasApiKey(!!key);
+  }, []);
+
   return (
     <HeaderStyled
       theme={theme}
-      position={`${
+      $position={`${
         pathname === '/' || pathname === '/blog/[slug]'
           ? 'sticky'
           : pathname === '/contacto'
@@ -32,25 +38,36 @@ const Header = ({ theme }) => {
     >
       <section className="container-flex">
         <div>
-          <Link href="/">
-            <a id="dvdev" ref={txt} className={TextAnimatedModule.dvdev}>
-              DVDEV
-            </a>
+          <Link href="/" id="dvdev" ref={txt} className={TextAnimatedModule.dvdev}>
+            DVDEV
           </Link>
         </div>
         <Nav theme={theme} isActive={isActive} setIsActive={setIsActive} />
+        {hasApiKey && (
+          <AdminLink href="/admin" theme={theme}>Admin</AdminLink>
+        )}
         <HamburgerButton setIsActive={setIsActive} isActive={isActive} />
-        {/*       <div>
-          <Link href="/admin">
-            <a>admin</a>
-          </Link>
-        </div> */}
       </section>
     </HeaderStyled>
   );
 };
 
 export default Header;
+
+const AdminLink = styled(Link)`
+  font-size: var(--step--2);
+  color: ${({ theme }) =>
+    theme === 'dark' ? 'var(--second-color)' : 'var(--first-color)'};
+  text-decoration: none;
+  opacity: 0.6;
+  transition: opacity 0.3s ease;
+  &:hover {
+    opacity: 1;
+  }
+  @media screen and (min-width: 64em) {
+    margin-left: 1rem;
+  }
+`;
 
 const HeaderStyled = styled.header`
   position: fixed;
@@ -60,7 +77,6 @@ const HeaderStyled = styled.header`
   padding: 0.5rem;
   width: 100%;
   height: var(--header-height);
-  /*  background-color: var(--second-color); */
   transition: background-color 0.3s ease-in;
   background-color: ${({ theme }) =>
     theme === 'dark' ? 'var(--first-color)' : 'var(--second-color)'};
@@ -78,12 +94,9 @@ const HeaderStyled = styled.header`
     }
   }
 
-  @media screen and (min-width: 48em) {
-  }
-
   @media screen and (min-width: 64em) {
     transition: background-color 0.3s ease-in;
-    position: ${({ position }) => position};
+    position: ${({ $position }) => $position};
     top: -0.5rem;
     padding-top: 1.5rem;
     padding-bottom: 3rem;

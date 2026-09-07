@@ -1,8 +1,20 @@
 export const helpHttp = () => {
+  const getApiKey = () => {
+    if (typeof window !== 'undefined') {
+      return localStorage.getItem('API_KEY') || '';
+    }
+    return '';
+  };
+
   const customFetch = (endpoint, options) => {
     const defaultHeader = {
       accept: 'application/json',
     };
+
+    const apiKey = getApiKey();
+    if (apiKey) {
+      defaultHeader['x-api-key'] = apiKey;
+    }
 
     const controller = new AbortController();
     options.signal = controller.signal;
@@ -15,7 +27,6 @@ export const helpHttp = () => {
     options.body = JSON.stringify(options.body) || false;
     if (!options.body) delete options.body;
 
-    console.log(options);
     setTimeout(() => controller.abort(), 3000);
 
     return fetch(endpoint, options)

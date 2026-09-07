@@ -16,7 +16,7 @@ const HeroImage = ({ contactTitle }) => {
     <>
       {pathname === '/' && (
         <HeroImageStyled
-          backgroundImage={
+          $backgroundImage={
             href === 'https://www.damianvigo.com/'
               ? 'https://damianvigo.com/img/great.jpg'
               : 'https://i.imgur.com/BjlU9xu.jpg'
@@ -29,7 +29,7 @@ const HeroImage = ({ contactTitle }) => {
                 whileInView={{ opacity: 1, x: 0 }}
                 transition={{ duration: 0.8 }}
               >
-                <HeroImageTitle contact="home">
+                <HeroImageTitle $contact="home">
                   Hola, soy Damián Vigo
                 </HeroImageTitle>
               </motion.div>
@@ -61,20 +61,20 @@ const HeroImage = ({ contactTitle }) => {
       )}
       {pathname === '/contacto' && (
         <HeroImageStyled
-          backgroundImage={
+          $backgroundImage={
             href === 'https://www.damianvigo.com/contacto'
               ? 'https://damianvigo.com/img/contacto.jpg'
               : 'https://i.imgur.com/aXb9Pux.jpg'
           }
         >
           <HeroImageOpacity>
-            <HeroImageBox form="true">
+            <HeroImageBox $form="true">
               <motion.div
                 initial={{ opacity: 0, y: -20 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.8 }}
               >
-                <HeroImageTitle contact="contact">
+                <HeroImageTitle $contact="contact">
                   {contactTitle}
                 </HeroImageTitle>
               </motion.div>
@@ -91,7 +91,7 @@ export default HeroImage;
 
 const HeroImageStyled = styled.article`
   overflow-x: hidden;
-  background-image: url(${(props) => props.backgroundImage});
+  background-image: url(${(props) => props.$backgroundImage});
   background-repeat: no-repeat;
   background-size: cover;
   background-position: 50% 60%;
@@ -108,16 +108,11 @@ const HeroImageOpacity = styled.aside`
   padding-bottom: ${(props) => props.contactPaddingBottom};
   text-align: center;
   background-color: var(--black-alpha-color);
-  /*   overflow-y: hidden; */
-
-  /*   @media screen and (min-width: 768px) {
-    align-items: center;
-  } */
 `;
 
 const HeroImageBox = styled.div`
   width: 100%;
-  max-width: ${({ form }) => form && '34rem'};
+  max-width: ${({ $form }) => $form && '34rem'};
   padding: 0 1rem 0;
   > * {
     margin-bottom: 1rem;
@@ -133,8 +128,8 @@ const HeroImageBox = styled.div`
 
 const HeroImageTitle = styled.h1`
   font-family: var(--fontSans);
-  color: ${({ contact }) =>
-    contact !== 'contact' ? ' var(--white-color)' : 'var(--light-color)'};
+  color: ${({ $contact }) =>
+    $contact !== 'contact' ? ' var(--white-color)' : 'var(--light-color)'};
   font-weight: var(--fontWeightSans-900);
 `;
 

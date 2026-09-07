@@ -15,7 +15,7 @@ import Message from '../../components/Message';
 // Hooks
 import useNextProps from '../../hooks/useNextProps';
 import useLocation from '../../hooks/useLocation';
-import moment from 'moment';
+import { format } from 'date-fns';
 // Utils
 
 const Blog = ({ posts }) => {
@@ -143,8 +143,8 @@ export async function getStaticProps() {
       post._id = `${post._id}`;
       /*     post.createdAt = new Date(post.createdAt).toLocaleDateString();
       post.updatedAt = new Date(post.updatedAt).toLocaleDateString(); */
-      post.createdAt = moment(post.createdAt).format('DD-MM-YYYY');
-      post.updatedAt = moment(post.updatedAt).format('DD-MM-YYYY');
+      post.createdAt = format(new Date(post.createdAt), 'dd-MM-yyyy');
+      post.updatedAt = format(new Date(post.updatedAt), 'dd-MM-yyyy');
       return post;
     });
 

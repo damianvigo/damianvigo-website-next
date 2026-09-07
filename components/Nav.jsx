@@ -5,8 +5,7 @@ import { NavLink } from '../utils/NavLink';
 
 const Nav = ({ theme, isActive, setIsActive }) => {
   const [isHome, setIsHome] = useState('');
-
-  // console.log(isActive);
+  const [hasApiKey, setHasApiKey] = useState(false);
 
   const closeMenu = (e) => {
     setIsActive(!isActive);
@@ -15,20 +14,17 @@ const Nav = ({ theme, isActive, setIsActive }) => {
   useEffect(() => {
     const home = window.location.pathname;
     setIsHome(home);
+    const key = localStorage.getItem('API_KEY');
+    setHasApiKey(!!key);
   }, [isHome]);
 
   return isHome === '/' ? (
     <NavStyled theme={theme} className={`${isActive && 'is-active'}`}>
       <Link href="/proyectos">Proyectos</Link>
-      <Link href="/blog">
-        <a>Blog</a>
-      </Link>
-      <Link href="/cv">
-        <a>Asesoría de CV</a>
-      </Link>
-      <Link href="/contacto">
-        <a>Contacto</a>
-      </Link>
+      <Link href="/blog">Blog</Link>
+      <Link href="/cv">Asesoría de CV</Link>
+      <Link href="/contacto">Contacto</Link>
+      {hasApiKey && <Link href="/admin">Admin</Link>}
     </NavStyled>
   ) : (
     <NavStyled
@@ -36,20 +32,12 @@ const Nav = ({ theme, isActive, setIsActive }) => {
       theme={theme}
       className={`${isActive && 'is-active'}`}
     >
-      <Link href="/">
-        <a>Bienvenido</a>
-      </Link>
+      <Link href="/">Bienvenido</Link>
       <NavLink href="/proyectos">Proyectos</NavLink>
-      {/* <Link href="/proyectos">Proyectos</Link> */}
       <NavLink href="/blog">Blog</NavLink>
       <NavLink href="/cv">Asesoría de CV</NavLink>
-      {/*     <Link href="/blog">
-        <a>Blog</a>
-      </Link> */}
       <NavLink href="/contacto">Contacto</NavLink>
-      {/*   <Link href="/contacto">
-        <a>Contacto</a>
-      </Link> */}
+      {hasApiKey && <NavLink href="/admin">Admin</NavLink>}
     </NavStyled>
   );
 };
@@ -63,7 +51,6 @@ const NavStyled = styled.nav`
   width: 100%;
   display: flex;
   flex-direction: column;
-  /*   background-color: var(--second-color); */
   background-color: ${({ theme }) =>
     theme === 'dark' ? 'var(--first-color)' : 'var(--second-color)'};
   opacity: 0;
@@ -76,15 +63,12 @@ const NavStyled = styled.nav`
     font-weight: var(--fontWeight-400);
     text-align: center;
     text-decoration: none;
-    /*  color: var(--first-color); */
     color: ${({ theme }) =>
       theme === 'dark' ? 'var(--second-color)' : 'var(--first-color)'};
     cursor: pointer;
+    background-color: transparent;
     &:hover {
-      color: ${({ theme }) =>
-        theme === 'dark' ? 'var(--first-color)' : 'var(--second-color)'};
-      background-color: ${({ theme }) =>
-        theme === 'dark' ? 'var(--second-color)' : 'var(--first-color)'};
+      background-color: transparent;
     }
   }
 
@@ -104,8 +88,6 @@ const NavStyled = styled.nav`
       padding: 0 1rem;
       transition: transform 0.3s ease-in-out;
       &:hover {
-        color: ${({ theme }) =>
-          theme === 'dark' ? 'var(--second-color)' : 'var(--first-color)'};
         font-weight: var(--fontWeightSans-900);
         transform: scale(1.1);
         background-color: transparent;

@@ -19,9 +19,9 @@ const BackgroundImage = ({
       {backgroundImageHome && (
         <CiteContainerStyled>
           <CiteBackgroundImageStyled
-            backgroundPosition
+            $backgroundPosition
             theme={theme}
-            backgroundImage={image}
+            $backgroundImage={image}
           >
             <BackgroundOpacityStyled>
               {title && <p>{title}</p>}
@@ -34,8 +34,8 @@ const BackgroundImage = ({
         <CiteContainerStyled>
           <CiteBackgroundImageStyled
             theme={theme}
-            backgroundImage={image}
-            backgroundProyect
+            $backgroundImage={image}
+            $backgroundProyect
           >
             <BackgroundOpacityStyled></BackgroundOpacityStyled>
           </CiteBackgroundImageStyled>
@@ -45,8 +45,8 @@ const BackgroundImage = ({
         <CiteContainerStyled>
           <CiteBackgroundImageStyled
             theme={theme}
-            backgroundImage={image}
-            backgroundProyect
+            $backgroundImage={image}
+            $backgroundProyect
           >
             <BackgroundOpacityStyled>
               <h1>{blog}</h1>
@@ -58,11 +58,11 @@ const BackgroundImage = ({
         <CiteContainerStyled>
           <CiteBackgroundImageStyled
             theme={theme}
-            backgroundImage={image}
-            backgroundProyectBottom
+            $backgroundImage={image}
+            $backgroundProyectBottom
           >
             <BackgroundOpacityStyled
-              backgroundProyectBottom
+              $backgroundProyectBottom
             ></BackgroundOpacityStyled>
           </CiteBackgroundImageStyled>
         </CiteContainerStyled>
@@ -78,18 +78,12 @@ const CiteContainerStyled = styled.div`
 `;
 
 const CiteBackgroundImageStyled = styled.article`
-  background-image: url(${(props) => props.backgroundImage});
+  background-image: url(${(props) => props.$backgroundImage});
   background-repeat: no-repeat;
-  background-position: ${({ backgroundProyect }) =>
-    backgroundProyect ? '50% 20%' : '50% 90%'};
+  background-position: ${({ $backgroundProyect }) =>
+    $backgroundProyect ? '50% 20%' : '50% 90%'};
   background-size: cover;
   background-attachment: scroll;
-  /*   border-top: thick solid
-    ${({ theme }) =>
-    theme === 'dark' ? 'var(--second-color)' : 'var(--black-alpha-color)'};
-  border-bottom: thick solid
-    ${({ theme }) =>
-    theme === 'dark' ? 'var(--second-color)' : 'var(--black-alpha-color)'}; */
   p {
     font-size: var(--step-1);
   }
@@ -98,10 +92,10 @@ const CiteBackgroundImageStyled = styled.article`
   }
 
   @media screen and (min-width: 768px) {
-    background-attachment: ${({ backgroundProyectBottom }) =>
-      backgroundProyectBottom && 'fixed'};
-    background-position: ${({ backgroundProyectBottom }) =>
-      backgroundProyectBottom && '50% 50%'};
+    background-attachment: ${({ $backgroundProyectBottom }) =>
+      $backgroundProyectBottom && 'fixed'};
+    background-position: ${({ $backgroundProyectBottom }) =>
+      $backgroundProyectBottom && '50% 50%'};
   }
 `;
 
@@ -112,8 +106,8 @@ const BackgroundOpacityStyled = styled.div`
   align-items: center;
   text-align: center;
   background-color: var(--black-alpha-color);
-  background-color: ${({ backgroundProyectBottom }) =>
-    backgroundProyectBottom && 'transparent'};
+  background-color: ${({ $backgroundProyectBottom }) =>
+    $backgroundProyectBottom && 'transparent'};
   min-height: 50vh;
   width: 100%;
   color: var(--second-color);

@@ -1,0 +1,9 @@
+User-agent: *
+Allow: /
+Disallow: /api/
+Disallow: /new
+Disallow: /new-post
+Disallow: /admin
+Disallow: /blog/*/edit
+
+Sitemap: https://dvdev.vercel.app/sitemap.xml

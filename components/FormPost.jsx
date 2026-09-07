@@ -49,7 +49,6 @@ const FormPost = ({ formEdit, formNewMovie = true }) => {
     if (formNewMovie) {
       postData(form);
     } else {
-      console.log(form);
       putData(form);
     }
 

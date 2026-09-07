@@ -9,24 +9,24 @@
     "lint": "next lint"
   },
   "dependencies": {
+    "@ducanh2912/next-pwa": "^10.2.9",
     "animate.css": "^4.1.1",
-    "dotenv": "^17.4.2",
+    "date-fns": "^4.4.0",
     "framer-motion": "^13.1.1",
     "hamburgers": "^1.2.1",
-    "moment": "^2.29.4",
-    "mongoose": "^6.3.8",
-    "next": "12.1.6",
-    "next-pwa": "^5.5.4",
-    "nextjs-progressbar": "^0.0.14",
-    "react": "18.1.0",
+    "mongoose": "^8.24.4",
+    "next": "^14.2.35",
+    "nprogress": "^0.2.0",
+    "react": "18.3",
     "react-animation-on-scroll": "^5.1.0",
-    "react-dom": "18.1.0",
+    "react-dom": "18.3",
     "react-markdown": "^8.0.3",
     "remark-gfm": "^3.0.1",
-    "styled-components": "^5.3.5"
+    "styled-components": "^6.5.3"
   },
   "devDependencies": {
-    "eslint": "8.17.0",
-    "eslint-config-next": "12.1.6"
+    "babel-plugin-styled-components": "^2.3.0",
+    "eslint": "^8.57.0",
+    "eslint-config-next": "^14.2.35"
   }
 }

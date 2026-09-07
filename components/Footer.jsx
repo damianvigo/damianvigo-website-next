@@ -14,10 +14,8 @@ const Footer = () => {
     <FooterStyled theme={theme}>
       <SectionFooterStyled theme={theme}>
         <div>
-          <Link href="https://github.com/damianvigo">
-            <a title="github" target="_blank" rel="noreferrer">
-              <SvgGitHub />
-            </a>
+          <Link href="https://github.com/damianvigo" title="github" target="_blank" rel="noreferrer">
+            <SvgGitHub />
           </Link>
         </div>
         <div>
@@ -26,10 +24,8 @@ const Footer = () => {
       </SectionFooterStyled>
       <ContainerSvgNextFooter theme={theme}>
         <small>powered by</small>
-        <Link href="https://nextjs.org">
-          <a title="next.js" target="_blank" rel="noreferrer ">
-            <SvgNext />
-          </a>
+        <Link href="https://nextjs.org" title="next.js" target="_blank" rel="noreferrer">
+          <SvgNext />
         </Link>
       </ContainerSvgNextFooter>
     </FooterStyled>
@@ -42,7 +38,6 @@ const FooterStyled = styled.footer`
   transition: background-color 0.3s ease-in;
   background-color: ${({ theme }) =>
     theme === 'dark' ? 'var(--dark-color)' : 'var(--second-color)'};
-  /* background-color: var(--third-alpha-color); */
   border-top: thin solid
     ${({ theme }) =>
       theme === 'dark' ? 'var(--second-color)' : 'var(--second-color)'};
@@ -88,22 +83,17 @@ const SectionFooterStyled = styled.aside`
         theme === 'dark' ? 'var(--white-color)' : ''};
       border-radius: ${({ theme }) => (theme === 'dark' ? '20%' : '')};
     }
-    /*    &:nth-child(1) {
-      fill: ${({ theme }) =>
-      theme === 'dark' ? 'var(--white-color)' : '#98CA3C'};
-    } */
-    @media screen and (min-width: 48em) {
-      :nth-child(1) {
-        &:hover {
-          animation: icon 1s ease-out infinite both;
-        }
-      }
-    }
   }
 
   svg {
     width: clamp(5px, 15vw, 35px);
     height: clamp(5px, 15vw, 35px);
+  }
+
+  @media screen and (min-width: 48em) {
+    div:nth-child(1):hover svg {
+      animation: icon 1s ease-out infinite both;
+    }
   }
 `;
 

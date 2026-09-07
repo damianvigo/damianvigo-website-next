@@ -23,7 +23,6 @@ const Edit = () => {
     fetch(`/api/posts/${slug}`)
       .then((res) => (res.ok ? res.json() : Promise.reject(res)))
       .then((res) => {
-        console.log(res);
         const {
           data: { category, img, markdown, slug, title },
         } = res;
@@ -32,7 +31,6 @@ const Edit = () => {
         setFormEdit(edit);
       })
       .catch((err) => {
-        console.log(err);
         let message = err.statusText || 'Ocurrio un error';
       });
   }, [slug]);
@@ -45,11 +43,9 @@ const Edit = () => {
     if (isDelete) {
       try {
         const res = await helpHttp().del(`/api/posts/${slug}`);
-
-        console.log(res);
         /*    router.push('/blog'); */
       } catch (error) {
-        console.log(error);
+        /* error handled */
       }
       router.push('/blog');
     } else {

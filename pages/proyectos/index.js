@@ -112,7 +112,7 @@ const Proyectos = ({ proyects }) => {
 
 export default Proyectos;
 
-export async function getServerSideProps() {
+export async function getStaticProps() {
   try {
     await conectarDB();
 
@@ -124,15 +124,13 @@ export async function getServerSideProps() {
       return proyect;
     });
 
-    //  console.log(res);
-
     return {
       props: { proyects: proyects },
+      revalidate: 60,
     };
-    } catch (error) {
-      console.error('Detailed Error in getServerSideProps:', error);
-      return { props: { success: false, error: error.message || 'Error' } };
-    }
+  } catch (error) {
+    return { props: { success: false, error: error.message || 'Error' } };
+  }
 }
 
 const TitleProyects = styled.h1`

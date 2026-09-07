@@ -42,11 +42,9 @@ const New = () => {
 
       const res = await helpHttp().post('/api/proyects', options);
 
-      console.log(res);
-
       setForm(initialState);
     } catch (error) {
-      console.log(error);
+      /* error handled */
     }
   };
 
