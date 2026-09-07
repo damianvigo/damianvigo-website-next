@@ -188,7 +188,7 @@ const ArticleStyled = styled.article`
   }
 `;
 
-const LinkStyled = styled.a`
+const LinkStyled = styled.div`
   display: flex;
   align-items: center;
   color: ${({ theme }) =>
