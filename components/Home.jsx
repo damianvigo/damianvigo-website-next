@@ -61,7 +61,7 @@ const Home = ({ theme }) => {
         className="full-lg-screen section"
       >
         <ArticlePerfil className="container-900px">
-          <PerfilDescription />
+          <PerfilDescription theme={theme} />
           <Button wsp talkToMe="Hablemos" />
           <motion.div
             variants={containerVariants}
