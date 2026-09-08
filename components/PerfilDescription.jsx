@@ -8,10 +8,7 @@ const PerfilDescription = ({ theme }) => (
     viewport={{ once: true }}
     transition={{ type: 'spring', stiffness: 100 }}
   >
-    <TitleDescription>¿Quién Soy?</TitleDescription>
-    <Greeting theme={theme}>
-      Hola, soy <strong>Damián</strong>
-    </Greeting>
+    <TitleDescription>Sobre mí</TitleDescription>
     <Description>
       Soy <strong>Frontend Developer</strong> de Buenos Aires, Argentina. Disfruto convertir ideas,
       diseños y necesidades de negocio en interfaces web funcionales, claras y agradables de usar.
