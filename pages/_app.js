@@ -38,6 +38,7 @@ function MyApp({ Component, pageProps }) {
 
   return (
     <>
+      <style>{`#nprogress .bar { background: var(--active) !important; }`}</style>
       <ThemeProvider>
         {process.env.GOOGLE_ANALYTICS && (
           <>
