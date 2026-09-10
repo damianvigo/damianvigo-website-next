@@ -31,6 +31,7 @@ const Form = () => {
       transition={{ duration: 0.8 }}
     >
       <form onSubmit={handleSubmit} className={formStyledModule.contactForm}>
+        <input type="hidden" name="_subject" value="Nuevo mensaje desde tu portfolio" />
         <input
           type="text"
           name="name"
@@ -57,18 +58,6 @@ const Form = () => {
           autoComplete="off"
         />
         {errors.email && <MessageErrorForm errorEmail={errors.email} />}
-        <input
-          type="text"
-          name="subject"
-          title="El Asunto es requerido"
-          placeholder="Asunto"
-          required
-          onChange={handleChange}
-          onBlur={handleBlur}
-          value={form.subject}
-          autoComplete="off"
-        />
-        {errors.subject && <MessageErrorForm errorSubject={errors.subject} />}
         <textarea
           name="comments"
           cols="50"
@@ -83,7 +72,7 @@ const Form = () => {
           autoComplete="off"
         ></textarea>
         {errors.comments && <MessageErrorForm errorComment={errors.comments} />}
-        <input type="submit" value="Envíar" />
+        <input type="submit" value="Enviar mensaje" />
         {loading && <SvgLoader contact />}
         {response && (
           <div className={formStyledModule.contactFormError}>

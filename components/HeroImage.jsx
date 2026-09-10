@@ -75,8 +75,9 @@ const HeroImage = ({ contactTitle }) => {
                 transition={{ duration: 0.8 }}
               >
                 <HeroImageTitle $contact="contact">
-                  {contactTitle}
+                  ¿Tenés algo en mente?
                 </HeroImageTitle>
+                <HeroImageSubtitle>Trabajemos juntos</HeroImageSubtitle>
               </motion.div>
               <Form />
             </HeroImageBox>
@@ -137,5 +138,5 @@ const HeroImageSubtitle = styled.h2`
   font-family: var(--fontSans);
   color: var(--white-color);
   font-weight: var(--fontWeightSans-400);
-  font-size: var(--step-2)
+  font-size: var(--step-2);
 `;

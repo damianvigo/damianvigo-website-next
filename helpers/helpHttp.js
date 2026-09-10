@@ -11,9 +11,12 @@ export const helpHttp = () => {
       accept: 'application/json',
     };
 
-    const apiKey = getApiKey();
-    if (apiKey) {
-      defaultHeader['x-api-key'] = apiKey;
+    const isExternal = !endpoint.startsWith('/api/');
+    if (!isExternal) {
+      const apiKey = getApiKey();
+      if (apiKey) {
+        defaultHeader['x-api-key'] = apiKey;
+      }
     }
 
     const controller = new AbortController();

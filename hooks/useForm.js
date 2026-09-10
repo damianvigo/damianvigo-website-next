@@ -29,9 +29,10 @@ export const useForm = (initialForm, validateForm) => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    setErrors(validateForm(form));
+    const validationErrors = validateForm(form);
+    setErrors(validationErrors);
 
-    if (Object.keys(errors).length === 0) {
+    if (Object.keys(validationErrors).length === 0) {
       setLoading(true);
       helpHttp()
         .post('https://formsubmit.co/ajax/damiandanielvigo@gmail.com', {
@@ -44,10 +45,11 @@ export const useForm = (initialForm, validateForm) => {
           setLoading(false);
           setResponse(true);
           setForm(initialForm);
-          setTimeout(() => setResponse(false), 3000);
+          setTimeout(() => setResponse(false), 5000);
+        })
+        .catch(() => {
+          setLoading(false);
         });
-    } else {
-      return;
     }
   };
 

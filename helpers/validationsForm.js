@@ -16,10 +16,6 @@ export const validationsForm = (form) => {
     errors.email = 'El email es incorrecto';
   }
 
-  if (!form.subject.trim()) {
-    errors.subject = 'El asunto a tratar es requerido';
-  }
-
   if (!form.comments.trim()) {
     errors.comments = 'El comentario es requerido';
   } else if (!regexComments.test(form.comments.trim())) {
