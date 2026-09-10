@@ -8,11 +8,52 @@ import ThemeContext from '../context/ThemeContext';
 import Image from 'next/image';
 import Button from '../utils/Button';
 
+const projects = [
+  {
+    title: 'Portafolio de Arte',
+    description: 'Diseño y maquetación responsive. Desarrollado con React JS.',
+    image: 'https://i.imgur.com/0oX7ktW.png',
+    imageAlt: 'Portafolio de arte de Adriana Stigliano',
+    imageTitle: 'Portfolio Arte',
+    liveUrl: 'https://adrianastiglianoarte.netlify.app',
+    githubUrl: 'https://github.com/damianvigo/arte-webapp',
+    year: '2022',
+  },
+  {
+    title: 'Portafolio Desarrollador',
+    description: 'Maquetación responsive sin frameworks.',
+    image: 'https://i.imgur.com/V6uS093.jpg',
+    imageAlt: 'Portafolio CV',
+    imageTitle: 'Porfolio DVDEV',
+    liveUrl: 'https://portfolio-dv.netlify.app/',
+    githubUrl: 'https://github.com/damianvigo/portfolio-cv',
+    year: '2021',
+  },
+];
+
+const containerVariants = {
+  hidden: { opacity: 0 },
+  visible: {
+    opacity: 1,
+    transition: { staggerChildren: 0.2 },
+  },
+};
+
+const cardVariants = {
+  hidden: { opacity: 0, y: 30 },
+  visible: {
+    opacity: 1,
+    y: 0,
+    transition: { type: 'spring', stiffness: 80, damping: 15 },
+  },
+};
+
 const Destacados = () => {
   const { theme } = useContext(ThemeContext);
+
   return (
     <DestacadosSectionStyled theme={theme} className="section">
-      <motion.div 
+      <motion.div
         initial={{ opacity: 0, y: -20 }}
         whileInView={{ opacity: 1, y: 0 }}
         viewport={{ once: true }}
@@ -20,80 +61,45 @@ const Destacados = () => {
       >
         <DestacadosStyled theme={theme}>Destacados</DestacadosStyled>
       </motion.div>
-      <motion.div 
-        initial={{ opacity: 0, x: -50 }}
-        whileInView={{ opacity: 1, x: 0 }}
+
+      <GridStyled
+        variants={containerVariants}
+        initial="hidden"
+        whileInView="visible"
         viewport={{ once: true }}
-        transition={{ duration: 0.8 }}
       >
-        <SeccionDestacada>
-          <ArticleDestacado theme={theme}>
-            <h3>Portafolio de Arte</h3>
-            <p>
-              Diseño y maquetación <i>responsive</i>. Desarrollado con{' '}
-              <i>React JS</i>.
-            </p>
-            <br />
-            <div>
-              <a
-                href="https://github.com/damianvigo/arte-webapp"
-                target="_blank"
-                rel="noreferrer"
-              >
-                Código del proyecto
-              </a>
-              <small>2022</small>
-            </div>
-          </ArticleDestacado>
-          <ArticleDestacado theme={theme}>
-            <a
-              href="https://adrianastiglianoarte.netlify.app"
-              target="_blank"
-              rel="noreferrer"
-            >
-              <Image
-                src="https://i.imgur.com/0oX7ktW.png"
-                width={1920}
-                height={937}
-                alt="Portafolio de arte de Adriana Stigliano"
-                title="Portfolio Arte"
-              />
+        {projects.map((project) => (
+          <CardStyled key={project.title} variants={cardVariants} theme={theme}>
+            <a href={project.liveUrl} target="_blank" rel="noreferrer">
+              <ImageContainerStyled>
+                <Image
+                  src={project.image}
+                  width={600}
+                  height={340}
+                  alt={project.imageAlt}
+                  title={project.imageTitle}
+                />
+              </ImageContainerStyled>
             </a>
-          </ArticleDestacado>
-          <ArticleDestacado theme={theme}>
-            <h3>Portafolio Desarrollador</h3>
-            <p>
-              Maquetación <i>responsive</i> sin <i>frameworks</i>.
-            </p>
-            <div>
-              <a
-                href="https://github.com/damianvigo/portfolio-cv"
-                target="_blank"
-                rel="noreferrer"
-              >
-                Código del proyecto
-              </a>
-              <small>2021</small>
-            </div>
-          </ArticleDestacado>
-          <ArticleDestacado theme={theme}>
-            <a
-              href="https://portfolio-dv.netlify.app/"
-              target="_blank"
-              rel="noreferrer"
-            >
-              <Image
-                src="https://i.imgur.com/V6uS093.jpg"
-                width={1605}
-                height={880}
-                alt="Portafolio CV"
-                title="Porfolio DVDEV"
-              />
-            </a>
-          </ArticleDestacado>
-          </SeccionDestacada>
-        </motion.div>
-        <Button more moreDescription="Ver más" />
+            <CardContentStyled theme={theme}>
+              <h3>{project.title}</h3>
+              <p>{project.description}</p>
+              <CardFooterStyled theme={theme}>
+                <a
+                  href={project.githubUrl}
+                  target="_blank"
+                  rel="noreferrer"
+                >
+                  Código del proyecto
+                </a>
+                <small>{project.year}</small>
+              </CardFooterStyled>
+            </CardContentStyled>
+          </CardStyled>
+        ))}
+      </GridStyled>
+
+      <Button more moreDescription="Ver más" />
     </DestacadosSectionStyled>
   );
 };
@@ -113,147 +119,101 @@ const DestacadosStyled = styled.h2`
     theme === 'dark' ? 'var(--second-color)' : '#222222'};
 `;
 
-const SeccionDestacada = styled.section`
-  display: flex;
-  flex-direction: column;
-  flex-wrap: wrap;
-  justify-content: center;
-  align-content: center;
-
-  /*  margin: 0 1rem */
+const GridStyled = styled(motion.div)`
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 2rem;
+  max-width: 1000px;
+  margin: 2rem auto;
+  padding: 0 1rem;
 
   @media screen and (min-width: 50em) {
-    flex-direction: row;
-    max-width: 1200px;
-    margin-left: auto;
-    margin-right: auto;
-    gap: 2rem;
-    align-items: stretch;
-    padding: 2rem;
-  }
-
-  @media screen and (min-width: 75em) {
-    display: flex;
-    align-items: stretch;
-    justify-content: space-evenly;
+    grid-template-columns: repeat(2, 1fr);
   }
 `;
 
-const ArticleDestacado = styled.article`
-  margin: 2rem 0;
-  padding: 1rem;
-  transition: background-color 0.3s ease-in-out;
-    background-color: ${({ theme }) =>
-    theme === 'dark' ? 'var(--first-color)' : 'var(--second-color)'};
-  box-shadow: 0 2px 4px rgb(0 0 0 / 75%);
-    border: thin solid
-    ${({ theme }) =>
-      theme === 'dark' ? 'var(--second-color)' : 'var(--second-color)'};
-  text-align: center;
-  max-width: 600px;
+const CardStyled = styled(motion.article)`
+  border-radius: 1rem;
+  overflow: hidden;
+  background-color: ${({ theme }) =>
+    theme === 'dark' ? 'var(--first-color)' : 'var(--white-color)'};
+  box-shadow: ${({ theme }) =>
+    theme === 'dark'
+      ? '0 4px 12px rgba(0, 0, 0, 0.3)'
+      : '0 4px 12px rgba(0, 0, 0, 0.1)'};
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  cursor: pointer;
 
-  a {
-    font-size: var(--step--2);
-    text-decoration: underline;
-    transition: transform 0.3s ease;
-    cursor: pointer;
-    color: ${({ theme }) => (theme === 'dark' ? 'var(--second-color)' : '')};
-    &::selection {
-      background-color: ${({ theme }) =>
-        theme === 'dark' && 'var(--second-color)'};
-      color: ${({ theme }) => theme === 'dark' && 'var(--text-color)'};
-    }
+  &:hover {
+    transform: translateY(-6px);
+    box-shadow: ${({ theme }) =>
+      theme === 'dark'
+        ? '0 8px 24px rgba(0, 0, 0, 0.5)'
+        : '0 8px 24px rgba(0, 0, 0, 0.15)'};
+  }
+`;
+
+const ImageContainerStyled = styled.div`
+  width: 100%;
+  overflow: hidden;
+
+  span {
+    display: block !important;
   }
 
-  &:nth-child(1) {
-    p {
-      margin-bottom: 0;
-    }
+  img {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+    transition: transform 0.4s ease;
   }
+
+  ${CardStyled}:hover & img {
+    transform: scale(1.05);
+  }
+`;
+
+const CardContentStyled = styled.div`
+  padding: 1.5rem;
+  text-align: left;
 
   h3 {
-    /*   color: var(--title-color); */
-    font-size: var(--step-1);
+    font-size: var(--step-0);
+    margin-bottom: 0.5rem;
     color: ${({ theme }) =>
       theme === 'dark' ? 'var(--second-color)' : '#222222'};
-    &::selection {
-      background-color: ${({ theme }) =>
-        theme === 'dark' && 'var(--second-color)'};
-      color: ${({ theme }) => theme === 'dark' && 'var(--text-color)'};
-    }
   }
 
   p {
+    font-size: var(--step--1);
     color: ${({ theme }) =>
-      theme === 'dark' ? 'var(--second-color)' : '#222222'};
-    &::selection {
-      background-color: ${({ theme }) =>
-        theme === 'dark' && 'var(--second-color)'};
-      color: ${({ theme }) => theme === 'dark' && 'var(--text-color)'};
-    }
-
-    i {
-      &::selection {
-        background-color: ${({ theme }) =>
-          theme === 'dark' && 'var(--second-color)'};
-        color: ${({ theme }) => theme === 'dark' && 'var(--text-color)'};
-      }
-    }
+      theme === 'dark' ? 'var(--second-color)' : '#444'};
+    margin-bottom: 1rem;
   }
-  text-align: center;
-  div {
-    width: 100%;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-evenly;
-    align-items: center;
-    height: 5vh;
-    small {
-      &::selection {
-        background-color: ${({ theme }) =>
-          theme === 'dark' && 'var(--second-color)'};
-        color: ${({ theme }) => theme === 'dark' && 'var(--text-color)'};
-      }
+`;
+
+const CardFooterStyled = styled.div`
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  color: ${({ theme }) =>
+    theme === 'dark' ? 'var(--second-color)' : '#444'};
+
+  a {
+    font-size: var(--step--2);
+    color: ${({ theme }) =>
+      theme === 'dark' ? 'var(--second-color)' : 'var(--first-color)'};
+    text-decoration: underline;
+    transition: opacity 0.3s ease;
+
+    &:hover {
+      opacity: 0.7;
     }
   }
 
-  @media screen and (min-width: 36em) {
-    transition: opacity 0.3s ease-in-out;
-
-    a {
-      &:hover {
-        transform: scale(1.05);
-      }
-    }
-
-    &:nth-child(2) {
-      &:hover {
-        opacity: 0.7;
-      }
-      cursor: pointer;
-    }
-
-    &:nth-child(4) {
-      cursor: pointer;
-      &:hover {
-        opacity: 0.7;
-      }
-    }
-  }
-
-  @media screen and (min-width: 50em) {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    flex: 1 1 45%;
-
-    &:nth-child(3) {
-      order: 1;
-    }
-  }
-
-  @media screen and (min-width: 75em) {
-    flex: 0 1 35%;
+  small {
+    font-size: var(--step--2);
+    opacity: 0.6;
+    color: inherit;
   }
 `;
