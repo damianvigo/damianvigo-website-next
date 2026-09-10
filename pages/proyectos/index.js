@@ -47,6 +47,9 @@ const Proyectos = ({ proyects }) => {
           transition={{ duration: 0.8 }}
         >
           <TitleProyects className="text-center">Proyectos</TitleProyects>
+          <IntroText>
+            Una selección de proyectos que desarrollé, combinando diseño, funcionalidad y buenas prácticas de desarrollo.
+          </IntroText>
         </motion.div>
         {db ? (
           <GridFluid>
@@ -60,10 +63,22 @@ const Proyectos = ({ proyects }) => {
                 technologies,
                 online,
               }) => {
-                let tech = technologies.split(',');
+                const tech = technologies.split(',').map((t) => t.trim());
                 return (
                   <ArticleProyectStyled key={_id} theme={theme}>
-                    <a href={online} target="_blank" rel="noreferrer">
+                    {title !== 'Acortador de URL' ? (
+                      <a href={online} target="_blank" rel="noreferrer">
+                        <figure>
+                          <Image
+                            className="proyectImage"
+                            src={img}
+                            width={500}
+                            height={500}
+                            alt={title}
+                          />
+                        </figure>
+                      </a>
+                    ) : (
                       <figure>
                         <Image
                           className="proyectImage"
@@ -73,18 +88,24 @@ const Proyectos = ({ proyects }) => {
                           alt={title}
                         />
                       </figure>
-                    </a>
+                    )}
                     <h2>{title}</h2>
                     <p>{description}</p>
-                    <ul>
-                      {tech[0] && <li>{tech[0]}</li>}
-                      {tech[1] && <li>{tech[1]}</li>}
-                      {tech[2] && <li>{tech[2]}</li>}
-                      {tech[3] && <li>{tech[3]}</li>}
-                    </ul>
-                    <a href={github} target="_blank" rel="noreferrer">
-                      Código del proyecto
-                    </a>
+                    <TagsContainer>
+                      {tech.map((tag) => (
+                        <Tag key={tag}>{tag}</Tag>
+                      ))}
+                    </TagsContainer>
+                    <ButtonsContainer>
+                      {title !== 'Acortador de URL' ? (
+                        <a href={online} target="_blank" rel="noreferrer">
+                          <ButtonPrimary>Ver proyecto</ButtonPrimary>
+                        </a>
+                      ) : null}
+                      <a href={github} target="_blank" rel="noreferrer">
+                        <ButtonSecondary theme={theme}>GitHub</ButtonSecondary>
+                      </a>
+                    </ButtonsContainer>
                   </ArticleProyectStyled>
                 );
               }
@@ -140,13 +161,21 @@ const TitleProyects = styled.h1`
   }
 `;
 
+const IntroText = styled.p`
+  text-align: center;
+  max-width: 600px;
+  margin: -2rem auto 2rem;
+  font-size: var(--step--1);
+  opacity: 0.8;
+`;
+
 const ArticleProyectStyled = styled.article`
   display: flex;
   flex-direction: column;
   justify-content: space-between;
   align-items: center;
   width: 100%;
-  max-width: 300px;
+  max-width: 350px;
   min-width: 200px;
   margin: 2rem auto;
   border: 4px solid
@@ -157,17 +186,9 @@ const ArticleProyectStyled = styled.article`
     theme === 'dark' ? 'var(--black-alpha-color-cards)' : 'var(--card-color)'};
   box-shadow: ${({ theme }) =>
     theme === 'dark' ? 'var(--card-shadow-light)' : 'var(--card-shadow)'};
-  transition: transform 0.3s ease-in, opacity 0.3s ease-in-out;
+  transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
   color: ${({ theme }) =>
     theme === 'dark' ? 'var(--light-color)' : 'var(--text-color)'};
-  /*   @keyframes zoomCard {
-    0% {
-      transform: scale(0);
-    }
-    100% {
-      transform: scale(1.2);
-    }
-  } */
 
   a {
     width: 100%;
@@ -196,63 +217,83 @@ const ArticleProyectStyled = styled.article`
     text-align: center;
   }
 
-  ul {
-    margin: 0 auto;
-    width: 100%;
-    padding: 1rem;
-    li {
-      list-style-type: circle;
-      border-radius: 0.5rem;
-      background-color: var(--first-color);
-      color: var(--second-color);
-      list-style-position: inside;
-      padding: 0.4rem;
-      margin-bottom: 0.3rem;
-    }
-  }
-
-  a:last-child {
-    display: block;
-    padding: 1rem;
-    text-decoration: underline;
-    &:link {
-      color: ${({ theme }) => theme === 'dark' && 'var(--light-color)'};
-    }
-    &:visited {
-      color: ${({ theme }) => theme === 'dark' && 'var(--light-color)'};
-      text-decoration: dotted;
-    }
-    &:active {
-      transform: scale(1.1);
-    }
-  }
-
-  /*   @media screen and (min-width: 768px) {
-    a {
-      width: 100%;
-      figure {
-        span {
-          width: 100% !important;
-          object-fit: none;
-        }
-      }
-      img {
-        height: 200px !important;
-      }
-    }
-  } */
-
   @media screen and (min-width: 576px) {
     &:hover {
-      transform: scale(1.1);
+      transform: scale(1.03);
+      box-shadow: ${({ theme }) =>
+        theme === 'dark' ? '0 8px 24px rgba(0,0,0,0.4)' : '0 8px 24px rgba(0,0,0,0.2)'};
     }
   }
 `;
 
+const TagsContainer = styled.div`
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  padding: 0 1rem;
+  margin-bottom: 1rem;
+  justify-content: center;
+`;
+
+const Tag = styled.span`
+  border-radius: 0.5rem;
+  background-color: var(--first-color);
+  color: var(--second-color);
+  padding: 0.3rem 0.8rem;
+  font-size: var(--step--2);
+`;
+
+const ButtonsContainer = styled.div`
+  display: flex;
+  gap: 0.5rem;
+  padding: 0 1rem 1.5rem;
+  width: 100%;
+  justify-content: center;
+
+  a {
+    text-decoration: none;
+  }
+`;
+
+const ButtonPrimary = styled.span`
+  display: inline-block;
+  padding: 0.6rem 1.2rem;
+  background-color: var(--first-color);
+  color: var(--second-color);
+  border-radius: 0.5rem;
+  font-size: var(--step--2);
+  font-weight: var(--fontWeightSans-900);
+  transition: opacity 0.3s ease;
+
+  &:hover {
+    opacity: 0.85;
+  }
+`;
+
+const ButtonSecondary = styled.span`
+  display: inline-block;
+  padding: 0.6rem 1.2rem;
+  background-color: transparent;
+  color: ${({ theme }) =>
+    theme === 'dark' ? 'var(--light-color)' : 'var(--first-color)'};
+  border: thin solid ${({ theme }) =>
+    theme === 'dark' ? 'var(--light-color)' : 'var(--first-color)'};
+  border-radius: 0.5rem;
+  font-size: var(--step--2);
+  font-weight: var(--fontWeightSans-900);
+  transition: all 0.3s ease;
+
+  &:hover {
+    background-color: ${({ theme }) =>
+      theme === 'dark' ? 'var(--light-color)' : 'var(--first-color)'};
+    color: ${({ theme }) =>
+      theme === 'dark' ? 'var(--dark-color)' : 'var(--second-color)'};
+  }
+`;
+
 const GridFluid = styled.section`
-  /* margin: 1rem auto; */
   width: 100%;
   display: grid;
-  grid-gap: 5rem;
+  grid-gap: 3rem;
   grid-template-columns: repeat(auto-fit, minmax(275px, 1fr));
 `;
