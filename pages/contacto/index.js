@@ -215,16 +215,16 @@ const ContactLabel = styled.span`
   letter-spacing: 0.1em;
   margin-bottom: 0.5rem;
   opacity: 0.7;
-  color: ${({ theme }) =>
-    theme === 'dark' ? 'var(--light-color)' : 'var(--text-color)'};
+  color: inherit;
+  transition: color 0.3s ease;
 `;
 
 const ContactLink = styled.a`
   font-size: var(--step--1);
   font-weight: var(--fontWeightSans-900);
-  color: ${({ theme }) =>
-    theme === 'dark' ? 'var(--white-color)' : 'var(--first-color)'};
+  color: inherit;
   text-decoration: none;
+  transition: text-decoration 0.2s ease;
 
   &:hover {
     text-decoration: underline;

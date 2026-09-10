@@ -37,7 +37,7 @@ export default Footer;
 const FooterStyled = styled.footer`
   transition: background-color 0.3s ease-in;
   background-color: ${({ theme }) =>
-    theme === 'dark' ? 'var(--dark-color)' : 'var(--second-color)'};
+    theme === 'dark' ? 'var(--dark-color)' : 'var(--first-color)'};
   border-top: thin solid
     ${({ theme }) =>
       theme === 'dark' ? 'var(--second-color)' : 'var(--second-color)'};
@@ -45,7 +45,7 @@ const FooterStyled = styled.footer`
   div {
     p {
       color: ${({ theme }) =>
-        theme === 'dark' ? 'var(--second-color)' : '#222222'};
+        theme === 'dark' ? 'var(--second-color)' : 'var(--second-color)'};
       text-align: center;
       margin: 0;
       font-size: var(--step--2);
@@ -80,7 +80,7 @@ const SectionFooterStyled = styled.aside`
     }
     &:nth-child(1) {
       background-color: ${({ theme }) =>
-        theme === 'dark' ? 'var(--white-color)' : ''};
+        theme === 'dark' ? 'var(--white-color)' : 'var(--second-color)'};
       border-radius: ${({ theme }) => (theme === 'dark' ? '20%' : '')};
     }
   }
@@ -102,7 +102,7 @@ const ContainerSvgNextFooter = styled.div`
   justify-content: center;
   align-items: center;
   small {
-    color: ${({ theme }) => (theme === 'dark' ? 'var(--light-color)' : '')};
+    color: ${({ theme }) => (theme === 'dark' ? 'var(--light-color)' : 'var(--second-color)')};
   }
 
   a {
@@ -111,8 +111,8 @@ const ContainerSvgNextFooter = styled.div`
       width: clamp(40px, 15vw, 70px);
       height: clamp(40px, 15vw, 70px);
       margin-left: 0.4rem;
-       color: ${({ theme }) => (theme === 'dark' ? 'var(--white-color)' : 'var(--black-color)')};
-       fill: ${({ theme }) => (theme === 'dark' ? 'var(--white-color)' : 'var(--black-color)')};
+       color: ${({ theme }) => (theme === 'dark' ? 'var(--white-color)' : 'var(--second-color)')};
+       fill: ${({ theme }) => (theme === 'dark' ? 'var(--white-color)' : 'var(--second-color)')};
     }
   }
 `;
