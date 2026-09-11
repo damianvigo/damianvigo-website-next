@@ -1,4 +1,5 @@
 import styled from 'styled-components';
+import Link from 'next/link';
 // Components
 import Layout from '../../../components/layouts/Layout';
 import conectarDB from '../../../lib/dbConnect';
@@ -18,12 +19,45 @@ const BlogPost = ({ post, success, error }) => {
     return <Custom404 error={error} />;
   }
 
-  const { markdown, title } = post;
+  const { markdown, title, slug, updatedAt, img } = post;
+
+  const excerpt = markdown
+    .replace(/[#*_`>\[\]()!]/g, '')
+    .replace(/\n+/g, ' ')
+    .trim()
+    .substring(0, 160);
+
+  const articleJsonLd = {
+    '@context': 'https://schema.org',
+    '@type': 'Article',
+    headline: title,
+    description: excerpt,
+    image: img || 'https://i.imgur.com/BjlU9xu.jpg',
+    url: `https://dvdev.vercel.app/blog/${slug}`,
+    datePublished: updatedAt,
+    dateModified: updatedAt,
+    author: {
+      '@type': 'Person',
+      name: 'Damián Vigo',
+      url: 'https://dvdev.vercel.app',
+    },
+    publisher: {
+      '@type': 'Person',
+      name: 'Damián Vigo',
+    },
+  };
 
   return (
-    <Layout title={title} description={title}>
+    <Layout
+      title={`${title} | Damián Vigo`}
+      description={excerpt}
+      ogDescription={excerpt}
+      ogImage={img || 'https://i.imgur.com/BjlU9xu.jpg'}
+      jsonLd={articleJsonLd}
+    >
       <section className="section full-lg-screen">
         <ArticleContainerText theme={theme} className="container-900px">
+          <BackLink href="/blog">← Volver al blog</BackLink>
           <div>
             <ReactMarkdown remarkPlugins={[remarkGfm]} linkTarget="_blank">
               {markdown}
@@ -151,5 +185,26 @@ const ArticleContainerText = styled.article`
       font-family: 'consolas';
       font-size: var(--step--2);
     }
+  }
+`;
+
+const BackLink = styled(Link)`
+  display: inline-block;
+  width: clamp(200px, 20vw, 250px);
+  border-radius: 0.5rem;
+  padding: 1rem;
+  margin: 2rem auto;
+  background-color: #1f7a8c;
+  border: thin solid var(--first-color);
+  box-shadow: var(--btn-shadow);
+  text-align: center;
+  color: var(--second-color);
+  text-decoration: none;
+  font-weight: var(--fontWeightSans-900);
+  transition: background-color 0.3s ease, color 0.3s ease;
+
+  &:hover {
+    background-color: var(--second-color);
+    color: var(--first-color);
   }
 `;

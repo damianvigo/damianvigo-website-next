@@ -9,13 +9,13 @@ export default function Index() {
   return (
     <>
       <Layout
-        title="Bienvenido"
-        description="¡Hola! 🖐️ Bienvenido/a a mi sitio web ✨ Mi nombre es Damián Vigo, soy programador web 🤓"
-        ogDescription="¡Hola! 🖐️ Bienvenido/a a mi sitio web ✨ Mi nombre es Damián Vigo, soy programador web 🤓"
+        title="Damián Vigo | Frontend Developer React & Next.js"
+        description="Frontend Developer de Buenos Aires, Argentina. Especializado en React, Next.js y desarrollo web moderno. Conocé mis proyectos y artículos."
+        ogDescription="Frontend Developer de Buenos Aires, Argentina. Especializado en React, Next.js y desarrollo web moderno."
         ogImage="https://i.imgur.com/BjlU9xu.jpg"
         width="1920"
         height="1080"
-        type="image/jgp"
+        type="image/jpeg"
       >
         <Home theme={theme} />
       </Layout>

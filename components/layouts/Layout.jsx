@@ -22,9 +22,9 @@ const Layout = ({
   width,
   height,
   type,
+  jsonLd,
 }) => {
   const { theme } = useContext(ThemeContext);
-  /*   console.log(theme); */
   const { toTop, scrollTop, setScrollTop } = useScrollTop();
 
   const router = useRouter();
@@ -32,8 +32,8 @@ const Layout = ({
 
   const [isOnline] = useNetworkStatus();
 
-  const TITLE = title || 'Damián Vigo | Programador web';
-  const DESCRIPTION = description || TITLE;
+  const TITLE = title || 'Damián Vigo | Frontend Developer React & Next.js';
+  const DESCRIPTION = description || 'Frontend Developer de Buenos Aires, Argentina. Especializado en React, Next.js y desarrollo web moderno.';
   const OG_DESCRIPTION = ogDescription || DESCRIPTION;
   const DEFAULT_IMAGE = 'https://i.imgur.com/BjlU9xu.jpg';
   const OG_IMAGE = ogImage || DEFAULT_IMAGE;
@@ -44,11 +44,27 @@ const Layout = ({
   const URL = `https://dvdev.vercel.app${asPath === '/' ? '' : asPath}`;
   const OG_TYPE = /\/blog\/.+/.test(pathname) ? 'article' : 'website';
 
+  const defaultJsonLd = {
+    '@context': 'https://schema.org',
+    '@type': 'Person',
+    name: 'Damián Vigo',
+    url: 'https://dvdev.vercel.app',
+    jobTitle: 'Frontend Developer',
+    sameAs: [
+      'https://github.com/damianvigo',
+      'https://www.linkedin.com/in/damian-vigo/',
+    ],
+  };
+
+  const structuredData = jsonLd || defaultJsonLd;
+
   return (
     <>
       <Head>
         <title>{TITLE}</title>
         <meta name="description" content={DESCRIPTION} />
+        <meta name="robots" content="index, follow" />
+        <link rel="canonical" href={URL} />
 
         {/* Open Graph */}
         <meta property="og:type" content={OG_TYPE} />
@@ -67,6 +83,12 @@ const Layout = ({
         <meta name="twitter:title" content={TITLE} />
         <meta name="twitter:description" content={OG_DESCRIPTION} />
         <meta name="twitter:image" content={OG_IMAGE} />
+
+        {/* Structured Data */}
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(structuredData) }}
+        />
       </Head>
       {isOnline && (
         <NetworkStatus

@@ -37,9 +37,9 @@ const Contacto = () => {
 
   return (
     <Layout
-      title="Contacto"
-      description="¿Tenés un proyecto en mente? Trabajemos juntos. Contactame para hablar sobre tu idea."
-      ogDescription="¿Tenés un proyecto en mente? Trabajemos juntos. Contactame para hablar sobre tu idea."
+      title="Contacto | Damián Vigo - Trabajemos juntos"
+      description="¿Tenés un proyecto en mente? Contactame para hablar sobre tu idea. Frontend Developer especializado en React y Next.js."
+      ogDescription="¿Tenés un proyecto en mente? Contactame para hablar sobre tu idea."
       ogImage="https://i.imgur.com/aXb9Pux.jpg"
     >
       <SectionStyled theme={theme}>

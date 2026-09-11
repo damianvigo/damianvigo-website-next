@@ -30,13 +30,10 @@ export default function Document() {
           name="google-site-verification"
           content="KvRh1BJjaDvoO88GM-j14cKqnfAnUZDmS_zcsLxK0wg"
         />
-        <link rel="canonical" href="https://dvdev.vercel.app/" />
-        <meta name="robots" content="index" />
-        <meta name="robots" content="follow" />
-        <meta name="author" content="Damian Vigo" />
+        <meta name="author" content="Damián Vigo" />
         <meta
           name="keywords"
-          content="porfolio, portfolio, desarrollador web, front-end, Frontend, developer, programador, diseño web, full stack javascript developer"
+          content="portfolio, desarrollador web, frontend, developer, programador, diseño web, React, Next.js, JavaScript, Buenos Aires, Argentina"
         />
         <meta name="theme-color" content="#022b3a" />
         <meta name="MobileOptimized" content="width" />

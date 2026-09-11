@@ -24,13 +24,13 @@ const Proyectos = ({ proyects }) => {
   // console.log(proyects);
 
   return (
-    <Layout
-      theme={theme}
-      title="Proyectos"
-      description="Aquí encontrarás algunos de mis proyectos realizados 💻"
-      ogDescription="Aquí encontrarás algunos de mis proyectos realizados 💻"
-      ogImage="https://i.imgur.com/fT6QwPm.jpg"
-    >
+      <Layout
+        theme={theme}
+        title="Proyectos | Damián Vigo - Portafolio de desarrollo"
+        description="Portafolio de proyectos web desarrollados con React, Next.js y otras tecnologías modernas. Conocé mis trabajos más destacados."
+        ogDescription="Portafolio de proyectos web desarrollados con React, Next.js y otras tecnologías modernas."
+        ogImage="https://i.imgur.com/fT6QwPm.jpg"
+      >
       <BackgroundImage
         image={
           href === 'https://www.damianvigo.com/proyectos'

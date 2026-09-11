@@ -40,10 +40,13 @@ export async function getServerSideProps({ res }) {
     { path: '/contacto', priority: '0.6', changefreq: 'yearly' },
   ];
 
+  const now = new Date().toISOString();
+
   const staticUrls = staticPages.map(
     (page) => `
     <url>
       <loc>${BASE_URL}${page.path}</loc>
+      <lastmod>${now}</lastmod>
       <changefreq>${page.changefreq}</changefreq>
       <priority>${page.priority}</priority>
     </url>`

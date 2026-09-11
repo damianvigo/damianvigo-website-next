@@ -25,9 +25,9 @@ const Blog = ({ posts }) => {
 
   return (
     <Layout
-      title="Blog"
+      title="Blog | Damián Vigo - Desarrollo web y tecnología"
       theme={theme}
-      description="En esta sección encontrarás artículos sobre mis intereses personales, tales como filosofía de vida, estoicismo, minimalismo y todo lo que considere contenido de valor 🧠💪"
+      description="Artículos sobre desarrollo web, React, Next.js, JavaScript, filosofía de vida y productividad. Aprende con mi experiencia como Frontend Developer."
       ogDescription="En esta sección encontrarás artículos sobre mis intereses personales, tales como filosofía de vida, estoicismo, minimalismo y todo lo que considere contenido de valor 🧠💪"
       ogImage="https://i.imgur.com/wYrN8N3.jpg"
     >
