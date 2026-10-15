@@ -4,7 +4,6 @@ import { useRouter } from 'next/router';
 import ThemeContext from '../../context/ThemeContext';
 import BtnScrollTop from '../../utils/BtnScrollTop';
 import useScrollTop from '../../hooks/useScrollTop';
-import BtnDarkMode from '../../utils/BtnDarkMode';
 // Components
 import Head from 'next/head';
 import Header from '../Header';
@@ -109,7 +108,6 @@ const Layout = ({
             scrollTop={scrollTop}
             setScrollTop={setScrollTop}
           />
-          <BtnDarkMode />
           <Footer />
         </>
       )}

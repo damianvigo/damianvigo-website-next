@@ -7,6 +7,7 @@ import { useRouter } from 'next/router';
 import { ThemeProvider } from '../context/ThemeContext';
 import Script from 'next/script';
 import BtnMusic from '../utils/BtnMusic';
+import BtnDarkMode from '../utils/BtnDarkMode';
 import { motion, AnimatePresence } from 'framer-motion';
 import styled from 'styled-components';
 import { useEffect } from 'react';
@@ -67,7 +68,12 @@ function MyApp({ Component, pageProps }) {
             <Component {...pageProps} />
           </PageWrapper>
         </AnimatePresence>
-        {pathname !== '/404' && <BtnMusic />}
+        {pathname !== '/404' && (
+          <>
+            <BtnMusic />
+            <BtnDarkMode />
+          </>
+        )}
       </ThemeProvider>
     </>
   );
